@@ -1,3 +1,53 @@
-PODFILE CHECKSUM: f3a79ee7ed7c89bbbeb9f016de1f15a36f245c75
+PODS:
+  - Alamofire (4.4.0)
+  - Firebase/Core (4.0.0):
+    - FirebaseAnalytics (= 4.0.0)
+    - FirebaseCore (= 4.0.0)
+  - Firebase/Crash (4.0.0):
+    - Firebase/Core
+    - FirebaseCrash (= 2.0.0)
+  - FirebaseAnalytics (4.0.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (4.0.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCrash (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - Protobuf (~> 3.1)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - Protobuf (3.3.0)
+  - SwiftyJSON (3.1.4)
+  - SwiftyUserDefaults (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Firebase/Core
+  - Firebase/Crash
+  - SwiftyJSON
+  - SwiftyUserDefaults
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
+  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
+  FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+
+PODFILE CHECKSUM: 72d741cdd14d4d872f67116f4a7aac42724eedfc
 
 COCOAPODS: 1.2.1
