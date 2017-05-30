@@ -8,4 +8,5 @@ target 'PinchPad' do
   pod 'Firebase/Crash'
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
+  pod 'SwiftLint'
 end

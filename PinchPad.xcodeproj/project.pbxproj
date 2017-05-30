@@ -12,7 +12,7 @@
 		0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE0E1EDD0D9D00E8F570 /* Main.storyboard */; };
 		0047EE121EDD0D9D00E8F570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE111EDD0D9D00E8F570 /* Assets.xcassets */; };
 		0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */; };
-		0047EE1D1EDD0E7B00E8F570 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0047EE1C1EDD0E7B00E8F570 /* README.md */; };
+		0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */; };
 		D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +25,7 @@
 		0047EE141EDD0D9D00E8F570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0047EE161EDD0D9D00E8F570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0047EE1C1EDD0E7B00E8F570 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705438D810A112970D83BFB9 /* Pods-PinchPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.debug.xcconfig"; sourceTree = "<group>"; };
 		92B358C2FCACD264B4F0EFF9 /* Pods-PinchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		0047EDFE1EDD0D9D00E8F570 = {
 			isa = PBXGroup;
 			children = (
+				0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */,
 				0047EE1C1EDD0E7B00E8F570 /* README.md */,
 				0047EE091EDD0D9D00E8F570 /* PinchPad */,
 				0047EE081EDD0D9D00E8F570 /* Products */,
@@ -104,6 +106,7 @@
 				0047EE051EDD0D9D00E8F570 /* Resources */,
 				978202F5E3EAA9985949FF70 /* [CP] Embed Pods Frameworks */,
 				764341645D9A9DFDA0E90EC1 /* [CP] Copy Pods Resources */,
+				0047EE1E1EDD107100E8F570 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -154,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */,
 				0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */,
 				0047EE121EDD0D9D00E8F570 /* Assets.xcassets in Resources */,
 				0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */,
@@ -163,6 +167,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0047EE1E1EDD107100E8F570 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "// Run linting check\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		764341645D9A9DFDA0E90EC1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0047EE1D1EDD0E7B00E8F570 /* README.md in Sources */,
 				0047EE0D1EDD0D9D00E8F570 /* ViewController.swift in Sources */,
 				0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */,
 			);

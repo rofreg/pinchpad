@@ -26,6 +26,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - Protobuf (3.3.0)
+  - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
 
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase/Core
   - Firebase/Crash
+  - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
 
@@ -45,9 +47,10 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 72d741cdd14d4d872f67116f4a7aac42724eedfc
+PODFILE CHECKSUM: 96a43f56e0e4ac25e46c3cc8152883f86a4abfe0
 
 COCOAPODS: 1.2.1
