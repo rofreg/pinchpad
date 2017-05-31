@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00222C321EDE6077001CDC93 /* JotUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00222C311EDE6077001CDC93 /* JotUI.framework */; };
+		00222C3A1EDE60A9001CDC93 /* colorlesspoint.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C341EDE60A9001CDC93 /* colorlesspoint.vsh */; };
+		00222C3B1EDE60A9001CDC93 /* coloredpoint.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C351EDE60A9001CDC93 /* coloredpoint.vsh */; };
+		00222C3C1EDE60A9001CDC93 /* quad.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C361EDE60A9001CDC93 /* quad.vsh */; };
+		00222C3D1EDE60A9001CDC93 /* quad.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C371EDE60A9001CDC93 /* quad.fsh */; };
+		00222C3E1EDE60A9001CDC93 /* stencil.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C381EDE60A9001CDC93 /* stencil.fsh */; };
+		00222C3F1EDE60A9001CDC93 /* point.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 00222C391EDE60A9001CDC93 /* point.fsh */; };
 		0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047EE0A1EDD0D9D00E8F570 /* AppDelegate.swift */; };
 		0047EE0D1EDD0D9D00E8F570 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047EE0C1EDD0D9D00E8F570 /* ViewController.swift */; };
 		0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE0E1EDD0D9D00E8F570 /* Main.storyboard */; };
@@ -17,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00222C311EDE6077001CDC93 /* JotUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JotUI.framework; path = "JotUI/JotUI/build/Debug-iphoneos/JotUI.framework"; sourceTree = "<group>"; };
+		00222C341EDE60A9001CDC93 /* colorlesspoint.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = colorlesspoint.vsh; path = ../JotUI/JotUI/JotUI/colorlesspoint.vsh; sourceTree = "<group>"; };
+		00222C351EDE60A9001CDC93 /* coloredpoint.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = coloredpoint.vsh; path = ../JotUI/JotUI/JotUI/coloredpoint.vsh; sourceTree = "<group>"; };
+		00222C361EDE60A9001CDC93 /* quad.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = quad.vsh; path = ../JotUI/JotUI/JotUI/quad.vsh; sourceTree = "<group>"; };
+		00222C371EDE60A9001CDC93 /* quad.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = quad.fsh; path = ../JotUI/JotUI/JotUI/quad.fsh; sourceTree = "<group>"; };
+		00222C381EDE60A9001CDC93 /* stencil.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = stencil.fsh; path = ../JotUI/JotUI/JotUI/stencil.fsh; sourceTree = "<group>"; };
+		00222C391EDE60A9001CDC93 /* point.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.fsh; path = ../JotUI/JotUI/JotUI/point.fsh; sourceTree = "<group>"; };
 		0047EE071EDD0D9D00E8F570 /* PinchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0047EE0A1EDD0D9D00E8F570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0047EE0C1EDD0D9D00E8F570 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +40,7 @@
 		0047EE161EDD0D9D00E8F570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0047EE1C1EDD0E7B00E8F570 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PinchPad-Bridging-Header.h"; path = "PinchPad/PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
 		11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705438D810A112970D83BFB9 /* Pods-PinchPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.debug.xcconfig"; sourceTree = "<group>"; };
 		92B358C2FCACD264B4F0EFF9 /* Pods-PinchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.release.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00222C321EDE6077001CDC93 /* JotUI.framework in Frameworks */,
 				D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,15 +59,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00222C331EDE608E001CDC93 /* JotUI Files */ = {
+			isa = PBXGroup;
+			children = (
+				00222C341EDE60A9001CDC93 /* colorlesspoint.vsh */,
+				00222C351EDE60A9001CDC93 /* coloredpoint.vsh */,
+				00222C361EDE60A9001CDC93 /* quad.vsh */,
+				00222C371EDE60A9001CDC93 /* quad.fsh */,
+				00222C381EDE60A9001CDC93 /* stencil.fsh */,
+				00222C391EDE60A9001CDC93 /* point.fsh */,
+			);
+			name = "JotUI Files";
+			path = PinchPad;
+			sourceTree = "<group>";
+		};
 		0047EDFE1EDD0D9D00E8F570 = {
 			isa = PBXGroup;
 			children = (
 				0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */,
 				0047EE1C1EDD0E7B00E8F570 /* README.md */,
 				0047EE091EDD0D9D00E8F570 /* PinchPad */,
+				00222C331EDE608E001CDC93 /* JotUI Files */,
 				0047EE081EDD0D9D00E8F570 /* Products */,
 				EF53FCF404E37C1DF000D676 /* Pods */,
 				53166B5DD778C8B50C608307 /* Frameworks */,
+				0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +111,7 @@
 		53166B5DD778C8B50C608307 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00222C311EDE6077001CDC93 /* JotUI.framework */,
 				11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */,
 			);
 			name = Frameworks;
@@ -157,10 +190,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00222C3F1EDE60A9001CDC93 /* point.fsh in Resources */,
+				00222C3A1EDE60A9001CDC93 /* colorlesspoint.vsh in Resources */,
+				00222C3E1EDE60A9001CDC93 /* stencil.fsh in Resources */,
 				0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */,
+				00222C3D1EDE60A9001CDC93 /* quad.fsh in Resources */,
 				0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */,
 				0047EE121EDD0D9D00E8F570 /* Assets.xcassets in Resources */,
 				0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */,
+				00222C3C1EDE60A9001CDC93 /* quad.vsh in Resources */,
+				00222C3B1EDE60A9001CDC93 /* coloredpoint.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,10 +399,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76Z7TDNBZJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JotUI/JotUI/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -374,10 +418,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76Z7TDNBZJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JotUI/JotUI/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = PinchPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
