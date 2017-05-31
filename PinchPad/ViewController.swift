@@ -14,10 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up a view for drawing
-        let jotView = JotView(frame: CGRect(x: 50, y: 50, width: 200, height: 200))
+        let jotView = JotView(frame: self.view.frame)
         jotView.delegate = self
-        jotView.backgroundColor = .red
-        view.insertSubview(jotView, at: 0)
+        self.view.addSubview(jotView)
 
         let jotViewStateProxy = JotViewStateProxy()
         jotViewStateProxy.delegate = self
@@ -26,13 +25,8 @@ class ViewController: UIViewController {
                                                      andScale: UIScreen.main.scale,
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
+        jotView.loadState(jotViewStateProxy)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
 extension ViewController: JotViewDelegate {
@@ -54,7 +48,7 @@ extension ViewController: JotViewDelegate {
 
     func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
         print("width")
-        return 1
+        return 2
     }
 
     func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> UIColor! {
