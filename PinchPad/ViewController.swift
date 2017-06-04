@@ -9,16 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var jotView: JotView!
+    var jotViewStateProxy: JotViewStateProxy!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Set up a view for drawing
-        let jotView = JotView(frame: self.view.frame)
+        jotView = JotView(frame: self.view.frame)
         jotView.delegate = self
         self.view.addSubview(jotView)
 
-        let jotViewStateProxy = JotViewStateProxy()
+        jotViewStateProxy = JotViewStateProxy()
         jotViewStateProxy.delegate = self
         jotViewStateProxy.loadJotStateAsynchronously(false,
                                                      with: jotView.bounds.size,
@@ -26,6 +28,19 @@ class ViewController: UIViewController {
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
         jotView.loadState(jotViewStateProxy)
+        // Framework Search Paths?: $(PROJECT_DIR)/JotUI/JotUI/build/Debug-iphoneos
+    }
+
+    func undo() {
+        jotView.undo()
+    }
+
+    func redo() {
+        jotView.redo()
+    }
+
+    func clear() {
+        jotView.clear(true)
     }
 }
 
@@ -48,12 +63,24 @@ extension ViewController: JotViewDelegate {
 
     func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
         print("width")
-        return 2
+
+        // change the width based on pressure
+        let maxSize = 15.0, minSize = 6.0
+        var width = (maxSize + minSize) / 2.0
+        width *= Double(coalescedTouch.force)
+        print(coalescedTouch.force)
+        if width < minSize {
+            width = minSize
+        }
+        if width > maxSize {
+            width = maxSize
+        }
+        return CGFloat(width)
     }
 
     func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> UIColor! {
         print("color")
-        return .black
+        return UIColor(white: 0.0, alpha: 0.9)
     }
 
     func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
@@ -95,19 +122,19 @@ extension ViewController: JotViewDelegate {
 }
 
 extension ViewController: JotViewStateProxyDelegate {
+    var jotViewStatePlistPath: String! {
+        return "state.plist"
+    }
+    
+    var jotViewStateInkPath: String! {
+        return "ink.png"
+    }
+    
     func didLoadState(_ state: JotViewStateProxy!) {
         print("didLoadState")
     }
 
     func didUnloadState(_ state: JotViewStateProxy!) {
         print("didUnloadState")
-    }
-
-    var jotViewStatePlistPath: String! {
-        return "state.plist"
-    }
-
-    var jotViewStateInkPath: String! {
-        return "ink.png"
     }
 }
