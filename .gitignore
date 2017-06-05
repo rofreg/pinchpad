@@ -23,4 +23,5 @@ xcuserdata/
 *.xcscmblueprint
 
 ## Custom
+PinchPad/Info.plist
 PinchPad/GoogleService-Info.plist
