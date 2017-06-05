@@ -125,11 +125,11 @@ extension ViewController: JotViewStateProxyDelegate {
     var jotViewStatePlistPath: String! {
         return "state.plist"
     }
-    
+
     var jotViewStateInkPath: String! {
         return "ink.png"
     }
-    
+
     func didLoadState(_ state: JotViewStateProxy!) {
         print("didLoadState")
     }

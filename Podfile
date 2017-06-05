@@ -9,4 +9,13 @@ target 'PinchPad' do
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
   pod 'SwiftLint'
+  pod 'TwitterKit'
 end
+
+plugin 'cocoapods-keys', {
+  :project => 'PinchPad',
+  :keys => [
+    'TwitterConsumerKey',
+    'TwitterConsumerSecret'
+  ]
+}

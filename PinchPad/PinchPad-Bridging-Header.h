@@ -10,5 +10,6 @@
 #define PinchPad_Bridging_Header_h
 
 #import <JotUI/JotUI.h>
+#import <TwitterKit/TwitterKit.h>
 
 #endif /* PinchPad_Bridging_Header_h */

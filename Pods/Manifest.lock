@@ -25,18 +25,28 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - Keys (1.0.0)
   - Protobuf (3.3.0)
   - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
+  - TwitterCore (3.0.0)
+  - TwitterKit (3.0.1):
+    - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Firebase/Core
   - Firebase/Crash
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
+  - TwitterKit
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -46,11 +56,14 @@ SPEC CHECKSUMS:
   FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
+  TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: 96a43f56e0e4ac25e46c3cc8152883f86a4abfe0
+PODFILE CHECKSUM: 20dbb268107d34c438274261c8e2c6b50442a219
 
 COCOAPODS: 1.2.1

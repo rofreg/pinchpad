@@ -20,6 +20,8 @@
 		0047EE121EDD0D9D00E8F570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE111EDD0D9D00E8F570 /* Assets.xcassets */; };
 		0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */; };
 		0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */; };
+		006986DE1EE4D83F00161970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 006986DD1EE4D83F00161970 /* GoogleService-Info.plist */; };
+		006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986DF1EE4D94200161970 /* AdSupport.framework */; };
 		D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		0047EE1C1EDD0E7B00E8F570 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PinchPad-Bridging-Header.h"; path = "PinchPad/PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		006986DD1EE4D83F00161970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "PinchPad/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		006986DF1EE4D94200161970 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705438D810A112970D83BFB9 /* Pods-PinchPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.debug.xcconfig"; sourceTree = "<group>"; };
 		92B358C2FCACD264B4F0EFF9 /* Pods-PinchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */,
 				00222C321EDE6077001CDC93 /* JotUI.framework in Frameworks */,
 				D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */,
 			);
@@ -84,6 +89,7 @@
 				EF53FCF404E37C1DF000D676 /* Pods */,
 				53166B5DD778C8B50C608307 /* Frameworks */,
 				0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */,
+				006986DD1EE4D83F00161970 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +117,7 @@
 		53166B5DD778C8B50C608307 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				006986DF1EE4D94200161970 /* AdSupport.framework */,
 				00222C311EDE6077001CDC93 /* JotUI.framework */,
 				11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */,
 			);
@@ -198,6 +205,7 @@
 				0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */,
 				0047EE121EDD0D9D00E8F570 /* Assets.xcassets in Resources */,
 				0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */,
+				006986DE1EE4D83F00161970 /* GoogleService-Info.plist in Resources */,
 				00222C3C1EDE60A9001CDC93 /* quad.vsh in Resources */,
 				00222C3B1EDE60A9001CDC93 /* coloredpoint.vsh in Resources */,
 			);

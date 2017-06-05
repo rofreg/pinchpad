@@ -21,3 +21,6 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+## Custom
+PinchPad/GoogleService-Info.plist

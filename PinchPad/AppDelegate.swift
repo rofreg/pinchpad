@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import Firebase
+import Keys
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let keys = PinchPadKeys()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
+                                       consumerSecret: keys.twitterConsumerSecret)
+
         return true
     }
 }
