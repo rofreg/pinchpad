@@ -24,4 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // Handle login callbacks from Twitter
+        return Twitter.sharedInstance().application(app, open: url, options: options)
+    }
 }

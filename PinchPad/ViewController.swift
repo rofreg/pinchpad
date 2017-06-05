@@ -28,7 +28,17 @@ class ViewController: UIViewController {
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
         jotView.loadState(jotViewStateProxy)
-        // Framework Search Paths?: $(PROJECT_DIR)/JotUI/JotUI/build/Debug-iphoneos
+
+        // Add a temporary Twitter login button
+        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+            if let session = session {
+                print("signed in as \(session.userName)")
+            } else {
+                print("error: \(error?.localizedDescription ?? "unknown error")")
+            }
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
     }
 
     func undo() {
