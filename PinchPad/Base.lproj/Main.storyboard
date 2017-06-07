@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pinch Pad-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Pinch Pad" id="BYZ-38-t0r" customClass="ViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,73 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-1u-Yyt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="KHk-eT-RzW"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Menu" id="mCQ-ub-sm3"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8L9-Tt-HAR"/>
+                                    <barButtonItem image="Undo" id="rQk-u4-nkZ">
+                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Ux3-eg-yfm"/>
+                                    <barButtonItem image="Redo" id="O6z-50-jjF">
+                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Qb9-hW-PgK"/>
+                                    <barButtonItem image="Pencil" id="W9j-Ye-sfQ"/>
+                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="v2w-BP-Y1b"/>
+                                    <barButtonItem image="Eraser" id="Mzn-s0-SC7">
+                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LAD-AJ-18b"/>
+                                    <barButtonItem title="Post" id="Nqz-V7-zvs"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmy-zD-v27" userLabel="Status bar background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zJ1-NM-rOF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-hK-1BL" userLabel="Toolbar bottom border">
+                                <rect key="frame" x="0.0" y="64" width="375" height="0.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="xob-tu-jau"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hhQ-1u-Yyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8vE-nM-4F6"/>
+                            <constraint firstAttribute="trailing" secondItem="hhQ-1u-Yyt" secondAttribute="trailing" id="N5b-Dw-zm3"/>
+                            <constraint firstItem="RN1-hK-1BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PKa-ub-wKM"/>
+                            <constraint firstItem="qmy-zD-v27" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pvb-6e-f6n"/>
+                            <constraint firstAttribute="trailing" secondItem="qmy-zD-v27" secondAttribute="trailing" id="aWh-S9-xfR"/>
+                            <constraint firstItem="hhQ-1u-Yyt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="al2-sv-d91"/>
+                            <constraint firstItem="RN1-hK-1BL" firstAttribute="top" secondItem="hhQ-1u-Yyt" secondAttribute="bottom" id="f5T-2Z-e6P"/>
+                            <constraint firstItem="qmy-zD-v27" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mqI-4i-AFH"/>
+                            <constraint firstAttribute="trailing" secondItem="RN1-hK-1BL" secondAttribute="trailing" id="wlA-4A-lZh"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="129.98500749625188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Eraser" width="26" height="22"/>
+        <image name="Pencil" width="22" height="22"/>
+        <image name="Redo" width="22" height="22"/>
+        <image name="Undo" width="22" height="22"/>
+    </resources>
 </document>

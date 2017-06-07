@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Set up a view for drawing
-        jotView = JotView(frame: self.view.frame)
+        jotView = JotView(frame: self.view.frame.insetBy(dx: 0, dy: 32).offsetBy(dx: 0, dy: 32))
         jotView.delegate = self
         self.view.addSubview(jotView)
 
