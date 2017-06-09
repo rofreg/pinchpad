@@ -1,5 +1,5 @@
 //
-//  SketchConfig.swift
+//  AppConfig.swift
 //  PinchPad
 //
 //  Created by Ryan Laughlin on 6/8/17.
@@ -11,9 +11,9 @@ enum SketchTool: Int {
     case eraser
 }
 
-class SketchConfig {
+class AppConfig {
     // Set up a singleton instance
-    static let sharedInstance = SketchConfig()
+    static let sharedInstance = AppConfig()
 
     var tool: SketchTool = .pen {
         didSet { toolConfigChanged() }

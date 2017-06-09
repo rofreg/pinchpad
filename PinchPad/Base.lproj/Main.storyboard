@@ -66,7 +66,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LAD-AJ-18b"/>
-                                    <barButtonItem title="Post" id="Nqz-V7-zvs"/>
+                                    <barButtonItem title="Post" id="Nqz-V7-zvs">
+                                        <connections>
+                                            <action selector="post:" destination="BYZ-38-t0r" id="Vnw-cB-s37"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmy-zD-v27" userLabel="Status bar background">

@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     }
 
     func updateToolbarDisplay() {
-        if SketchConfig.sharedInstance.tool == .eraser {
+        if AppConfig.sharedInstance.tool == .eraser {
             pencilButton.tintColor = UIColor.lightGray
             eraserButton.tintColor = self.view.tintColor
         } else {
@@ -76,12 +76,29 @@ class ViewController: UIViewController {
         jotView.redo()
     }
 
+    @IBAction func post(_ sender: AnyObject) {
+        jotView.exportToImage(onComplete: { (image) in
+            let imageData = UIImagePNGRepresentation(image!)
+
+            // If we're not logged into any services, let's just share this using the native iOS dialog
+            if true {
+                let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
+                vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+                self.present(vc, animated: true, completion: nil)
+                return
+            }
+
+            // TODO: if we ARE logged into services, we should post to them
+
+        }, withScale: UIScreen.main.scale)
+    }
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "EraserSegue" && SketchConfig.sharedInstance.tool != .eraser {
-            SketchConfig.sharedInstance.tool = .eraser
+        if identifier == "EraserSegue" && AppConfig.sharedInstance.tool != .eraser {
+            AppConfig.sharedInstance.tool = .eraser
             return false
-        } else if identifier == "PencilSegue" && SketchConfig.sharedInstance.tool == .eraser {
-            SketchConfig.sharedInstance.tool = .pen
+        } else if identifier == "PencilSegue" && AppConfig.sharedInstance.tool == .eraser {
+            AppConfig.sharedInstance.tool = .pen
             return false
         }
 
