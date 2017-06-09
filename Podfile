@@ -10,6 +10,7 @@ target 'PinchPad' do
   pod 'Alamofire'
   pod 'SwiftLint'
   pod 'TwitterKit'
+  pod 'ChromaColorPicker'
 end
 
 plugin 'cocoapods-keys', {

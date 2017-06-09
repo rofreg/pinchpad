@@ -46,6 +46,26 @@ class ViewController: UIViewController {
         })
         logInButton.center = self.view.center
         self.view.addSubview(logInButton)
+
+        subscribeToNotifications()
+    }
+
+    func subscribeToNotifications() {
+        // When our tool changes, update the display
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.updateToolbarDisplay),
+                                               name: NSNotification.Name(rawValue: "ToolConfigChanged"),
+                                               object: nil)
+    }
+
+    func updateToolbarDisplay() {
+        if SketchConfig.sharedInstance.tool == .eraser {
+            pencilButton.tintColor = UIColor.lightGray
+            eraserButton.tintColor = self.view.tintColor
+        } else {
+            pencilButton.tintColor = self.view.tintColor
+            eraserButton.tintColor = UIColor.lightGray
+        }
     }
 
     @IBAction func undo() {
@@ -54,6 +74,18 @@ class ViewController: UIViewController {
 
     @IBAction func redo() {
         jotView.redo()
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "EraserSegue" && SketchConfig.sharedInstance.tool != .eraser {
+            SketchConfig.sharedInstance.tool = .eraser
+            return false
+        } else if identifier == "PencilSegue" && SketchConfig.sharedInstance.tool == .eraser {
+            SketchConfig.sharedInstance.tool = .pen
+            return false
+        }
+
+        return true
     }
 
     func clear() {
