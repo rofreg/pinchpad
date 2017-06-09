@@ -9,14 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var jotView: JotView!
+    @IBOutlet var undoButton: UIBarButtonItem!
+    @IBOutlet var redoButton: UIBarButtonItem!
+    @IBOutlet var pencilButton: UIBarButtonItem!
+    @IBOutlet var eraserButton: UIBarButtonItem!
+    @IBOutlet var jotView: JotView!
     var jotViewStateProxy: JotViewStateProxy!
+    var currentPopoverController: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set up a view for drawing
-        jotView = JotView(frame: self.view.frame.insetBy(dx: 0, dy: 32).offsetBy(dx: 0, dy: 32))
+        // Set up the jotView for drawing
+        // For some reason, JotViews don't like to be included via Interface Builder, so we redo ours here
+        jotView.removeFromSuperview()
+        jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
         self.view.addSubview(jotView)
 
@@ -41,11 +48,11 @@ class ViewController: UIViewController {
         self.view.addSubview(logInButton)
     }
 
-    func undo() {
+    @IBAction func undo() {
         jotView.undo()
     }
 
-    func redo() {
+    @IBAction func redo() {
         jotView.redo()
     }
 
@@ -146,5 +153,32 @@ extension ViewController: JotViewStateProxyDelegate {
 
     func didUnloadState(_ state: JotViewStateProxy!) {
         print("didUnloadState")
+    }
+}
+
+// Force iPhone to use the popover style, rather than a modal window
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        currentPopoverController = segue.destination
+        currentPopoverController!.modalPresentationStyle = .popover
+
+        if let popoverPresentationController = currentPopoverController!.popoverPresentationController {
+            popoverPresentationController.delegate = self
+
+            // Also set the popover arrow color to match the rest of the popover
+            popoverPresentationController.backgroundColor = currentPopoverController!.view.backgroundColor
+        }
+    }
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+// Dismiss popover controllers instantly, with no animation
+extension ViewController: UIPopoverControllerDelegate {
+    func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
+        currentPopoverController?.dismiss(animated: false)
+        return true
     }
 }

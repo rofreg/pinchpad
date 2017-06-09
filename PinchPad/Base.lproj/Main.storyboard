@@ -27,19 +27,31 @@
                                     <constraint firstAttribute="height" constant="44" id="KHk-eT-RzW"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Menu" id="mCQ-ub-sm3"/>
+                                    <barButtonItem title="Menu" id="mCQ-ub-sm3">
+                                        <connections>
+                                            <segue destination="xwO-wN-riR" kind="popoverPresentation" popoverAnchorBarButtonItem="mCQ-ub-sm3" id="1kj-u3-04I">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8L9-Tt-HAR"/>
-                                    <barButtonItem image="Undo" id="rQk-u4-nkZ">
+                                    <barButtonItem image="Undo" id="rQk-u4-nkZ" userLabel="Undo">
                                         <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="undo" destination="BYZ-38-t0r" id="ecF-fY-X2G"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Ux3-eg-yfm"/>
-                                    <barButtonItem image="Redo" id="O6z-50-jjF">
+                                    <barButtonItem image="Redo" id="O6z-50-jjF" userLabel="Redo">
                                         <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="redo" destination="BYZ-38-t0r" id="90O-r4-ac9"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Qb9-hW-PgK"/>
-                                    <barButtonItem image="Pencil" id="W9j-Ye-sfQ"/>
+                                    <barButtonItem image="Pencil" id="W9j-Ye-sfQ" userLabel="Pencil"/>
                                     <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="v2w-BP-Y1b"/>
-                                    <barButtonItem image="Eraser" id="Mzn-s0-SC7">
+                                    <barButtonItem image="Eraser" id="Mzn-s0-SC7" userLabel="Eraser">
                                         <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LAD-AJ-18b"/>
@@ -60,27 +72,92 @@
                                     <constraint firstAttribute="height" constant="0.5" id="xob-tu-jau"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf9-k3-hXs" customClass="JotView">
+                                <rect key="frame" x="0.0" y="64.5" width="375" height="602.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hhQ-1u-Yyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8vE-nM-4F6"/>
+                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="top" secondItem="RN1-hK-1BL" secondAttribute="bottom" id="FXg-Hn-mLP"/>
                             <constraint firstAttribute="trailing" secondItem="hhQ-1u-Yyt" secondAttribute="trailing" id="N5b-Dw-zm3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kf9-k3-hXs" secondAttribute="bottom" id="NVu-Vb-4E8"/>
                             <constraint firstItem="RN1-hK-1BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PKa-ub-wKM"/>
                             <constraint firstItem="qmy-zD-v27" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pvb-6e-f6n"/>
                             <constraint firstAttribute="trailing" secondItem="qmy-zD-v27" secondAttribute="trailing" id="aWh-S9-xfR"/>
                             <constraint firstItem="hhQ-1u-Yyt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="al2-sv-d91"/>
+                            <constraint firstAttribute="trailing" secondItem="Kf9-k3-hXs" secondAttribute="trailing" id="dE8-WB-fjB"/>
                             <constraint firstItem="RN1-hK-1BL" firstAttribute="top" secondItem="hhQ-1u-Yyt" secondAttribute="bottom" id="f5T-2Z-e6P"/>
                             <constraint firstItem="qmy-zD-v27" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mqI-4i-AFH"/>
+                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vy0-zN-vPA"/>
                             <constraint firstAttribute="trailing" secondItem="RN1-hK-1BL" secondAttribute="trailing" id="wlA-4A-lZh"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="eraserButton" destination="Mzn-s0-SC7" id="xi8-ay-I9b"/>
+                        <outlet property="jotView" destination="Kf9-k3-hXs" id="1fJ-LI-cGK"/>
+                        <outlet property="pencilButton" destination="W9j-Ye-sfQ" id="lL7-LX-Sxb"/>
+                        <outlet property="redoButton" destination="O6z-50-jjF" id="9ms-hT-LBH"/>
+                        <outlet property="undoButton" destination="rQk-u4-nkZ" id="eQM-bd-eO0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="129.98500749625188"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="55O-x8-hM3">
+            <objects>
+                <viewController id="xwO-wN-riR" userLabel="Menu View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tlD-vX-4VD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rqt-8z-kOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r3c-Hx-RL3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                            <color key="value" red="0.59497236394557829" green="0.81066645408163263" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q42-l1-HVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="137"/>
+        </scene>
+        <!--ToolSettings View Controller-->
+        <scene sceneID="5u8-5I-LMs">
+            <objects>
+                <viewController id="A04-Hz-SMa" userLabel="ToolSettings View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m4x-Kr-fhv"/>
+                        <viewControllerLayoutGuide type="bottom" id="fJK-4M-0H3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e4n-sB-anX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                            <color key="value" red="0.59497236389999997" green="0.81066645410000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnH-Q8-K5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1878" y="826"/>
         </scene>
     </scenes>
     <resources>
