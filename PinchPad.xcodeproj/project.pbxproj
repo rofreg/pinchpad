@@ -26,6 +26,7 @@
 		006986E91EE79D8A00161970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006986E81EE79D8A00161970 /* Assets.xcassets */; };
 		006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EA1EEA235A00161970 /* ToolConfigViewController.swift */; };
 		006986ED1EEA2BC300161970 /* SketchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EC1EEA2BC300161970 /* SketchConfig.swift */; };
+		00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */; };
 		D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		006986E81EE79D8A00161970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006986EA1EEA235A00161970 /* ToolConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolConfigViewController.swift; sourceTree = "<group>"; };
 		006986EC1EEA2BC300161970 /* SketchConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchConfig.swift; sourceTree = "<group>"; };
+		00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		11DA9BA6D2708A83CE84C8B6 /* Pods_PinchPad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinchPad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705438D810A112970D83BFB9 /* Pods-PinchPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.debug.xcconfig"; sourceTree = "<group>"; };
 		92B358C2FCACD264B4F0EFF9 /* Pods-PinchPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinchPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				0047EE0A1EDD0D9D00E8F570 /* AppDelegate.swift */,
-				0047EE0C1EDD0D9D00E8F570 /* ViewController.swift */,
-				006986EA1EEA235A00161970 /* ToolConfigViewController.swift */,
+				00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */,
 				006986EC1EEA2BC300161970 /* SketchConfig.swift */,
+				006986EA1EEA235A00161970 /* ToolConfigViewController.swift */,
+				0047EE0C1EDD0D9D00E8F570 /* ViewController.swift */,
 				006986E81EE79D8A00161970 /* Assets.xcassets */,
 				0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */,
 				0047EE0E1EDD0D9D00E8F570 /* Main.storyboard */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0047EE0D1EDD0D9D00E8F570 /* ViewController.swift in Sources */,
+				00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */,
 				006986E51EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift in Sources */,
 				006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */,
 				0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */,

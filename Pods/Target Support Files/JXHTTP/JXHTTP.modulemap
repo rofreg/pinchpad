@@ -1,0 +1,6 @@
+framework module JXHTTP {
+  umbrella header "JXHTTP-umbrella.h"
+
+  export *
+  module * { export * }
+}

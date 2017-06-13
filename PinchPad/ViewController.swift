@@ -81,7 +81,7 @@ class ViewController: UIViewController {
             let imageData = UIImagePNGRepresentation(image!)
 
             // If we're not logged into any services, let's just share this using the native iOS dialog
-            if true {
+            if let imageData = imageData {
                 let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
                 vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
                 self.present(vc, animated: true, completion: nil)

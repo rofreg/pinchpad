@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Keys
+import TMTumblrSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
                                        consumerSecret: keys.twitterConsumerSecret)
+        TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
+        TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
 
         return true
     }
@@ -28,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        // Handle login callbacks from Twitter
-        return Twitter.sharedInstance().application(app, open: url, options: options)
+        // Handle login callbacks from Twitter and Tumblr
+        return TMAPIClient.sharedInstance().handleOpen(url) ||
+            Twitter.sharedInstance().application(app, open: url, options: options)
     }
 }

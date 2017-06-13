@@ -10,6 +10,7 @@ target 'PinchPad' do
   pod 'Alamofire'
   pod 'SwiftLint'
   pod 'TwitterKit'
+  pod 'TMTumblrSDK', git: 'https://github.com/tumblr/TMTumblrSDK.git'
   pod 'ChromaColorPicker'
 end
 
@@ -17,6 +18,8 @@ plugin 'cocoapods-keys', {
   :project => 'PinchPad',
   :keys => [
     'TwitterConsumerKey',
-    'TwitterConsumerSecret'
+    'TwitterConsumerSecret',
+    'TumblrConsumerKey',
+    'TumblrConsumerSecret'
   ]
 }

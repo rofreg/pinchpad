@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - ChromaColorPicker (1.3)
   - Firebase/Core (4.0.0):
     - FirebaseAnalytics (= 4.0.0)
     - FirebaseCore (= 4.0.0)
@@ -25,45 +26,76 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - JXHTTP (3.0.2)
   - Keys (1.0.0)
   - Protobuf (3.3.0)
+  - Spectacles (1.0.1)
   - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
+  - TMTumblrSDK (4.0.4):
+    - TMTumblrSDK/Activity (= 4.0.4)
+    - TMTumblrSDK/APIClient (= 4.0.4)
+    - TMTumblrSDK/AppClient (= 4.0.4)
+    - TMTumblrSDK/Core (= 4.0.4)
+  - TMTumblrSDK/Activity (4.0.4)
+  - TMTumblrSDK/APIClient (4.0.4):
+    - JXHTTP
+    - TMTumblrSDK/APIClient/Authentication (= 4.0.4)
+  - TMTumblrSDK/APIClient/Authentication (4.0.4):
+    - JXHTTP
+    - TMTumblrSDK/Core
+  - TMTumblrSDK/AppClient (4.0.4):
+    - TMTumblrSDK/Core
+  - TMTumblrSDK/Core (4.0.4):
+    - Spectacles (~> 1.0)
   - TwitterCore (3.0.0)
   - TwitterKit (3.0.1):
     - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - ChromaColorPicker
   - Firebase/Core
   - Firebase/Crash
   - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
+  - TMTumblrSDK (from `https://github.com/tumblr/TMTumblrSDK.git`)
   - TwitterKit
 
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
+  TMTumblrSDK:
+    :git: https://github.com/tumblr/TMTumblrSDK.git
+
+CHECKOUT OPTIONS:
+  TMTumblrSDK:
+    :commit: c76c771c15d275d70c2881734924a19016ed2302
+    :git: https://github.com/tumblr/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  ChromaColorPicker: fa1c6f52e0e76cb027b61149b42c83c0e78ef3a6
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
   FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
   FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  TMTumblrSDK: 7b253e968a31f515aee0ee5f7e5faa8b7b0d0470
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: 20dbb268107d34c438274261c8e2c6b50442a219
+PODFILE CHECKSUM: d54b9d27a6c5bcdf7a18f7bde0ac4fcfa4abb1b6
 
 COCOAPODS: 1.2.1

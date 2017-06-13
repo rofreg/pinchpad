@@ -127,7 +127,7 @@
         <!--Menu View Controller-->
         <scene sceneID="55O-x8-hM3">
             <objects>
-                <viewController id="xwO-wN-riR" userLabel="Menu View Controller" sceneMemberID="viewController">
+                <viewController id="xwO-wN-riR" userLabel="Menu View Controller" customClass="MenuViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tlD-vX-4VD"/>
                         <viewControllerLayoutGuide type="bottom" id="Rqt-8z-kOe"/>
@@ -135,6 +135,16 @@
                     <view key="view" contentMode="scaleToFill" id="r3c-Hx-RL3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ0-mf-kVd">
+                                <rect key="frame" x="49" y="51" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tumblr"/>
+                                <connections>
+                                    <action selector="authWithTumblr" destination="xwO-wN-riR" eventType="touchUpInside" id="vSN-y0-wzt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
