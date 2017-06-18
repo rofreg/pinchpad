@@ -89,17 +89,23 @@ class ViewController: UIViewController {
             }
 
             // TODO: if we ARE logged into services, we should post to them
-
         }, withScale: UIScreen.main.scale)
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let toolPopoverWasOpen = (currentPopoverController is ToolConfigViewController)
+        dismissPopover()
+
         if identifier == "EraserSegue" && AppConfig.sharedInstance.tool != .eraser {
             AppConfig.sharedInstance.tool = .eraser
-            return false
+
+            // If the tool config view was already open, then let's re-open it
+            return toolPopoverWasOpen
         } else if identifier == "PencilSegue" && AppConfig.sharedInstance.tool == .eraser {
             AppConfig.sharedInstance.tool = .pen
-            return false
+
+            // If the tool config view was already open, then let's re-open it
+            return toolPopoverWasOpen
         }
 
         return true
@@ -107,6 +113,11 @@ class ViewController: UIViewController {
 
     func clear() {
         jotView.clear(true)
+    }
+
+    func dismissPopover() {
+        currentPopoverController?.dismiss(animated: false, completion: nil)
+        currentPopoverController = nil
     }
 }
 
@@ -210,6 +221,7 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         currentPopoverController = segue.destination
         currentPopoverController!.modalPresentationStyle = .popover
+        currentPopoverController!.preferredContentSize = CGSize(width: 414, height: 300)
 
         if let popoverPresentationController = currentPopoverController!.popoverPresentationController {
             popoverPresentationController.delegate = self
@@ -229,5 +241,10 @@ extension ViewController: UIPopoverControllerDelegate {
     func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
         currentPopoverController?.dismiss(animated: false)
         return true
+    }
+
+    func popoverPresentationControllerDidDismissPopover(_ _: UIPopoverPresentationController) {
+        // Fixes a tint color bug when switching between pencil and eraser tools w/ a popover open
+        updateToolbarDisplay()
     }
 }
