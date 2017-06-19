@@ -130,7 +130,7 @@ extension ViewController: JotViewDelegate {
 
     func stepWidthForStroke() -> CGFloat {
         print("stepWidthForStroke")
-        return 2
+        return 0.5
     }
 
     func supportsRotation() -> Bool {
