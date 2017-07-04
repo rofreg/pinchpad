@@ -19,9 +19,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        subscribeToNotifications()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
         // Set up the jotView for drawing
         // For some reason, JotViews don't like to be included via Interface Builder, so we redo ours here
+        view.layoutIfNeeded()
         jotView.removeFromSuperview()
         jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
@@ -46,8 +50,6 @@ class ViewController: UIViewController {
         })
         logInButton.center = self.view.center
         self.view.addSubview(logInButton)
-
-        subscribeToNotifications()
     }
 
     func subscribeToNotifications() {
