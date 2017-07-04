@@ -17,6 +17,16 @@ class ViewController: UIViewController {
     var jotViewStateProxy: JotViewStateProxy!
     var currentPopoverController: UIViewController?
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        // Don't allow rotation between landscape and portrait – it would corrupt the drawing view
+        switch UIApplication.shared.statusBarOrientation {
+        case .landscapeLeft, .landscapeRight:
+            return .landscape
+        default:
+            return [.portrait, .portraitUpsideDown]
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeToNotifications()
