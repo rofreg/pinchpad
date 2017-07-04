@@ -89,6 +89,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func post(_ sender: AnyObject) {
+        dismissPopover()
+
         jotView.exportToImage(onComplete: { (image) in
             let imageData = UIImagePNGRepresentation(image!)
 
