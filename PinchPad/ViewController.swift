@@ -37,8 +37,11 @@ class ViewController: UIViewController {
         // For some reason, JotViews don't like to be included via Interface Builder, so we redo ours here
         view.layoutIfNeeded()
         jotView.removeFromSuperview()
+        jotView.invalidate()
+
         jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
+        jotView.speedUpFPS()
         self.view.addSubview(jotView)
 
         jotViewStateProxy = JotViewStateProxy()
