@@ -138,25 +138,20 @@ class ViewController: UIViewController {
 extension ViewController: JotViewDelegate {
 
     func textureForStroke() -> JotBrushTexture! {
-        print("textureForStroke")
         return JotDefaultBrushTexture.sharedInstance()
     }
 
     func stepWidthForStroke() -> CGFloat {
-        print("stepWidthForStroke")
-        return 0.5
+        return 0.2
     }
 
     func supportsRotation() -> Bool {
-        print("supportsRotation")
         return false
     }
 
     func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
-        print("width")
-
         // change the width based on pressure
-        let maxSize = 15.0, minSize = 6.0
+        let maxSize = 6.0, minSize = 4.0
         var width = (maxSize + minSize) / 2.0
         width *= Double(coalescedTouch.force)
         print(coalescedTouch.force)
@@ -170,8 +165,11 @@ extension ViewController: JotViewDelegate {
     }
 
     func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> UIColor! {
-        print("color")
-        return UIColor(white: 0.0, alpha: 0.9)
+        if AppConfig.sharedInstance.tool == .eraser {
+            return nil
+        }
+
+        return AppConfig.sharedInstance.color
     }
 
     func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
