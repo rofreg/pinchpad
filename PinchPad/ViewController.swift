@@ -41,7 +41,6 @@ class ViewController: UIViewController {
 
         jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
-        jotView.speedUpFPS()
         self.view.addSubview(jotView)
 
         jotViewStateProxy = JotViewStateProxy()
@@ -110,7 +109,8 @@ class ViewController: UIViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let toolPopoverWasOpen = (currentPopoverController is ToolConfigViewController)
+        // There's a weird boolean bug here, so let's force this explicitly to be 'true' or 'false'
+        let toolPopoverWasOpen = currentPopoverController is ToolConfigViewController ? true : false
         dismissPopover()
 
         if identifier == "EraserSegue" && AppConfig.sharedInstance.tool != .eraser {
@@ -261,5 +261,7 @@ extension ViewController: UIPopoverControllerDelegate {
     func popoverPresentationControllerDidDismissPopover(_ _: UIPopoverPresentationController) {
         // Fixes a tint color bug when switching between pencil and eraser tools w/ a popover open
         updateToolbarDisplay()
+
+        currentPopoverController = nil
     }
 }
