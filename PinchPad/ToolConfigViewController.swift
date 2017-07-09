@@ -16,6 +16,41 @@ class ToolConfigViewController: UIViewController {
                   UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"),
                   UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"),
                   UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
+
+    override func viewDidLoad() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ToolConfigViewController.updatePreview),
+            name: NSNotification.Name(rawValue: "ToolConfigChanged"),
+            object: nil
+        )
+
+        previewWindow.layer.borderColor = UIColor(hex: "dddddd").cgColor
+        previewWindow.layer.borderWidth = 1
+        updatePreview()
+    }
+
+    func updatePreview() {
+        for subview in previewWindow.subviews {
+            subview.removeFromSuperview()
+        }
+
+        // Add a preview of the current tool
+        let origin = CGPoint(x: previewWindow.frame.size.width / 2, y: previewWindow.frame.size.height / 2)
+        let size = CGSize(width: AppConfig.shared.width * 1, height: AppConfig.shared.width * 1)
+        let toolPreview = UIView(frame: CGRect(origin: origin, size: size))
+        toolPreview.backgroundColor = AppConfig.shared.color
+        toolPreview.layer.cornerRadius = size.width / 2.0
+        previewWindow.addSubview(toolPreview)
+
+        // If we're in eraser mode, invert the colors
+        if AppConfig.shared.tool == .eraser {
+            previewWindow.backgroundColor = UIColor.darkGray
+            toolPreview.backgroundColor = UIColor.white
+        } else {
+            previewWindow.backgroundColor = UIColor.white
+        }
+    }
 }
 
 extension ToolConfigViewController : UICollectionViewDataSource {

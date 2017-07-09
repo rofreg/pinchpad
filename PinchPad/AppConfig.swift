@@ -23,6 +23,10 @@ class AppConfig {
         didSet { toolConfigChanged() }
     }
 
+    var width: Double = 4.0 {
+        didSet { NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self) }
+    }
+
     var frameLength: Double = 0.5 {
         didSet {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "FrameLengthDidChange"), object: self)

@@ -174,7 +174,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrQ-Vv-bfd">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="5aF-rM-htN"/>
                                                     <constraint firstAttribute="width" constant="80" id="QYa-b7-kwR"/>
@@ -220,6 +220,7 @@
                             <constraint firstItem="K9C-LT-i3z" firstAttribute="leading" secondItem="e4n-sB-anX" secondAttribute="leading" constant="10" id="uxE-8c-Jc4"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
@@ -240,6 +241,6 @@
         <image name="Undo" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6rB-Bz-PKJ"/>
+        <segue reference="cv9-rJ-yQk"/>
     </inferredMetricsTieBreakers>
 </document>

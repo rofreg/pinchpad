@@ -154,7 +154,7 @@ extension ViewController: JotViewDelegate {
 
     func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
         // change the width based on pressure
-        let maxSize = 6.0, minSize = 4.0
+        let minSize = AppConfig.shared.width, maxSize = minSize * 1.5
         var width = (maxSize + minSize) / 2.0
         width *= Double(coalescedTouch.force)
         print(coalescedTouch.force)
@@ -236,7 +236,6 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         currentPopoverController = segue.destination
         currentPopoverController!.modalPresentationStyle = .popover
-        currentPopoverController!.preferredContentSize = CGSize(width: 414, height: 300)
 
         if let popoverPresentationController = currentPopoverController!.popoverPresentationController {
             popoverPresentationController.delegate = self
