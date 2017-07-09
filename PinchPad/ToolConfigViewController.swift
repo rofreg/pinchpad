@@ -36,9 +36,9 @@ class ToolConfigViewController: UIViewController {
         }
 
         // Add a preview of the current tool
-        let origin = CGPoint(x: previewWindow.frame.size.width / 2, y: previewWindow.frame.size.height / 2)
         let size = CGSize(width: AppConfig.shared.width * 1, height: AppConfig.shared.width * 1)
-        let toolPreview = UIView(frame: CGRect(origin: origin, size: size))
+        let toolPreview = UIView(frame: CGRect(origin: CGPoint.zero, size: size))
+        toolPreview.center = CGPoint(x: previewWindow.frame.size.width / 2, y: previewWindow.frame.size.height / 2)
         toolPreview.backgroundColor = AppConfig.shared.color
         toolPreview.layer.cornerRadius = size.width / 2.0
         previewWindow.addSubview(toolPreview)

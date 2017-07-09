@@ -23,9 +23,17 @@ class AppConfig {
         didSet { toolConfigChanged() }
     }
 
-    var width: Double = 4.0 {
-        didSet { NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self) }
+    var width: Double {
+        get {
+            return tool == .eraser ? rawWidth * 2.5 : rawWidth
+        }
+        set {
+            self.rawWidth = newValue
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self)
+        }
     }
+
+    private var rawWidth: Double = 4.0
 
     var frameLength: Double = 0.5 {
         didSet {
