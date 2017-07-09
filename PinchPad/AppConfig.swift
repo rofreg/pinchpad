@@ -13,7 +13,7 @@ enum SketchTool: Int {
 
 class AppConfig {
     // Set up a singleton instance
-    static let sharedInstance = AppConfig()
+    static let shared = AppConfig()
 
     var tool: SketchTool = .pen {
         didSet { toolConfigChanged() }

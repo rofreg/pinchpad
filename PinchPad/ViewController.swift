@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     }
 
     func updateToolbarDisplay() {
-        if AppConfig.sharedInstance.tool == .eraser {
+        if AppConfig.shared.tool == .eraser {
             pencilButton.tintColor = UIColor.lightGray
             eraserButton.tintColor = self.view.tintColor
         } else {
@@ -113,13 +113,13 @@ class ViewController: UIViewController {
         let toolPopoverWasOpen = currentPopoverController is ToolConfigViewController ? true : false
         dismissPopover()
 
-        if identifier == "EraserSegue" && AppConfig.sharedInstance.tool != .eraser {
-            AppConfig.sharedInstance.tool = .eraser
+        if identifier == "EraserSegue" && AppConfig.shared.tool != .eraser {
+            AppConfig.shared.tool = .eraser
 
             // If the tool config view was already open, then let's re-open it
             return toolPopoverWasOpen
-        } else if identifier == "PencilSegue" && AppConfig.sharedInstance.tool == .eraser {
-            AppConfig.sharedInstance.tool = .pen
+        } else if identifier == "PencilSegue" && AppConfig.shared.tool == .eraser {
+            AppConfig.shared.tool = .pen
 
             // If the tool config view was already open, then let's re-open it
             return toolPopoverWasOpen
@@ -168,11 +168,11 @@ extension ViewController: JotViewDelegate {
     }
 
     func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> UIColor! {
-        if AppConfig.sharedInstance.tool == .eraser {
+        if AppConfig.shared.tool == .eraser {
             return nil
         }
 
-        return AppConfig.sharedInstance.color
+        return AppConfig.shared.color
     }
 
     func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
