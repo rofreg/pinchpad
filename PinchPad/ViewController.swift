@@ -70,6 +70,10 @@ class ViewController: UIViewController {
                                                selector: #selector(ViewController.updateToolbarDisplay),
                                                name: NSNotification.Name(rawValue: "ToolConfigChanged"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.clear),
+                                               name: NSNotification.Name(rawValue: "ClearCanvas"),
+                                               object: nil)
     }
 
     func updateToolbarDisplay() {

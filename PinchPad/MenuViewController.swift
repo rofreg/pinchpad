@@ -10,9 +10,13 @@ import Foundation
 import TMTumblrSDK
 
 class MenuViewController: UIViewController {
+    @IBAction func clear() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "ClearCanvas"), object: self)
+    }
 
     @IBAction func authWithTwitter() {
-        TMAPIClient.sharedInstance().authenticate("pinchpad", from: self, callback: nil)
+        // TODO: Implement this
+        print("Auth with Twitter")
     }
 
     @IBAction func authWithTumblr() {

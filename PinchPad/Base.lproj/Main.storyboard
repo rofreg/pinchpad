@@ -133,22 +133,92 @@
                         <viewControllerLayoutGuide type="bottom" id="Rqt-8z-kOe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="r3c-Hx-RL3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ0-mf-kVd">
-                                <rect key="frame" x="49" y="51" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tumblr"/>
-                                <connections>
-                                    <action selector="authWithTumblr" destination="xwO-wN-riR" eventType="touchUpInside" id="vSN-y0-wzt"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-gP-SAO">
+                                <rect key="frame" x="10" y="10" width="355" height="230"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-zv-Zpx">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
+                                        <color key="backgroundColor" red="0.79409950650000005" green="0.42969085460000001" blue="0.43576433219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="prA-Cb-ByY"/>
+                                        </constraints>
+                                        <state key="normal" title="Clear canvas">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clear" destination="xwO-wN-riR" eventType="touchUpInside" id="lRG-9K-NHG"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ev3-X8-Mmw">
+                                        <rect key="frame" x="0.0" y="54" width="355" height="148"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ0-mf-kVd">
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="148"/>
+                                                <color key="backgroundColor" red="0.0" green="0.69019607843137254" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Twitter" image="Twitter">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="authWithTwitter" destination="xwO-wN-riR" eventType="touchUpInside" id="Wqk-1h-hHk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf9-2y-3vy">
+                                                <rect key="frame" x="182.5" y="0.0" width="172.5" height="148"/>
+                                                <color key="backgroundColor" red="0.20392156862745098" green="0.27450980392156865" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Tumblr" image="Tumblr">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="authWithTumblr" destination="xwO-wN-riR" eventType="touchUpInside" id="Ek5-1J-pN4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="qf9-2y-3vy" firstAttribute="width" secondItem="jZ0-mf-kVd" secondAttribute="width" id="STf-f7-khj"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j65-F4-HFQ">
+                                        <rect key="frame" x="0.0" y="212" width="355" height="18"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-JF-Dos">
+                                                <rect key="frame" x="0.0" y="0.0" width="124" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Made by @rofreg">
+                                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-NE-Etq">
+                                                <rect key="frame" x="134" y="0.0" width="114" height="18"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz0-2Q-Qrb">
+                                                <rect key="frame" x="258" y="0.0" width="97" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Send feedback">
+                                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="fm1-TD-UMb"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Rqt-8z-kOe" firstAttribute="top" secondItem="xf7-gP-SAO" secondAttribute="bottom" constant="10" id="WI2-1e-Acx"/>
+                            <constraint firstItem="xf7-gP-SAO" firstAttribute="leading" secondItem="r3c-Hx-RL3" secondAttribute="leading" constant="10" id="Y01-SZ-Hwm"/>
+                            <constraint firstAttribute="trailing" secondItem="xf7-gP-SAO" secondAttribute="trailing" constant="10" id="umA-Dl-7N0"/>
+                            <constraint firstItem="xf7-gP-SAO" firstAttribute="top" secondItem="tlD-vX-4VD" secondAttribute="bottom" constant="10" id="wtB-Jn-ar4"/>
+                        </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <size key="freeformSize" width="375" height="250"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q42-l1-HVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,6 +326,8 @@
         <image name="Eraser" width="26" height="22"/>
         <image name="Pencil" width="22" height="22"/>
         <image name="Redo" width="22" height="22"/>
+        <image name="Tumblr" width="16" height="16"/>
+        <image name="Twitter" width="16" height="16"/>
         <image name="Undo" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
