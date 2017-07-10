@@ -91,6 +91,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func post(_ sender: AnyObject) {
+        // Don't post if we haven't drawn any strokes
+        guard jotView.state.everyVisibleStroke().count > 0 else {
+            let alert = UIAlertController(
+                title: "Your sketch is blank",
+                message: "You haven't drawn anything yet, silly!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+
         dismissPopover()
 
         jotView.exportToImage(onComplete: { (image) in
