@@ -157,7 +157,6 @@ extension ViewController: JotViewDelegate {
         let minSize = AppConfig.shared.width, maxSize = minSize * 1.5
         var width = (maxSize + minSize) / 2.0
         width *= Double(coalescedTouch.force)
-        print(coalescedTouch.force)
         if width < minSize {
             width = minSize
         }
@@ -176,40 +175,32 @@ extension ViewController: JotViewDelegate {
     }
 
     func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
-        print("smoothness")
         return 0.75
     }
 
     func willAddElements(_ elements: [Any]!,
                          to stroke: JotStroke!,
                          fromPreviousElement previousElement: AbstractBezierPathElement!) -> [Any]! {
-        print("willAddElements")
         return elements
     }
 
     func willBeginStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> Bool {
-        print("willBeginStroke")
         return true
     }
 
     func willMoveStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
-        print("willMoveStroke")
     }
 
     func willEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, shortStrokeEnding: Bool) {
-        print("willEndStroke")
     }
 
     func didEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
-        print("didEndStroke")
     }
 
     func willCancel(_ stroke: JotStroke!, withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
-        print("willCancel")
     }
 
     func didCancel(_ stroke: JotStroke!, withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
-        print("didCancel")
     }
 }
 
@@ -242,6 +233,9 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 
             // Also set the popover arrow color to match the rest of the popover
             popoverPresentationController.backgroundColor = currentPopoverController!.view.backgroundColor
+
+            // Allow touches on the drawing view while the popover is open
+            popoverPresentationController.passthroughViews = [jotView]
         }
     }
 

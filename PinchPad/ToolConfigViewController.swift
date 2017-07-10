@@ -10,12 +10,15 @@ import Foundation
 
 class ToolConfigViewController: UIViewController {
     @IBOutlet var previewWindow: UIView!
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var sliderContainer: UIView!
     @IBOutlet var colorCollectionView: UICollectionView!
 
     let colors = [UIColor.black, UIColor(hex:"999999"), UIColor(hex:"dddddd"), UIColor(hex:"F2CA42"),
                   UIColor(hex:"00C3A9"), UIColor(hex:"D45354"), UIColor(hex:"2FCAD8"), UIColor(hex:"663300"),
                   UIColor(hex:"af7a56"), UIColor(hex:"ab7dbe"), UIColor(hex:"ff8960"), UIColor(hex:"6e99d4"),
                   UIColor(hex:"4c996e"), UIColor(hex:"dc9bb1")]
+    let sizes = [0.0, 1.0, 4.0, 7.0, 12.0, 30.0, 60.0]
 
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(
@@ -28,6 +31,13 @@ class ToolConfigViewController: UIViewController {
         previewWindow.layer.borderColor = UIColor(hex: "dddddd").cgColor
         previewWindow.layer.borderWidth = 1
         updatePreview()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        if let sizeIndex = sizes.index(of: AppConfig.shared.rawWidth) {
+            slider.value = Float(sizeIndex)
+        }
+        updateSliderContainer()
     }
 
     func updatePreview() {
@@ -49,6 +59,35 @@ class ToolConfigViewController: UIViewController {
             toolPreview.backgroundColor = UIColor.white
         } else {
             previewWindow.backgroundColor = UIColor.white
+        }
+    }
+
+    @IBAction func widthChanged(_ sender: UISlider) {
+        let roundedValue = Int(round(sender.value))
+        sender.setValue(Float(roundedValue), animated: false)
+
+        let toolSize = sizes[roundedValue]
+        AppConfig.shared.width = toolSize
+
+        updateSliderContainer()
+    }
+
+    func updateSliderContainer() {
+        for view in sliderContainer.subviews where !(view is UISlider) {
+            view.removeFromSuperview()
+        }
+
+        var fullWidth = sliderContainer.frame.width
+        let fullHeight = sliderContainer.frame.height
+        let adjustmentRadius: CGFloat = 28.0
+        fullWidth -= adjustmentRadius
+
+        for index in 0...5 {
+            let tickMark = UIView(frame: CGRect(x: CGFloat(index) * (fullWidth / 5.0) - 1 + adjustmentRadius / 2.0,
+                                                y: fullHeight * 0.3 + 0.5, width: 2, height: fullHeight * 0.4))
+            tickMark.backgroundColor =
+                (index < Int(slider.value) ? slider.minimumTrackTintColor : slider.maximumTrackTintColor)
+            sliderContainer.insertSubview(tickMark, at: 0)
         }
     }
 }

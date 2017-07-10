@@ -25,7 +25,7 @@ class AppConfig {
 
     var width: Double {
         get {
-            return tool == .eraser ? rawWidth * 2.5 : rawWidth
+            return tool == .eraser ? rawWidth * 2.0 : rawWidth
         }
         set {
             self.rawWidth = newValue
@@ -33,7 +33,7 @@ class AppConfig {
         }
     }
 
-    private var rawWidth: Double = 4.0
+    var rawWidth: Double = 4.0
 
     var frameLength: Double = 0.5 {
         didSet {
