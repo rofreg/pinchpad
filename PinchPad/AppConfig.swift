@@ -41,7 +41,18 @@ class AppConfig {
         }
     }
 
-    func toolConfigChanged() {
+    var twitterUsername: String? {
+        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
+            return session.userName
+        }
+        return nil
+    }
+
+    var tumblrUsername: String? {
+        return nil
+    }
+
+    private func toolConfigChanged() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self)
     }
 }

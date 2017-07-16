@@ -18,7 +18,13 @@ class ViewController: UIViewController {
     var currentPopoverController: UIViewController?
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        // Don't allow rotation between landscape and portrait – it would corrupt the drawing view
+        // Allow free rotation when the canvas is blank
+        if canvasIsBlank() {
+            return .all
+        }
+
+        // Once we start drawing, don't allow rotation between landscape and portrait
+        // (It would distort the drawing view)
         switch UIApplication.shared.statusBarOrientation {
         case .landscapeLeft, .landscapeRight:
             return .landscape
@@ -51,17 +57,6 @@ class ViewController: UIViewController {
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
         jotView.loadState(jotViewStateProxy)
-
-        // Add a temporary Twitter login button
-        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
-            if let session = session {
-                print("signed in as \(session.userName)")
-            } else {
-                print("error: \(error?.localizedDescription ?? "unknown error")")
-            }
-        })
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
     }
 
     func subscribeToNotifications() {
@@ -94,9 +89,18 @@ class ViewController: UIViewController {
         jotView.redo()
     }
 
+    func canvasIsBlank() -> Bool {
+        guard let jotView = jotView else {
+            // If the JotView isn't initialized yet, we can rotate however we want
+            return true
+        }
+
+        return jotView.state.everyVisibleStroke().count == 0
+    }
+
     @IBAction func post(_ sender: AnyObject) {
         // Don't post if we haven't drawn any strokes
-        guard jotView.state.everyVisibleStroke().count > 0 else {
+        guard !canvasIsBlank() else {
             let alert = UIAlertController(
                 title: "Your sketch is blank",
                 message: "You haven't drawn anything yet, silly!",

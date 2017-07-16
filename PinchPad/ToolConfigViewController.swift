@@ -37,6 +37,9 @@ class ToolConfigViewController: UIViewController {
         if let sizeIndex = sizes.index(of: AppConfig.shared.rawWidth) {
             slider.value = Float(sizeIndex)
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         updateSliderContainer()
     }
 
