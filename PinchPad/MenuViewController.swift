@@ -92,7 +92,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func madeByRofreg() {
-        UIApplication.shared.openURL(URL(string:"https://www.rofreg.com")!)
+        UIApplication.shared.open(URL(string:"https://www.rofreg.com")!)
     }
 
     @IBAction func sendFeedback() {

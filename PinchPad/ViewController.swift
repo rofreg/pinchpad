@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     var currentPopoverController: UIViewController?
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        // Allow free rotation when the canvas is blank
-        if canvasIsBlank() {
+        // Allow free rotation when the canvas is blank and the platform is iPad
+        if canvasIsBlank() && UIScreen.main.portraitBounds().width >= 768 {
             return .all
         }
 
