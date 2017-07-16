@@ -150,6 +150,7 @@ class ViewController: UIViewController {
 
     func clear() {
         jotView.clear(true)
+        dismissPopover()
     }
 
     func dismissPopover() {
