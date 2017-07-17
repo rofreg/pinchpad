@@ -38,21 +38,21 @@ PODS:
   - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
-  - TMTumblrSDK (4.0.4):
-    - TMTumblrSDK/Activity (= 4.0.4)
-    - TMTumblrSDK/APIClient (= 4.0.4)
-    - TMTumblrSDK/AppClient (= 4.0.4)
-    - TMTumblrSDK/Core (= 4.0.4)
-  - TMTumblrSDK/Activity (4.0.4)
-  - TMTumblrSDK/APIClient (4.0.4):
+  - TMTumblrSDK (4.0.5):
+    - TMTumblrSDK/Activity (= 4.0.5)
+    - TMTumblrSDK/APIClient (= 4.0.5)
+    - TMTumblrSDK/AppClient (= 4.0.5)
+    - TMTumblrSDK/Core (= 4.0.5)
+  - TMTumblrSDK/Activity (4.0.5)
+  - TMTumblrSDK/APIClient (4.0.5):
     - JXHTTP
-    - TMTumblrSDK/APIClient/Authentication (= 4.0.4)
-  - TMTumblrSDK/APIClient/Authentication (4.0.4):
+    - TMTumblrSDK/APIClient/Authentication (= 4.0.5)
+  - TMTumblrSDK/APIClient/Authentication (4.0.5):
     - JXHTTP
     - TMTumblrSDK/Core
-  - TMTumblrSDK/AppClient (4.0.4):
+  - TMTumblrSDK/AppClient (4.0.5):
     - TMTumblrSDK/Core
-  - TMTumblrSDK/Core (4.0.4):
+  - TMTumblrSDK/Core (4.0.5):
     - Spectacles (~> 1.0)
   - TwitterCore (3.0.0)
   - TwitterKit (3.0.1):
@@ -68,19 +68,12 @@ DEPENDENCIES:
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
-  - TMTumblrSDK (from `https://github.com/tumblr/TMTumblrSDK.git`)
+  - TMTumblrSDK
   - TwitterKit
 
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
-  TMTumblrSDK:
-    :git: https://github.com/tumblr/TMTumblrSDK.git
-
-CHECKOUT OPTIONS:
-  TMTumblrSDK:
-    :commit: c76c771c15d275d70c2881734924a19016ed2302
-    :git: https://github.com/tumblr/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -100,10 +93,10 @@ SPEC CHECKSUMS:
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
-  TMTumblrSDK: 7b253e968a31f515aee0ee5f7e5faa8b7b0d0470
+  TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: f2acdce4b38b6251cd2e4c35d343a5b01569540c
+PODFILE CHECKSUM: 61b6c45664f75399c62853f9c74d97a344a8f7f5
 
 COCOAPODS: 1.2.1
