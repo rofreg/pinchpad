@@ -14,7 +14,8 @@ class MenuViewController: UIViewController {
     @IBOutlet var mainStackView: UIStackView!
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
-    @IBOutlet var stepperContainerView: UIView!
+    @IBOutlet var frameDurationLabel: UILabel!
+    @IBOutlet var frameLengthStepper: UIStepper!
     @IBOutlet var addFrameButton: UIButton!
     @IBOutlet var viewPreviewButton: UIButton!
     @IBOutlet var undoFrameButton: UIButton!
@@ -22,6 +23,16 @@ class MenuViewController: UIViewController {
     let grayButtonColor = UIColor(hex: "999999")
     let twitterColor = UIColor(hex: "00B0ED")
     let tumblrColor = UIColor(hex: "34465D")
+
+    override func viewDidLoad() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(MenuViewController.updateAnimationViews),
+            name: NSNotification.Name(rawValue: "AnimationDidChange"),
+            object: nil
+        )
+        updateAnimationViews()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         // Resize to fit content
@@ -59,8 +70,30 @@ class MenuViewController: UIViewController {
         }
     }
 
+    func updateAnimationViews() {
+        addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
+        let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
+        frameDurationLabel.text = "Show for\n\(frameDurationString)s"
+    }
+
     @IBAction func clear() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ClearCanvas"), object: self)
+    }
+
+    @IBAction func frameLengthChange() {
+        AppConfig.shared.frameLength = frameLengthStepper.value
+    }
+
+    @IBAction func addAnimationFrame() {
+        AppConfig.shared.animationFrames.append(
+            SketchFrame(imageData: Data(), duration: AppConfig.shared.frameLength)
+        )
+    }
+
+    @IBAction func removeAnimationFrame() {
+        if AppConfig.shared.animationFrames.count > 0 {
+            AppConfig.shared.animationFrames.removeLast()
+        }
     }
 
     @IBAction func authWithTwitter() {

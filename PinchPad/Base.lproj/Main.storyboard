@@ -194,9 +194,12 @@
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="0.5" minimumValue="0.10000000000000001" maximumValue="10" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-DH-ITz">
+                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="0.5" minimumValue="0.10000000000000001" maximumValue="5" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="G2W-DH-ITz">
                                                         <rect key="frame" x="64" y="7.5" width="94" height="29"/>
                                                         <color key="tintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="frameLengthChange" destination="xwO-wN-riR" eventType="valueChanged" id="mUG-eI-7f9"/>
+                                                        </connections>
                                                     </stepper>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaK-Qo-AJg">
                                                         <rect key="frame" x="168" y="0.0" width="187" height="44"/>
@@ -208,6 +211,9 @@
                                                         <state key="normal" title="Add frame #1">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="addAnimationFrame" destination="xwO-wN-riR" eventType="touchUpInside" id="BVf-5V-HZl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -233,6 +239,9 @@
                                                         <state key="normal" title="Undo last frame">
                                                             <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="removeAnimationFrame" destination="xwO-wN-riR" eventType="touchUpInside" id="bUX-F1-ZKr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -362,6 +371,8 @@
                     <size key="freeformSize" width="375" height="400"/>
                     <connections>
                         <outlet property="addFrameButton" destination="iaK-Qo-AJg" id="f7P-AH-nqn"/>
+                        <outlet property="frameDurationLabel" destination="gvx-40-WiA" id="gmz-WH-89S"/>
+                        <outlet property="frameLengthStepper" destination="G2W-DH-ITz" id="DYN-JQ-GZX"/>
                         <outlet property="mainStackView" destination="xf7-gP-SAO" id="IQO-N5-lMJ"/>
                         <outlet property="tumblrButton" destination="qf9-2y-3vy" id="uor-fj-fPt"/>
                         <outlet property="twitterButton" destination="jZ0-mf-kVd" id="bzJ-Ml-Hs4"/>

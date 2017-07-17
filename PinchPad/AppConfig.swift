@@ -37,7 +37,17 @@ class AppConfig {
 
     var frameLength: Double = 0.5 {
         didSet {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "FrameLengthDidChange"), object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "AnimationDidChange"), object: self)
+        }
+    }
+
+    var animation: UIImage? {
+        return nil
+    }
+
+    var animationFrames: [SketchFrame] = [] {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "AnimationDidChange"), object: self)
         }
     }
 
@@ -55,4 +65,9 @@ class AppConfig {
     private func toolConfigChanged() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self)
     }
+}
+
+struct SketchFrame {
+    let imageData: Data
+    let duration: Double
 }
