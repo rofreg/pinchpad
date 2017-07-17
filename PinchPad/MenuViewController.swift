@@ -120,12 +120,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func authWithTumblr() {
-        TMAPIClient.sharedInstance().authenticate("pinchpad", from: self) { (_) in
-            TMAPIClient.sharedInstance().userInfo({ (result, error) in
-                // TODO: pick a blog, save the name
-                // also save OAuth credentials
-            })
-        }
+        AuthManager.logInToTumblr()
     }
 
     @IBAction func madeByRofreg() {

@@ -7,6 +7,7 @@
 //
 
 import TMTumblrSDK
+import Locksmith
 
 enum SketchTool: Int {
     case pen
@@ -61,9 +62,8 @@ class AppConfig {
     }
 
     var tumblrUsername: String? {
-        if TMAPIClient.sharedInstance().oAuthToken != nil {
-            // TODO: Get real Tumblr username
-            return "???"
+        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Tumblr") {
+            return dictionary["Blog"] as? String
         }
         return nil
     }
