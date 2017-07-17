@@ -27,8 +27,10 @@ class MenuViewController: UIViewController {
         // Resize to fit content
         self.preferredContentSize.height = mainStackView.frame.size.height + 20
 
-        twitterButton.titleLabel?.numberOfLines = 0
-        tumblrButton.titleLabel?.numberOfLines = 0
+        [twitterButton, tumblrButton].forEach { (button) in
+            button?.titleLabel?.numberOfLines = 0
+            button?.titleLabel?.lineBreakMode = .byWordWrapping
+        }
 
         addFrameButton.backgroundColor = grayButtonColor
         [viewPreviewButton, undoFrameButton].forEach { (button) in
@@ -44,7 +46,7 @@ class MenuViewController: UIViewController {
             twitterButton.setTitle("Connected as\n\(twitterUsername)", for: .normal)
             twitterButton.backgroundColor = twitterColor
         } else {
-            twitterButton.setTitle("Not\nconnected", for: .normal)
+            twitterButton.setTitle("Not connected", for: .normal)
             twitterButton.backgroundColor = grayButtonColor
         }
 
@@ -52,7 +54,7 @@ class MenuViewController: UIViewController {
             tumblrButton.setTitle("Connected as\n\(tumblrUsername)", for: .normal)
             tumblrButton.backgroundColor = tumblrColor
         } else {
-            tumblrButton.setTitle("Not\nconnected", for: .normal)
+            tumblrButton.setTitle("Not connected", for: .normal)
             tumblrButton.backgroundColor = grayButtonColor
         }
     }
