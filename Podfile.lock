@@ -29,6 +29,11 @@ PODS:
   - JXHTTP (3.0.2)
   - Keys (1.0.0)
   - Protobuf (3.3.0)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
   - Spectacles (1.0.1)
   - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
@@ -59,6 +64,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crash
   - Keys (from `Pods/CocoaPodsKeys`)
+  - RealmSwift
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
@@ -88,6 +94,8 @@ SPEC CHECKSUMS:
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
@@ -96,6 +104,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: d54b9d27a6c5bcdf7a18f7bde0ac4fcfa4abb1b6
+PODFILE CHECKSUM: f2acdce4b38b6251cd2e4c35d343a5b01569540c
 
 COCOAPODS: 1.2.1
