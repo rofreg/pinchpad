@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var redoButton: UIBarButtonItem!
     @IBOutlet var pencilButton: UIBarButtonItem!
     @IBOutlet var eraserButton: UIBarButtonItem!
+    @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var jotView: JotView!
     var jotViewStateProxy: JotViewStateProxy!
     var currentPopoverController: UIViewController?
@@ -111,21 +112,29 @@ class ViewController: UIViewController {
             return
         }
 
-        dismissPopover()
+        // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
+        let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+        jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
+    }
 
-        jotView.exportToImage(onComplete: { (image) in
-            let imageData = UIImagePNGRepresentation(image!)
+    func saveImage(_ image: UIImage?) {
+        guard let image = image else {
+            return
+        }
 
-            // If we're not logged into any services, let's just share this using the native iOS dialog
-            if let imageData = imageData {
-                let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
-                vc.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
-                self.present(vc, animated: true, completion: nil)
-                return
-            }
+        let imageData = UIImagePNGRepresentation(image)
 
-            // TODO: if we ARE logged into services, we should post to them
-        }, withScale: UIScreen.main.scale)
+        // If we're not logged into any services, let's just share this using the native iOS dialog
+        if let imageData = imageData {
+            dismissPopover()
+
+            let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
+            vc.popoverPresentationController?.barButtonItem = postButton
+            self.present(vc, animated: true, completion: nil)
+            return
+        }
+
+        // TODO: if we ARE logged into services, we should post to them
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

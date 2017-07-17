@@ -116,6 +116,7 @@
                         <outlet property="eraserButton" destination="Mzn-s0-SC7" id="xi8-ay-I9b"/>
                         <outlet property="jotView" destination="Kf9-k3-hXs" id="1fJ-LI-cGK"/>
                         <outlet property="pencilButton" destination="W9j-Ye-sfQ" id="lL7-LX-Sxb"/>
+                        <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
                         <outlet property="redoButton" destination="O6z-50-jjF" id="9ms-hT-LBH"/>
                         <outlet property="undoButton" destination="rQk-u4-nkZ" id="eQM-bd-eO0"/>
                     </connections>
