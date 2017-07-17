@@ -134,7 +134,9 @@ class ViewController: UIViewController {
             return
         }
 
-        // TODO: if we ARE logged into services, we should post to them
+        // If we ARE logged into services, we need to post the sketch to those services
+        // We do this by saving Sketch records to the local database, then syncing them ASAP
+        // TODO
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

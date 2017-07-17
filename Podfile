@@ -13,6 +13,7 @@ target 'PinchPad' do
   pod 'TMTumblrSDK'
   pod 'ChromaColorPicker'
   pod 'RealmSwift'
+  pod 'Locksmith'
 end
 
 plugin 'cocoapods-keys', {

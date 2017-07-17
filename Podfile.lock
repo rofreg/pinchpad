@@ -28,6 +28,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - JXHTTP (3.0.2)
   - Keys (1.0.0)
+  - Locksmith (3.0.0)
   - Protobuf (3.3.0)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Crash
   - Keys (from `Pods/CocoaPodsKeys`)
+  - Locksmith
   - RealmSwift
   - SwiftLint
   - SwiftyJSON
@@ -86,6 +88,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
@@ -97,6 +100,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: 61b6c45664f75399c62853f9c74d97a344a8f7f5
+PODFILE CHECKSUM: 292805a2165f1eb9c93a18858ad9124c3dd01f1c
 
 COCOAPODS: 1.2.1
