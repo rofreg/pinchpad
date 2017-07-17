@@ -40,7 +40,6 @@ class MenuViewController: UIViewController {
 
         [twitterButton, tumblrButton].forEach { (button) in
             button?.titleLabel?.numberOfLines = 0
-            button?.titleLabel?.lineBreakMode = .byWordWrapping
         }
 
         addFrameButton.backgroundColor = grayButtonColor
@@ -54,18 +53,18 @@ class MenuViewController: UIViewController {
 
     func updateAdvancedOptions() {
         if let twitterUsername = AppConfig.shared.twitterUsername {
-            twitterButton.setTitle("Connected as\n\(twitterUsername)", for: .normal)
+            twitterButton.setTitle("Connected as \(twitterUsername)", for: .normal)
             twitterButton.backgroundColor = twitterColor
         } else {
-            twitterButton.setTitle("Not connected", for: .normal)
+            twitterButton.setTitle("Connect to Twitter", for: .normal)
             twitterButton.backgroundColor = grayButtonColor
         }
 
         if let tumblrUsername = AppConfig.shared.tumblrUsername {
-            tumblrButton.setTitle("Connected as\n\(tumblrUsername)", for: .normal)
+            tumblrButton.setTitle("Connected as \(tumblrUsername)", for: .normal)
             tumblrButton.backgroundColor = tumblrColor
         } else {
-            tumblrButton.setTitle("Not connected", for: .normal)
+            tumblrButton.setTitle("Connect to Tumblr", for: .normal)
             tumblrButton.backgroundColor = grayButtonColor
         }
     }
@@ -122,7 +121,10 @@ class MenuViewController: UIViewController {
 
     @IBAction func authWithTumblr() {
         TMAPIClient.sharedInstance().authenticate("pinchpad", from: self) { (_) in
-            self.dismiss(animated: true, completion: nil)
+            TMAPIClient.sharedInstance().userInfo({ (result, error) in
+                // TODO: pick a blog, save the name
+                // also save OAuth credentials
+            })
         }
     }
 

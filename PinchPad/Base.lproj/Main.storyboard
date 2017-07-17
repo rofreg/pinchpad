@@ -284,7 +284,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vF1-i9-hb9">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ0-mf-kVd">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ0-mf-kVd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="172.5" height="44"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.69019607843137254" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -299,7 +299,7 @@
                                                                     <action selector="authWithTwitter" destination="xwO-wN-riR" eventType="touchUpInside" id="Wqk-1h-hHk"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf9-2y-3vy">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf9-2y-3vy">
                                                                 <rect key="frame" x="182.5" y="0.0" width="172.5" height="44"/>
                                                                 <color key="backgroundColor" red="0.20392156862745098" green="0.27450980392156865" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

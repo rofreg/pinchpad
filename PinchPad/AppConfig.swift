@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ryan Laughlin. All rights reserved.
 //
 
+import TMTumblrSDK
+
 enum SketchTool: Int {
     case pen
     case eraser
@@ -59,6 +61,10 @@ class AppConfig {
     }
 
     var tumblrUsername: String? {
+        if TMAPIClient.sharedInstance().oAuthToken != nil {
+            // TODO: Get real Tumblr username
+            return "???"
+        }
         return nil
     }
 
