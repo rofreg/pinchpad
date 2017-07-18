@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     var jotViewStateProxy: JotViewStateProxy!
     var currentPopoverController: UIViewController?
 
+    var realmNotificationToken: NotificationToken?
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         // Allow free rotation when the canvas is blank and the platform is iPad
         if canvasIsBlank() && UIScreen.main.portraitBounds().width >= 768 {
@@ -61,7 +63,11 @@ class ViewController: UIViewController {
                                                      andBufferManager: JotBufferManager.sharedInstance())
         jotView.loadState(jotViewStateProxy)
 
-        statusBarLabel.text = "\(AppConfig.realm.objects(Sketch.self).count) sketches pending"
+        updateStatusBar()
+    }
+
+    deinit {
+        realmNotificationToken?.stop()
     }
 
     func subscribeToNotifications() {
@@ -74,6 +80,12 @@ class ViewController: UIViewController {
                                                selector: #selector(ViewController.clear),
                                                name: NSNotification.Name(rawValue: "ClearCanvas"),
                                                object: nil)
+
+        // Update the status bar after any database change
+        let realm = try! Realm()
+        realmNotificationToken = realm.addNotificationBlock { _, _ in
+            self.updateStatusBar()
+        }
     }
 
     func updateToolbarDisplay() {
@@ -84,6 +96,12 @@ class ViewController: UIViewController {
             pencilButton.tintColor = self.view.tintColor
             eraserButton.tintColor = UIColor.lightGray
         }
+    }
+
+    func updateStatusBar() {
+        let realm = try! Realm()
+        self.statusBarLabel.isHidden = realm.objects(Sketch.self).count == 0
+        self.statusBarLabel.text = "\(realm.objects(Sketch.self).count) sketches pending"
     }
 
     @IBAction func undo() {
@@ -144,9 +162,15 @@ class ViewController: UIViewController {
         sketch.caption = "test"
         sketch.image = imageData
 
-        try! AppConfig.realm.write {
-            AppConfig.realm.add(sketch)
-            Sketch.syncAll()
+        let realm = try! Realm()
+        try! realm.write { realm.add(sketch) }
+
+        // Now try to sync all pending sketches
+        Sketch.syncAll()
+
+        // On the main thread, clear the drawing view
+        DispatchQueue.main.async {
+            self.clear()
         }
     }
 
