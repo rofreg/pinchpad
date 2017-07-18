@@ -12,5 +12,6 @@ import RealmSwift
 final class Sketch: Object {
     dynamic var image: Data?
     dynamic var caption: String?
-    dynamic var syncStarted: Date?
+    dynamic var twitterSyncStarted: Date?
+    dynamic var tumblrSyncStarted: Date?
 }

@@ -11,20 +11,64 @@ import TMTumblrSDK
 import SwiftyJSON
 import Locksmith
 
-enum AuthManagerService: Int {
-    case twitter
-    case tumblr
+protocol PostableAccount {
+    static var isLoggedIn: Bool { get }
+    static var username: String? { get }
+    static func logIn()
+    static func logOut()
+    static func post()
 }
 
-class AuthManager {
-    class func logInToTwitter() {
+extension PostableAccount {
+    static func notifyAuthChanged() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthChanged"), object: nil)
+    }
+}
+
+class TwitterAccount: PostableAccount {
+    static var isLoggedIn: Bool {
+        return Twitter.sharedInstance().sessionStore.session() != nil
+    }
+
+    static var username: String? {
+        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
+            return session.userName
+        }
+        return nil
+    }
+
+    static func logIn() {
         // Present Twitter login modal
         Twitter.sharedInstance().logIn(completion: { (_, _) -> Void in
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthChanged"), object: nil)
+            notifyAuthChanged()
         })
     }
 
-    class func logInToTumblr() {
+    static func logOut() {
+        let sessionStore = Twitter.sharedInstance().sessionStore
+        if let session = sessionStore.session() {
+            sessionStore.logOutUserID(session.userID)
+        }
+    }
+
+    static func post() {
+        // TODO: actually post
+    }
+}
+
+class TumblrAccount: PostableAccount {
+    static var isLoggedIn: Bool {
+        return Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil
+    }
+
+    static var username: String? {
+        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Tumblr") {
+            return dictionary["Blog"] as? String
+        }
+        return nil
+    }
+
+    static func logIn() {
         let appDelegate = UIApplication.shared.delegate! as UIApplicationDelegate
         let rootViewController = appDelegate.window!!.rootViewController! as UIViewController
         rootViewController.dismiss(animated: true, completion: nil)
@@ -49,7 +93,7 @@ class AuthManager {
                         // Automatically select the user's first blog
                         tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
                         try? Locksmith.updateData(data: tumblrInfoToPersist, forUserAccount: "Tumblr")
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthChanged"), object: nil)
+                        notifyAuthChanged()
                     } else if blogs.count > 1 {
                         // Have the user pick manually if they have 2+ blogs
                         let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?",
@@ -64,8 +108,7 @@ class AuthManager {
                                 tumblrInfoToPersist["Blog"] = blog["name"].string!
                                 try? Locksmith.updateData(data: tumblrInfoToPersist,
                                                           forUserAccount: "Tumblr")
-                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AuthChanged"),
-                                                                object: nil)
+                                notifyAuthChanged()
                             })
                             blogChoiceMenu.addAction(button)
                         }
@@ -84,5 +127,29 @@ class AuthManager {
                 }
             })
         }
+    }
+
+    static func logOut() {
+        // Clear Tumblr SDK vars and keychain
+        TMAPIClient.sharedInstance().oAuthToken = nil
+        TMAPIClient.sharedInstance().oAuthTokenSecret = nil
+        try? Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
+    }
+
+    static func post() {
+        // TODO: actually post
+    }
+}
+
+class AuthManager {
+    class var postableAccounts: [PostableAccount] {
+        var accounts: [PostableAccount] = []
+        if Twitter.sharedInstance().sessionStore.session() != nil {
+            accounts.append(TwitterAccount())
+        }
+        if Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil {
+            accounts.append(TumblrAccount())
+        }
+        return accounts
     }
 }

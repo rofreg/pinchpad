@@ -14,6 +14,11 @@ enum SketchTool: Int {
     case eraser
 }
 
+struct SketchFrame {
+    let imageData: Data
+    let duration: Double
+}
+
 class AppConfig {
     // Set up a singleton instance
     static let shared = AppConfig()
@@ -44,8 +49,9 @@ class AppConfig {
         }
     }
 
-    var animation: UIImage? {
-        return nil
+    var animation: Data? {
+        // TODO: assemble SketchFrames into an image
+        return animationFrames.first?.imageData
     }
 
     var animationFrames: [SketchFrame] = [] {
@@ -54,26 +60,7 @@ class AppConfig {
         }
     }
 
-    var twitterUsername: String? {
-        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
-            return session.userName
-        }
-        return nil
-    }
-
-    var tumblrUsername: String? {
-        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Tumblr") {
-            return dictionary["Blog"] as? String
-        }
-        return nil
-    }
-
     private func toolConfigChanged() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ToolConfigChanged"), object: self)
     }
-}
-
-struct SketchFrame {
-    let imageData: Data
-    let duration: Double
 }

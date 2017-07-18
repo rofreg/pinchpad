@@ -32,6 +32,13 @@ class MenuViewController: UIViewController {
             object: nil
         )
         updateAnimationViews()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(MenuViewController.updateAdvancedOptions),
+            name: NSNotification.Name(rawValue: "AuthChanged"),
+            object: nil
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +58,16 @@ class MenuViewController: UIViewController {
         updateAdvancedOptions()
     }
 
+    // MARK: Redrawing subviews
+
+    func updateAnimationViews() {
+        addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
+        let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
+        frameDurationLabel.text = "Show for\n\(frameDurationString)s"
+    }
+
     func updateAdvancedOptions() {
-        if let twitterUsername = AppConfig.shared.twitterUsername {
+        if let twitterUsername = TwitterAccount.username {
             twitterButton.setTitle("Connected as \(twitterUsername)", for: .normal)
             twitterButton.backgroundColor = twitterColor
         } else {
@@ -60,7 +75,7 @@ class MenuViewController: UIViewController {
             twitterButton.backgroundColor = grayButtonColor
         }
 
-        if let tumblrUsername = AppConfig.shared.tumblrUsername {
+        if let tumblrUsername = TumblrAccount.username {
             tumblrButton.setTitle("Connected as \(tumblrUsername)", for: .normal)
             tumblrButton.backgroundColor = tumblrColor
         } else {
@@ -69,11 +84,7 @@ class MenuViewController: UIViewController {
         }
     }
 
-    func updateAnimationViews() {
-        addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
-        let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
-        frameDurationLabel.text = "Show for\n\(frameDurationString)s"
-    }
+    // MARK: Handling user actions
 
     @IBAction func clear() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ClearCanvas"), object: self)
@@ -96,7 +107,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func authWithTwitter() {
-        if AppConfig.shared.twitterUsername != nil {
+        if TwitterAccount.isLoggedIn {
             // I guess we're logging out
             let alert = UIAlertController(
                 title: "Disconnect Twitter?",
@@ -105,22 +116,32 @@ class MenuViewController: UIViewController {
             )
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Disconnect", style: .default, handler: { (_) in
-                let sessionStore = Twitter.sharedInstance().sessionStore
-                if let session = sessionStore.session() {
-                    sessionStore.logOutUserID(session.userID)
-                    self.updateAdvancedOptions()
-                }
+                TwitterAccount.logOut()
+                self.updateAdvancedOptions()
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
-            Twitter.sharedInstance().logIn(completion: { (_, _) in
-                self.updateAdvancedOptions()
-            })
+            TwitterAccount.logIn()
         }
     }
 
     @IBAction func authWithTumblr() {
-        AuthManager.logInToTumblr()
+        if TumblrAccount.isLoggedIn {
+            // I guess we're logging out
+            let alert = UIAlertController(
+                title: "Disconnect Tumblr?",
+                message: "Are you sure you want to disconnect your Tumblr account?",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Disconnect", style: .default, handler: { (_) in
+                TumblrAccount.logOut()
+                self.updateAdvancedOptions()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            TumblrAccount.logIn()
+        }
     }
 
     @IBAction func madeByRofreg() {
