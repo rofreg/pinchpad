@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var eraserButton: UIBarButtonItem!
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var jotView: JotView!
+    @IBOutlet var statusBarLabel: UILabel!
     var jotViewStateProxy: JotViewStateProxy!
     var currentPopoverController: UIViewController?
 
@@ -59,6 +60,8 @@ class ViewController: UIViewController {
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
         jotView.loadState(jotViewStateProxy)
+
+        statusBarLabel.text = "\(AppConfig.realm.objects(Sketch.self).count) sketches pending"
     }
 
     func subscribeToNotifications() {

@@ -23,8 +23,9 @@ struct SketchFrame {
 class AppConfig {
     // Set up a singleton instance
     static let shared = AppConfig()
-
-    static let realm = try! Realm()
+    static var realm: Realm {
+        return try! Realm()
+    }
 
     var tool: SketchTool = .pen {
         didSet { toolConfigChanged() }

@@ -91,14 +91,27 @@
                                 <rect key="frame" x="0.0" y="64.5" width="375" height="602.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mly-tu-fL9">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WCE-qf-PPJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mly-tu-fL9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4r3-zo-ODM"/>
                             <constraint firstItem="hhQ-1u-Yyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8vE-nM-4F6"/>
                             <constraint firstItem="Kf9-k3-hXs" firstAttribute="top" secondItem="RN1-hK-1BL" secondAttribute="bottom" id="FXg-Hn-mLP"/>
+                            <constraint firstAttribute="trailing" secondItem="mly-tu-fL9" secondAttribute="trailing" id="HGz-sZ-5fB"/>
                             <constraint firstAttribute="trailing" secondItem="hhQ-1u-Yyt" secondAttribute="trailing" id="N5b-Dw-zm3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kf9-k3-hXs" secondAttribute="bottom" id="NVu-Vb-4E8"/>
                             <constraint firstItem="RN1-hK-1BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PKa-ub-wKM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mly-tu-fL9" secondAttribute="bottom" id="Pm9-3o-j0i"/>
                             <constraint firstItem="qmy-zD-v27" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pvb-6e-f6n"/>
                             <constraint firstAttribute="trailing" secondItem="qmy-zD-v27" secondAttribute="trailing" id="aWh-S9-xfR"/>
                             <constraint firstItem="hhQ-1u-Yyt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="al2-sv-d91"/>
@@ -118,6 +131,7 @@
                         <outlet property="pencilButton" destination="W9j-Ye-sfQ" id="lL7-LX-Sxb"/>
                         <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
                         <outlet property="redoButton" destination="O6z-50-jjF" id="9ms-hT-LBH"/>
+                        <outlet property="statusBarLabel" destination="mly-tu-fL9" id="ABD-8q-Ath"/>
                         <outlet property="undoButton" destination="rQk-u4-nkZ" id="eQM-bd-eO0"/>
                     </connections>
                 </viewController>

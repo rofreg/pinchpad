@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Try syncing whenever we re-open the app from the background
         // (If we're launching, .sync() will already get called when we set up the NetworkReachabilityManager)
-        if (!initialLaunch) {
+        if !initialLaunch {
             Sketch.syncAll()
         }
 
