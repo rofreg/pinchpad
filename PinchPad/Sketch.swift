@@ -14,4 +14,9 @@ final class Sketch: Object {
     dynamic var caption: String?
     dynamic var twitterSyncStarted: Date?
     dynamic var tumblrSyncStarted: Date?
+
+    class func syncAll() {
+        // TODO: implement this
+        print("Post all unsynced sketches")
+    }
 }

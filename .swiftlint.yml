@@ -1,2 +1,5 @@
 excluded: # paths to ignore during linting. overridden by `included`.
 - Pods
+
+disabled_rules:
+- force_try

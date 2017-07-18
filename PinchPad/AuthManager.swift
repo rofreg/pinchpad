@@ -92,7 +92,7 @@ class TumblrAccount: PostableAccount {
                     if blogs.count == 1 {
                         // Automatically select the user's first blog
                         tumblrInfoToPersist["Blog"] = blogs[0]["name"].string!
-                        try? Locksmith.updateData(data: tumblrInfoToPersist, forUserAccount: "Tumblr")
+                        try! Locksmith.updateData(data: tumblrInfoToPersist, forUserAccount: "Tumblr")
                         notifyAuthChanged()
                     } else if blogs.count > 1 {
                         // Have the user pick manually if they have 2+ blogs
@@ -106,7 +106,7 @@ class TumblrAccount: PostableAccount {
                                                        style: .default,
                                                        handler: { (_) -> Void in
                                 tumblrInfoToPersist["Blog"] = blog["name"].string!
-                                try? Locksmith.updateData(data: tumblrInfoToPersist,
+                                try! Locksmith.updateData(data: tumblrInfoToPersist,
                                                           forUserAccount: "Tumblr")
                                 notifyAuthChanged()
                             })
@@ -117,7 +117,7 @@ class TumblrAccount: PostableAccount {
                         let cancelAction = UIAlertAction(title: "Cancel",
                                                          style: .cancel,
                                                          handler: { (_) -> Void in
-                            try? Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
+                            try! Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
                         })
                         blogChoiceMenu.addAction(cancelAction)
 
@@ -133,7 +133,7 @@ class TumblrAccount: PostableAccount {
         // Clear Tumblr SDK vars and keychain
         TMAPIClient.sharedInstance().oAuthToken = nil
         TMAPIClient.sharedInstance().oAuthTokenSecret = nil
-        try? Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
+        try! Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
     }
 
     static func post() {

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Ryan Laughlin. All rights reserved.
 //
 
+import RealmSwift
 import TMTumblrSDK
 import Locksmith
 
@@ -22,6 +23,8 @@ struct SketchFrame {
 class AppConfig {
     // Set up a singleton instance
     static let shared = AppConfig()
+
+    static let realm = try! Realm()
 
     var tool: SketchTool = .pen {
         didSet { toolConfigChanged() }

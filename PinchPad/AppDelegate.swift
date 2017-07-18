@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 import Keys
 import TMTumblrSDK
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var initialLaunch = true
     let keys = PinchPadKeys()
 
     func application(_ application: UIApplication,
@@ -25,6 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
         TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
 
+        // Sync on any connectivity changes
+        let manager = NetworkReachabilityManager(host: "www.apple.com")
+        manager?.listener = { status in
+            switch status {
+            case .reachable, .unknown:
+                Sketch.syncAll()
+            default:
+                break
+            }
+        }
+        manager?.startListening()
+
         return true
     }
 
@@ -34,5 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Handle login callbacks from Twitter and Tumblr
         return TMAPIClient.sharedInstance().handleOpen(url) ||
             Twitter.sharedInstance().application(app, open: url, options: options)
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Try syncing whenever we re-open the app from the background
+        // (If we're launching, .sync() will already get called when we set up the NetworkReachabilityManager)
+        if (!initialLaunch) {
+            Sketch.syncAll()
+        }
+
+        initialLaunch = false
     }
 }

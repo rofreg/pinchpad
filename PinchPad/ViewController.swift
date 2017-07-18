@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     @IBOutlet var undoButton: UIBarButtonItem!
@@ -122,10 +123,10 @@ class ViewController: UIViewController {
             return
         }
 
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = UIImagePNGRepresentation(image)!
 
         // If we're not logged into any services, let's just share this using the native iOS dialog
-        if let imageData = imageData {
+        if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
             dismissPopover()
 
             let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
@@ -135,8 +136,15 @@ class ViewController: UIViewController {
         }
 
         // If we ARE logged into services, we need to post the sketch to those services
-        // We do this by saving Sketch records to the local database, then syncing them ASAP
-        // TODO
+        // We do this by saving Sketch records to the local database, then syncing them in the background
+        let sketch = Sketch()
+        sketch.caption = "test"
+        sketch.image = imageData
+
+        try! AppConfig.realm.write {
+            AppConfig.realm.add(sketch)
+            Sketch.syncAll()
+        }
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
