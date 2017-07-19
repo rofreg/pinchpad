@@ -10,7 +10,7 @@ target 'PinchPad' do
   pod 'Alamofire'
   pod 'SwiftLint'
   pod 'TwitterKit'
-  pod 'TMTumblrSDK'
+  pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
   pod 'ChromaColorPicker'
   pod 'RealmSwift'
   pod 'Locksmith'

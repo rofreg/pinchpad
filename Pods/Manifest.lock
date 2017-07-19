@@ -70,12 +70,19 @@ DEPENDENCIES:
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
-  - TMTumblrSDK
+  - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
   - TwitterKit
 
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
+  TMTumblrSDK:
+    :git: https://github.com/rofreg/TMTumblrSDK.git
+
+CHECKOUT OPTIONS:
+  TMTumblrSDK:
+    :commit: 29efab51c1a3e16602809c98ad981ebd9b330c8b
+    :git: https://github.com/rofreg/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -100,6 +107,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: 292805a2165f1eb9c93a18858ad9124c3dd01f1c
+PODFILE CHECKSUM: fef57b02bb624194e097247cb5c48c28042aaeaa
 
 COCOAPODS: 1.2.1
