@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XFt-vO-mWj">
-                                <rect key="frame" x="134.5" y="286.5" width="100" height="100"/>
+                                <rect key="frame" x="142.5" y="278.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="WCp-Y8-vEY"/>
                                     <constraint firstAttribute="height" constant="100" id="bp3-p9-GRa"/>
@@ -31,8 +31,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XFt-vO-mWj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="3" id="BkQ-Db-rYD"/>
-                            <constraint firstItem="XFt-vO-mWj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-3" id="iFD-FU-CbQ"/>
+                            <constraint firstItem="XFt-vO-mWj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-5" id="BkQ-Db-rYD"/>
+                            <constraint firstItem="XFt-vO-mWj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="5" id="iFD-FU-CbQ"/>
                         </constraints>
                     </view>
                 </viewController>

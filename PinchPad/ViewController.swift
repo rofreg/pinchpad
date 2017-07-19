@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
         self.view.addSubview(jotView)
+        self.view.bringSubview(toFront: statusBarLabel)
 
         jotViewStateProxy = JotViewStateProxy()
         jotViewStateProxy.delegate = self
