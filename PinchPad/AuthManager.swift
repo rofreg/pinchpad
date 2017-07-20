@@ -16,7 +16,7 @@ protocol PostableAccount {
     static var username: String? { get }
     static func logIn()
     static func logOut()
-    static func post()
+    static func post(imageData: Data, completion: ((Bool) -> Void)?)
 }
 
 extension PostableAccount {
@@ -51,8 +51,9 @@ class TwitterAccount: PostableAccount {
         }
     }
 
-    static func post() {
+    static func post(imageData: Data, completion: ((Bool) -> Void)?) {
         // TODO: actually post
+        completion?(true)
     }
 }
 
@@ -136,8 +137,15 @@ class TumblrAccount: PostableAccount {
         try! Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
     }
 
-    static func post() {
+    static func post(imageData: Data, completion: ((Bool) -> Void)?) {
         // TODO: actually post
+        // For now, 'test' this by just waiting for 4 seconds
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(4), execute: {
+            // Perform DB writes on the main thread
+            DispatchQueue.main.sync {
+                completion?(true)
+            }
+        })
     }
 }
 

@@ -10,13 +10,104 @@ import Foundation
 import RealmSwift
 
 final class Sketch: Object {
-    dynamic var image: Data?
+    dynamic var createdAt = Date()
+    dynamic var imageData: Data?
     dynamic var caption: String?
     dynamic var twitterSyncStarted: Date?
+    dynamic var twitterSyncCompleted: Date?
     dynamic var tumblrSyncStarted: Date?
+    dynamic var tumblrSyncCompleted: Date?
 
     class func syncAll() {
-        // TODO: implement this
-        print("Post all unsynced sketches")
+        // If we're not logged in to any services, don't even try
+        if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
+            return
+        }
+
+        // Otherwise, try to sync all outstanding Sketches
+        let realm = try! Realm()
+        realm.objects(Sketch.self).sorted(byKeyPath: "createdAt").forEach { (sketch) in
+            sketch.post()
+        }
+    }
+
+    func post() {
+        if TwitterAccount.isLoggedIn {
+            postToTwitter()
+        }
+        if TumblrAccount.isLoggedIn {
+            postToTumblr()
+        }
+    }
+
+    func postToTwitter() {
+        // Don't double-post if we're already trying to sync
+        // (unless that sync attempt is more than 30 seconds old)
+        let thirtySecondsAgo = Date().addingTimeInterval(-30)
+        guard twitterSyncStarted == nil || twitterSyncStarted! < thirtySecondsAgo else {
+            print("Skipping sync attempt (Twitter post already in progress)")
+            return
+        }
+
+        // Claim this record for syncing
+        let realm = try! Realm()
+        try! realm.write { self.twitterSyncStarted = Date() }
+
+        // Let's actually post this image!
+        TwitterAccount.post(imageData: imageData!) { (success) in
+            let realm = try! Realm()
+            if success {
+                // Mark this sync as complete if successful
+                try! realm.write { self.twitterSyncCompleted = Date() }
+                self.deleteIfComplete()
+            } else {
+                // Clear this sync attempt
+                try! realm.write { self.twitterSyncStarted = nil }
+            }
+        }
+    }
+
+    func postToTumblr() {
+        // Don't double-post if we're already trying to sync
+        // (unless that sync attempt is more than 30 seconds old)
+        let thirtySecondsAgo = Date().addingTimeInterval(-30)
+        guard tumblrSyncStarted == nil || tumblrSyncStarted! < thirtySecondsAgo else {
+            print("Skipping sync attempt (Tumblr post already in progress)")
+            return
+        }
+
+        // Claim this record for syncing
+        let realm = try! Realm()
+        try! realm.write { self.tumblrSyncStarted = Date() }
+
+        // Let's actually post this image!
+        TumblrAccount.post(imageData: imageData!) { (success) in
+            let realm = try! Realm()
+            if success {
+                // Mark this sync as complete if successful
+                try! realm.write { self.tumblrSyncCompleted = Date() }
+                self.deleteIfComplete()
+            } else {
+                // Clear this sync attempt
+                try! realm.write { self.tumblrSyncStarted = nil }
+            }
+        }
+    }
+
+    func deleteIfComplete() {
+        if TwitterAccount.isLoggedIn && twitterSyncCompleted == nil {
+            return
+        }
+        if TumblrAccount.isLoggedIn && tumblrSyncCompleted == nil {
+            return
+        }
+        if self.isInvalidated {
+            // Looks like this record was already deleted
+            return
+        }
+
+        // We've completed posting to all services, so let's delete this Sketch from the local database
+        let realm = try! Realm()
+        try! realm.write { realm.delete(self) }
     }
 }

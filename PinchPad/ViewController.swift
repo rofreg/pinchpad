@@ -102,7 +102,11 @@ class ViewController: UIViewController {
     func updateStatusBar() {
         let realm = try! Realm()
         self.statusBarLabel.isHidden = realm.objects(Sketch.self).count == 0
-        self.statusBarLabel.text = "\(realm.objects(Sketch.self).count) sketches pending"
+        if realm.objects(Sketch.self).filter("twitterSyncStarted != nil || tumblrSyncStarted != nil").count > 0 {
+            statusBarLabel.text = "Syncing..."
+        } else {
+            statusBarLabel.text = "\(realm.objects(Sketch.self).count) sketches pending sync"
+        }
     }
 
     @IBAction func undo() {
@@ -161,13 +165,15 @@ class ViewController: UIViewController {
         // We do this by saving Sketch records to the local database, then syncing them in the background
         let sketch = Sketch()
         sketch.caption = "test"
-        sketch.image = imageData
+        sketch.imageData = imageData
 
         let realm = try! Realm()
-        try! realm.write { realm.add(sketch) }
+        try! realm.write {
+            realm.add(sketch)
+        }
 
-        // Now try to sync all pending sketches
-        Sketch.syncAll()
+        // Now try to post the new Sketch
+        sketch.post()
 
         // On the main thread, clear the drawing view
         DispatchQueue.main.async {
