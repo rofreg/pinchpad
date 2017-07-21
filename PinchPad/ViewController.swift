@@ -62,6 +62,7 @@ class ViewController: UIViewController {
                                                      andScale: UIScreen.main.scale,
                                                      andContext: jotView.context,
                                                      andBufferManager: JotBufferManager.sharedInstance())
+        jotViewStateProxy.undoLimit = 20
         jotView.loadState(jotViewStateProxy)
 
         updateStatusBar()
