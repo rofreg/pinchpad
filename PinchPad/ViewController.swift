@@ -164,7 +164,7 @@ class ViewController: UIViewController {
         // If we ARE logged into services, we need to post the sketch to those services
         // We do this by saving Sketch records to the local database, then syncing them in the background
         let sketch = Sketch()
-        sketch.caption = "test"
+        sketch.caption = "test" // TODO: implement a better caption
         sketch.imageData = imageData
 
         let realm = try! Realm()

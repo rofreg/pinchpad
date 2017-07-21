@@ -16,7 +16,7 @@ protocol PostableAccount {
     static var username: String? { get }
     static func logIn()
     static func logOut()
-    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?)
+    static func post(sketch: Sketch, completion: ((Bool) -> Void)?)
 }
 
 extension PostableAccount {
@@ -51,8 +51,9 @@ class TwitterAccount: PostableAccount {
         }
     }
 
-    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?) {
-        Twitter.sharedInstance().postStatus("\(caption) #pinchpad", imageData: imageData) { (success: Bool) in
+    static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
+        Twitter.sharedInstance().postStatus("\(sketch.caption!) #pinchpad",
+                                            imageData: sketch.imageData!) { (success: Bool) in
             print("Posted to Twitter: \(success)")
             completion?(success)
         }
@@ -139,14 +140,29 @@ class TumblrAccount: PostableAccount {
         try! Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
     }
 
-    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?) {
-        // TODO: actually post
-        // For now, 'test' this by just waiting for 4 seconds
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(4), execute: {
-            // Perform DB writes on the main thread
-            DispatchQueue.main.sync {
-                completion?(true)
+    static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
+        let imageFilename = (sketch.imageType == "image/gif" ? "sketch.gif" : "sketch.png")
+
+        TMAPIClient.sharedInstance().photo(username,
+                                           imageNSDataArray: [sketch.imageData as Any],
+                                           contentTypeArray: [sketch.imageType],
+                                           fileNameArray: [imageFilename],
+                                           parameters: [
+                                             "tags": "pinchpad,hourly comics",
+                                             "link": "http://www.pinchpad.com"
+                                           ],
+                                           callback: { (response: Any?, error: Error?) -> Void in
+            // Parse the JSON response to see if we saved correctly
+            var success: Bool
+            if let dictResponse = response as? [String: AnyObject],
+                let _: AnyObject = dictResponse["id"], error == nil {
+                success = true
+            } else {
+                success = false
             }
+
+            print("Posted to Tumblr: \(success)")        // print whether we succeeded
+            completion?(success)
         })
     }
 }

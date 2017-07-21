@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Keys
 import TMTumblrSDK
+import Locksmith
 import Alamofire
 
 @UIApplicationMain
@@ -26,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        consumerSecret: keys.twitterConsumerSecret)
         TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
         TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
+
+        // Load any existing Tumblr login info
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Tumblr")
+        if let dict = dictionary, let token = dict["Token"] as? String, let secret = dict["Secret"] as? String {
+            TMAPIClient.sharedInstance().oAuthToken = token
+            TMAPIClient.sharedInstance().oAuthTokenSecret = secret
+        }
 
         // Sync on any connectivity changes
         let manager = NetworkReachabilityManager(host: "www.apple.com")

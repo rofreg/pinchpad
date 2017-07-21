@@ -12,6 +12,7 @@ import RealmSwift
 final class Sketch: Object {
     dynamic var createdAt = Date()
     dynamic var imageData: Data?
+    dynamic var imageType = "image/png" // TODO: handle .gifs
     dynamic var caption: String?
     dynamic var twitterSyncStarted: Date?
     dynamic var twitterSyncCompleted: Date?
@@ -55,7 +56,7 @@ final class Sketch: Object {
 
         // Let's actually post this image!
         let sketchRef = ThreadSafeReference(to: self)
-        TwitterAccount.post(imageData: imageData!, caption: caption!) { (success) in
+        TwitterAccount.post(sketch: self) { (success) in
             let realm = try! Realm()
             guard let sketch = realm.resolve(sketchRef) else {
                 // We couldn't reload the Sketch object for some reason
@@ -88,7 +89,7 @@ final class Sketch: Object {
 
         // Let's actually post this image!
         let sketchRef = ThreadSafeReference(to: self)
-        TumblrAccount.post(imageData: imageData!, caption: caption!) { (success) in
+        TumblrAccount.post(sketch: self) { (success) in
             let realm = try! Realm()
             guard let sketch = realm.resolve(sketchRef) else {
                 // We couldn't reload the Sketch object for some reason
