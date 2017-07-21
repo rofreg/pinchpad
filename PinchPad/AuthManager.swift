@@ -16,7 +16,7 @@ protocol PostableAccount {
     static var username: String? { get }
     static func logIn()
     static func logOut()
-    static func post(imageData: Data, completion: ((Bool) -> Void)?)
+    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?)
 }
 
 extension PostableAccount {
@@ -51,9 +51,11 @@ class TwitterAccount: PostableAccount {
         }
     }
 
-    static func post(imageData: Data, completion: ((Bool) -> Void)?) {
-        // TODO: actually post
-        completion?(true)
+    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?) {
+        Twitter.sharedInstance().postStatus("\(caption) #pinchpad", imageData: imageData) { (success: Bool) in
+            print("Posted to Twitter: \(success)")
+            completion?(success)
+        }
     }
 }
 
@@ -137,7 +139,7 @@ class TumblrAccount: PostableAccount {
         try! Locksmith.deleteDataForUserAccount(userAccount: "Tumblr")
     }
 
-    static func post(imageData: Data, completion: ((Bool) -> Void)?) {
+    static func post(imageData: Data, caption: String, completion: ((Bool) -> Void)?) {
         // TODO: actually post
         // For now, 'test' this by just waiting for 4 seconds
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(4), execute: {

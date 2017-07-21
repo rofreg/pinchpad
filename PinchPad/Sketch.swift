@@ -54,15 +54,21 @@ final class Sketch: Object {
         try! realm.write { self.twitterSyncStarted = Date() }
 
         // Let's actually post this image!
-        TwitterAccount.post(imageData: imageData!) { (success) in
+        let sketchRef = ThreadSafeReference(to: self)
+        TwitterAccount.post(imageData: imageData!, caption: caption!) { (success) in
             let realm = try! Realm()
+            guard let sketch = realm.resolve(sketchRef) else {
+                // We couldn't reload the Sketch object for some reason
+                return
+            }
+
             if success {
                 // Mark this sync as complete if successful
-                try! realm.write { self.twitterSyncCompleted = Date() }
-                self.deleteIfComplete()
+                try! realm.write { sketch.twitterSyncCompleted = Date() }
+                sketch.deleteIfComplete()
             } else {
                 // Clear this sync attempt
-                try! realm.write { self.twitterSyncStarted = nil }
+                try! realm.write { sketch.twitterSyncStarted = nil }
             }
         }
     }
@@ -81,15 +87,21 @@ final class Sketch: Object {
         try! realm.write { self.tumblrSyncStarted = Date() }
 
         // Let's actually post this image!
-        TumblrAccount.post(imageData: imageData!) { (success) in
+        let sketchRef = ThreadSafeReference(to: self)
+        TumblrAccount.post(imageData: imageData!, caption: caption!) { (success) in
             let realm = try! Realm()
+            guard let sketch = realm.resolve(sketchRef) else {
+                // We couldn't reload the Sketch object for some reason
+                return
+            }
+
             if success {
                 // Mark this sync as complete if successful
-                try! realm.write { self.tumblrSyncCompleted = Date() }
-                self.deleteIfComplete()
+                try! realm.write { sketch.tumblrSyncCompleted = Date() }
+                sketch.deleteIfComplete()
             } else {
                 // Clear this sync attempt
-                try! realm.write { self.tumblrSyncStarted = nil }
+                try! realm.write { sketch.tumblrSyncStarted = nil }
             }
         }
     }
