@@ -164,8 +164,13 @@ class ViewController: UIViewController {
 
         // If we ARE logged into services, we need to post the sketch to those services
         // We do this by saving Sketch records to the local database, then syncing them in the background
+        let date = Date(), dateFormatter = DateFormatter(), timeFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        timeFormatter.dateFormat = "h:mma"
+        let caption = "\(dateFormatter.string(from: date)), \(timeFormatter.string(from: date).lowercased())"
+
         let sketch = Sketch()
-        sketch.caption = "test" // TODO: implement a better caption
+        sketch.caption = caption
         sketch.imageData = imageData
 
         let realm = try! Realm()
