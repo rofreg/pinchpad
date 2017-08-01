@@ -62,7 +62,7 @@ class TwitterAccount: PostableAccount {
 
 class TumblrAccount: PostableAccount {
     static var isLoggedIn: Bool {
-        return Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil
+        return username != nil
     }
 
     static var username: String? {
@@ -74,8 +74,10 @@ class TumblrAccount: PostableAccount {
 
     static func logIn() {
         let appDelegate = UIApplication.shared.delegate! as UIApplicationDelegate
-        let rootViewController = appDelegate.window!!.rootViewController! as UIViewController
-        rootViewController.dismiss(animated: true, completion: nil)
+        guard let rootViewController = appDelegate.window!!.rootViewController! as? ViewController else {
+            return
+        }
+        rootViewController.dismissPopover()
 
         TMAPIClient.sharedInstance().authenticate("pinchpad", from: rootViewController) { (error) in
             // If there was an error, print it and return
@@ -102,7 +104,7 @@ class TumblrAccount: PostableAccount {
                         // Have the user pick manually if they have 2+ blogs
                         let blogChoiceMenu = UIAlertController(title: "Which blog do you want to post to?",
                                                                message: nil,
-                                                               preferredStyle: .actionSheet)
+                                                               preferredStyle: .alert)
 
                         // Add a button for each blog choice
                         for blog in blogs {
