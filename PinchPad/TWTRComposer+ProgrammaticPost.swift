@@ -28,15 +28,15 @@ extension Twitter {
         // First, upload the image
         twAPIClient.sendTwitterRequest(twUploadRequest) { (_, uploadResultData, uploadConnectionError) -> Void in
             // If we encountered any errors, print to the log and return
-            if let e = uploadConnectionError ?? error {
-                print("Error uploading image: \(e)")
+            if let err = uploadConnectionError ?? error {
+                print("Error uploading image: \(err)")
                 return completion(false)
             }
 
             // Parse result from JSON
             guard let rawData = uploadResultData,
                 let json = JSON(data: rawData).dictionaryObject,
-                let media_id = json["media_id_string"] as? String else {
+                let mediaId = json["media_id_string"] as? String else {
                 print("Invalid JSON response: \(String(describing: uploadResultData))")
                 return completion(false)
             }
@@ -44,11 +44,11 @@ extension Twitter {
             // We uploaded our image successfully! Now post a status with a link to the image.
             let twStatusRequest = twAPIClient.urlRequest(withMethod: "POST",
                                                          url: "https://api.twitter.com/1.1/statuses/update.json",
-                                                         parameters: ["status": statusText, "media_ids": media_id],
+                                                         parameters: ["status": statusText, "media_ids": mediaId],
                                                          error: &error)
             twAPIClient.sendTwitterRequest(twStatusRequest) { (_, _, statusConnectionError) -> Void in
-                if let e = statusConnectionError ?? error {
-                    print("Error posting status: \(e)")
+                if let err = statusConnectionError ?? error {
+                    print("Error posting status: \(err)")
                     return completion(false)
                 }
 
