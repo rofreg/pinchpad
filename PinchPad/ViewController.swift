@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     }
 
     deinit {
-        realmNotificationToken?.stop()
+        realmNotificationToken?.invalidate()
     }
 
     func subscribeToNotifications() {
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
 
         // Update the status bar after any database change
         let realm = try! Realm()
-        realmNotificationToken = realm.addNotificationBlock { _, _ in
+        realmNotificationToken = realm.observe { _, _ in
             self.updateStatusBar()
         }
     }

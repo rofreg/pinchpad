@@ -30,11 +30,11 @@ PODS:
   - Keys (1.0.0)
   - Locksmith (3.0.0)
   - Protobuf (3.3.0)
-  - Realm (2.7.0):
-    - Realm/Headers (= 2.7.0)
-  - Realm/Headers (2.7.0)
-  - RealmSwift (2.7.0):
-    - Realm (= 2.7.0)
+  - Realm (3.7.6):
+    - Realm/Headers (= 3.7.6)
+  - Realm/Headers (3.7.6)
+  - RealmSwift (3.7.6):
+    - Realm (= 3.7.6)
   - Spectacles (1.0.1)
   - SwiftLint (0.19.0)
   - SwiftyJSON (3.1.4)
@@ -90,15 +90,15 @@ SPEC CHECKSUMS:
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
   FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
-  FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
+  FirebaseCrash: 994131fbe670dfb63debfad7ed5a41224b67b798
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
-  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
+  RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
