@@ -19,6 +19,7 @@
 		0047EE101EDD0D9D00E8F570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE0E1EDD0D9D00E8F570 /* Main.storyboard */; };
 		0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */; };
 		0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */; };
+		004A01E9213C6DE30007B897 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A01E8213C6DE30007B897 /* ImagePreviewViewController.swift */; };
 		006986DE1EE4D83F00161970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 006986DD1EE4D83F00161970 /* GoogleService-Info.plist */; };
 		006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986DF1EE4D94200161970 /* AdSupport.framework */; };
 		006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986E11EE4E80C00161970 /* SafariServices.framework */; };
@@ -49,6 +50,7 @@
 		0047EE1C1EDD0E7B00E8F570 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PinchPad-Bridging-Header.h"; path = "PinchPad/PinchPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		004A01E8213C6DE30007B897 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		006986DD1EE4D83F00161970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "PinchPad/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		006986DF1EE4D94200161970 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		006986E11EE4E80C00161970 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 				006986EC1EEA2BC300161970 /* AppConfig.swift */,
 				0047EE0A1EDD0D9D00E8F570 /* AppDelegate.swift */,
 				00C162B01F1D51CD007527CF /* AuthManager.swift */,
+				004A01E8213C6DE30007B897 /* ImagePreviewViewController.swift */,
 				00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */,
 				00C162AE1F1CF75A007527CF /* Sketch.swift */,
 				006986EA1EEA235A00161970 /* ToolConfigViewController.swift */,
@@ -286,6 +289,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PinchPad/Pods-PinchPad-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JXHTTP/JXHTTP.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
@@ -302,6 +306,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXHTTP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
@@ -345,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0047EE0D1EDD0D9D00E8F570 /* ViewController.swift in Sources */,
+				004A01E9213C6DE30007B897 /* ImagePreviewViewController.swift in Sources */,
 				00C162B11F1D51CD007527CF /* AuthManager.swift in Sources */,
 				00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */,
 				00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */,

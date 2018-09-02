@@ -21,6 +21,7 @@ PODS:
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
+  - FLAnimatedImage (1.0.12)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - ChromaColorPicker
   - Firebase/Core
   - Firebase/Crash
+  - FLAnimatedImage
   - Keys (from `Pods/CocoaPodsKeys`)
   - Locksmith
   - RealmSwift
@@ -82,6 +84,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCrash
     - FirebaseInstanceID
+    - FLAnimatedImage
     - GoogleToolboxForMac
     - JXHTTP
     - Locksmith
@@ -114,6 +117,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
   FirebaseCrash: 994131fbe670dfb63debfad7ed5a41224b67b798
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
@@ -129,6 +133,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
 
-PODFILE CHECKSUM: fef57b02bb624194e097247cb5c48c28042aaeaa
+PODFILE CHECKSUM: b7412212c4bf3e0cfb3a2bce7514fc65f9b0dd46
 
 COCOAPODS: 1.5.3

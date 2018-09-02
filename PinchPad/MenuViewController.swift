@@ -61,9 +61,11 @@ class MenuViewController: UIViewController {
     // MARK: Redrawing subviews
 
     func updateAnimationViews() {
-        addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
-        let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
-        frameDurationLabel.text = "Show for\n\(frameDurationString)s"
+        DispatchQueue.main.async {
+            self.addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
+            let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
+            self.frameDurationLabel.text = "Show for\n\(frameDurationString)s"
+        }
     }
 
     func updateAdvancedOptions() {
@@ -95,8 +97,22 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func addAnimationFrame() {
+        guard let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController else {
+            return
+        }
+
+        // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
+        let scale = (viewController.jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+        viewController.jotView.exportToImage(onComplete: self.actuallyAddAnimationFrame, withScale: scale)
+    }
+
+    func actuallyAddAnimationFrame(_ image: UIImage?) {
+        guard let image = image else {
+            return
+        }
+
         AppConfig.shared.animationFrames.append(
-            SketchFrame(imageData: Data(), duration: AppConfig.shared.frameLength)
+            SketchFrame(imageData: UIImagePNGRepresentation(image)!, duration: AppConfig.shared.frameLength)
         )
     }
 

@@ -140,25 +140,31 @@ class ViewController: UIViewController {
             return
         }
 
-        // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
-        let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-        jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
+        if let animation = AppConfig.shared.animation {
+            self.saveImageData(animation)
+        } else {
+            // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
+            let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+            jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
+        }
     }
 
     func saveImage(_ image: UIImage?) {
-        guard let image = image else {
+        guard let image = image, let imageData = UIImagePNGRepresentation(image) else {
             return
         }
 
-        let imageData = UIImagePNGRepresentation(image)!
+        saveImageData(imageData)
+    }
 
+    func saveImageData(_ imageData: Data) {
         // If we're not logged into any services, let's just share this using the native iOS dialog
         if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
             dismissPopover()
 
-            let vc = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
-            vc.popoverPresentationController?.barButtonItem = postButton
-            self.present(vc, animated: true, completion: nil)
+            let viewController = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
+            viewController.popoverPresentationController?.barButtonItem = postButton
+            self.present(viewController, animated: true, completion: nil)
             return
         }
 
@@ -209,6 +215,7 @@ class ViewController: UIViewController {
 
     func clear() {
         jotView.clear(true)
+        AppConfig.shared.animationFrames = []
         dismissPopover()
     }
 

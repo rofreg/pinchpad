@@ -14,6 +14,7 @@ target 'PinchPad' do
   pod 'ChromaColorPicker'
   pod 'RealmSwift'
   pod 'Locksmith'
+  pod 'FLAnimatedImage'
 end
 
 plugin 'cocoapods-keys', {
