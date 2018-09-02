@@ -232,7 +232,7 @@ extension ViewController: JotViewDelegate {
         return false
     }
 
-    func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
+    func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> CGFloat {
         // change the width based on pressure
         let minSize = AppConfig.shared.width, maxSize = minSize * 1.5
         var width = (maxSize + minSize) / 2.0
@@ -246,7 +246,7 @@ extension ViewController: JotViewDelegate {
         return CGFloat(width)
     }
 
-    func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> UIColor! {
+    func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> UIColor! {
         if AppConfig.shared.tool == .eraser {
             return nil
         }
@@ -254,33 +254,45 @@ extension ViewController: JotViewDelegate {
         return AppConfig.shared.color
     }
 
-    func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> CGFloat {
+    func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> CGFloat {
         return 0.75
     }
 
     func willAddElements(_ elements: [Any]!,
                          to stroke: JotStroke!,
-                         fromPreviousElement previousElement: AbstractBezierPathElement!) -> [Any]! {
+                         fromPreviousElement previousElement: AbstractBezierPathElement!,
+                         in jotView: JotView!) -> [Any]! {
         return elements
     }
 
-    func willBeginStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) -> Bool {
+    func willBeginStroke(withCoalescedTouch coalescedTouch: UITouch!,
+                         from touch: UITouch!,
+                         in jotView: JotView!) -> Bool {
         return true
     }
 
-    func willMoveStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
+    func willMoveStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) {
     }
 
-    func willEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, shortStrokeEnding: Bool) {
+    func willEndStroke(withCoalescedTouch coalescedTouch: UITouch!,
+                       from touch: UITouch!,
+                       shortStrokeEnding: Bool,
+                       in jotView: JotView!) {
     }
 
-    func didEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
+    func didEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) {
     }
 
-    func willCancel(_ stroke: JotStroke!, withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
+    func willCancel(_ stroke: JotStroke!,
+                    withCoalescedTouch coalescedTouch: UITouch!,
+                    from touch: UITouch!,
+                    in jotView: JotView!) {
     }
 
-    func didCancel(_ stroke: JotStroke!, withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!) {
+    func didCancel(_ stroke: JotStroke!,
+                   withCoalescedTouch coalescedTouch: UITouch!,
+                   from touch: UITouch!,
+                   in jotView: JotView!) {
     }
 }
 
