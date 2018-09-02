@@ -10,21 +10,21 @@ PODS:
   - FirebaseAnalytics (4.0.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCore (4.0.0):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCrash (2.0.0):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - Protobuf (~> 3.1)
   - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - JXHTTP (3.0.2)
   - Keys (1.0.0)
@@ -73,6 +73,28 @@ DEPENDENCIES:
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
   - TwitterKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ChromaColorPicker
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCrash
+    - FirebaseInstanceID
+    - GoogleToolboxForMac
+    - JXHTTP
+    - Locksmith
+    - Protobuf
+    - Realm
+    - RealmSwift
+    - Spectacles
+    - SwiftLint
+    - SwiftyJSON
+    - SwiftyUserDefaults
+    - TwitterCore
+    - TwitterKit
+
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
@@ -94,7 +116,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
-  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
@@ -109,4 +131,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: fef57b02bb624194e097247cb5c48c28042aaeaa
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3
