@@ -141,7 +141,7 @@ class ViewController: UIViewController {
         }
 
         if let animation = AppConfig.shared.animation {
-            self.saveImageData(animation)
+            self.saveImageData(animation, animated: true)
         } else {
             // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
             let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
@@ -154,10 +154,10 @@ class ViewController: UIViewController {
             return
         }
 
-        saveImageData(imageData)
+        saveImageData(imageData, animated: false)
     }
 
-    func saveImageData(_ imageData: Data) {
+    func saveImageData(_ imageData: Data, animated: Bool) {
         // If we're not logged into any services, let's just share this using the native iOS dialog
         if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
             dismissPopover()
@@ -178,6 +178,10 @@ class ViewController: UIViewController {
         let sketch = Sketch()
         sketch.caption = caption
         sketch.imageData = imageData
+
+        if animated {
+            sketch.imageType = "image/gif"
+        }
 
         let realm = try! Realm()
         try! realm.write {

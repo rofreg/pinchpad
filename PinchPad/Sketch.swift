@@ -12,7 +12,7 @@ import RealmSwift
 final class Sketch: Object {
     dynamic var createdAt = Date()
     dynamic var imageData: Data?
-    dynamic var imageType = "image/png" // TODO: handle .gifs
+    dynamic var imageType = "image/png"
     dynamic var caption: String?
     dynamic var twitterSyncStarted: Date?
     dynamic var twitterSyncCompleted: Date?

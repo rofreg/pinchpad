@@ -17,12 +17,11 @@ class ImagePreviewViewController: UIViewController {
 
         // Load animation preview
         if AppConfig.shared.animationFrames.count > 0 {
-            self.imageView.image = UIImage(data: AppConfig.shared.animation!)
-//            self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: AppConfig.shared.animation)
+            self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: AppConfig.shared.animation)
         } else {
             // Or just load the current image
             let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController
-            viewController?.jotView.exportToImage(onComplete: self.showImage, withScale: 1.0)
+            viewController?.jotView.exportToImage(onComplete: self.showImage, withScale: UIScreen.main.scale)
         }
     }
 
