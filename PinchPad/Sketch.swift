@@ -10,14 +10,14 @@ import Foundation
 import RealmSwift
 
 final class Sketch: Object {
-    dynamic var createdAt = Date()
-    dynamic var imageData: Data?
-    dynamic var imageType = "image/png"
-    dynamic var caption: String?
-    dynamic var twitterSyncStarted: Date?
-    dynamic var twitterSyncCompleted: Date?
-    dynamic var tumblrSyncStarted: Date?
-    dynamic var tumblrSyncCompleted: Date?
+    @objc dynamic var createdAt = Date()
+    @objc dynamic var imageData: Data?
+    @objc dynamic var imageType = "image/png"
+    @objc dynamic var caption: String?
+    @objc dynamic var twitterSyncStarted: Date?
+    @objc dynamic var twitterSyncCompleted: Date?
+    @objc dynamic var tumblrSyncStarted: Date?
+    @objc dynamic var tumblrSyncCompleted: Date?
 
     class func syncAll() {
         // If we're not logged in to any services, don't even try

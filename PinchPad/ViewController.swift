@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         jotView = JotView(frame: jotView.frame)
         jotView.delegate = self
         self.view.addSubview(jotView)
-        self.view.bringSubview(toFront: statusBarLabel)
+        self.view.bringSubviewToFront(statusBarLabel)
 
         jotViewStateProxy = JotViewStateProxy()
         jotViewStateProxy.delegate = self
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func updateToolbarDisplay() {
+    @objc func updateToolbarDisplay() {
         if AppConfig.shared.tool == .eraser {
             pencilButton.tintColor = UIColor.lightGray
             eraserButton.tintColor = self.view.tintColor
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
     }
 
     func saveImage(_ image: UIImage?) {
-        guard let image = image, let imageData = UIImagePNGRepresentation(image) else {
+        guard let image = image, let imageData = image.pngData() else {
             return
         }
 
@@ -217,7 +217,7 @@ class ViewController: UIViewController {
         return true
     }
 
-    func clear() {
+    @objc func clear() {
         jotView.clear(true)
         AppConfig.shared.animationFrames = []
         dismissPopover()

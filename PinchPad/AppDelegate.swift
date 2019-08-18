@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let keys = PinchPadKeys()
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
                                        consumerSecret: keys.twitterConsumerSecret)
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle login callbacks from Twitter and Tumblr
         return TMAPIClient.sharedInstance().handleOpen(url) ||
             Twitter.sharedInstance().application(app, open: url, options: options)

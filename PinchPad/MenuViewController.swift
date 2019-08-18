@@ -60,7 +60,7 @@ class MenuViewController: UIViewController {
 
     // MARK: Redrawing subviews
 
-    func updateAnimationViews() {
+    @objc func updateAnimationViews() {
         DispatchQueue.main.async {
             self.addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
             let frameDurationString = String(format: "%.1f", AppConfig.shared.frameLength)
@@ -68,7 +68,7 @@ class MenuViewController: UIViewController {
         }
     }
 
-    func updateAdvancedOptions() {
+    @objc func updateAdvancedOptions() {
         if let twitterUsername = TwitterAccount.username {
             twitterButton.setTitle("Connected as \(twitterUsername)", for: .normal)
             twitterButton.backgroundColor = twitterColor
@@ -112,7 +112,7 @@ class MenuViewController: UIViewController {
         }
 
         AppConfig.shared.animationFrames.append(
-            SketchFrame(imageData: UIImagePNGRepresentation(image)!, duration: AppConfig.shared.frameLength)
+            SketchFrame(imageData: image.pngData()!, duration: AppConfig.shared.frameLength)
         )
     }
 

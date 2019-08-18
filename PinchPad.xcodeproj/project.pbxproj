@@ -203,6 +203,7 @@
 					0047EE061EDD0D9D00E8F570 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 76Z7TDNBZJ;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -491,7 +492,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -508,7 +510,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -43,7 +43,7 @@ class ToolConfigViewController: UIViewController {
         updateSliderContainer()
     }
 
-    func updatePreview() {
+    @objc func updatePreview() {
         for subview in previewWindow.subviews {
             subview.removeFromSuperview()
         }
