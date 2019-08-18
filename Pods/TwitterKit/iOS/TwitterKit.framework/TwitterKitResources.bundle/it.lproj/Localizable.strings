@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Annulla";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Che c'è di nuovo?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet non inviato";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Visita Impostazioni > Privacy > Localizzazione su iOS per permettere a Twitter di accedere alla tua posizione.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Permetti a Twitter di accedere alla tua posizione";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Non abbiamo trovato la tua posizione. Per favore, riprova.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Impossibile accedere alla posizione";
+
+"OK_ACTION_LABEL" = "Ok";
+
+"RETRY_ACTION_LABEL" = "Riprova";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Account";
+
+"SHARE_EXT_LOCATION" = "Posizione";
+
+"SHARE_EXT_NONE_VALUE" = "Niente";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Non ci sono account Twitter configurati. Puoi crearne o aggiungerne uno dalle Impostazioni.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nessun account configurato. Usa l'app Twitter per accedere a un account o crearne uno.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nessun account Twitter";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Invio del Tweet non riuscito.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%dg";
 
 "TIME_SHORT_DAY_FORMAT" = "%dg";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Installa";
 
 "tw__card_composer_tweet" = "Tweet";
+
+"tw__close_button" = "Chiudi";
 
 "tw__composer_placeholder_text" = "Che c'è di nuovo?";
 

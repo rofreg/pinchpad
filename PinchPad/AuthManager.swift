@@ -27,36 +27,38 @@ extension PostableAccount {
 
 class TwitterAccount: PostableAccount {
     static var isLoggedIn: Bool {
-        return Twitter.sharedInstance().sessionStore.session() != nil
+        return false
+//        return Twitter.sharedInstance().sessionStore.session() != nil
     }
 
     static var username: String? {
-        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
-            return session.userName
-        }
+//        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
+//            return session.userName
+//        }
         return nil
     }
 
     static func logIn() {
         // Present Twitter login modal
-        Twitter.sharedInstance().logIn(completion: { (_, _) -> Void in
-            notifyAuthChanged()
-        })
+//        Twitter.sharedInstance().logIn(completion: { (_, _) -> Void in
+//            notifyAuthChanged()
+//        })
     }
 
     static func logOut() {
-        let sessionStore = Twitter.sharedInstance().sessionStore
-        if let session = sessionStore.session() {
-            sessionStore.logOutUserID(session.userID)
-        }
+//        let sessionStore = Twitter.sharedInstance().sessionStore
+//        if let session = sessionStore.session() {
+//            sessionStore.logOutUserID(session.userID)
+//        }
     }
 
     static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
-        Twitter.sharedInstance().postStatus("\(sketch.caption!) #pinchpad",
-                                            imageData: sketch.imageData!) { (success: Bool) in
-            print("Posted to Twitter: \(success)")
-            completion?(success)
-        }
+//        Twitter.sharedInstance().postStatus("\(sketch.caption!) #pinchpad",
+//                                            imageData: sketch.imageData!) { (success: Bool) in
+//            print("Posted to Twitter: \(success)")
+//            completion?(success)
+//        }
+        completion?(false)
     }
 }
 
@@ -172,9 +174,9 @@ class TumblrAccount: PostableAccount {
 class AuthManager {
     class var postableAccounts: [PostableAccount] {
         var accounts: [PostableAccount] = []
-        if Twitter.sharedInstance().sessionStore.session() != nil {
-            accounts.append(TwitterAccount())
-        }
+//        if Twitter.sharedInstance().sessionStore.session() != nil {
+//            accounts.append(TwitterAccount())
+//        }
         if Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil {
             accounts.append(TumblrAccount())
         }

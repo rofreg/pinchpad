@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "キャンセル";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "いまどうしてる？";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "ツイートが送信されていません";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "iOSの [設定] > [プライバシー] > [位置情報サービス] からTwitterによる位置情報の利用を許可してください。";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Twitterが位置情報を利用することを許可する";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "位置情報を取得できませんでした。やりなおしてください。";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "位置情報を利用できません";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "やりなおす";
+
+"SEND_TWEET_ACTION_LABEL" = "ツイート";
+
+"SHARE_EXT_ACCOUNT" = "アカウント";
+
+"SHARE_EXT_LOCATION" = "場所";
+
+"SHARE_EXT_NONE_VALUE" = "なし";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Twitterアカウントが設定されていません。設定からTwitterアカウントを追加するか、新規登録してください。";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Twitterアカウントが設定されていません。Twitterアプリでアカウントを新規登録するか、ログインしてください。";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Twitterアカウントがありません";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "ツイートを送信できません。";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d日";
 
 "TIME_SHORT_DAY_FORMAT" = "%d日";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "インストール";
 
 "tw__card_composer_tweet" = "ツイート";
+
+"tw__close_button" = "閉じる";
 
 "tw__composer_placeholder_text" = "いまどうしてる?";
 

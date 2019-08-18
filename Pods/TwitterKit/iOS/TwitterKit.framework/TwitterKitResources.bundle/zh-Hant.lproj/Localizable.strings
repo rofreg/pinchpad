@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "取消";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "有什麼新鮮事？";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "推文未發送";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "請前往 iOS 的「設定 > 隱私 > 位置服務」，允許 Twitter 存取你的位置。";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "允許 Twitter 存取你的位置";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "找不到你的位置，請稍後再試。";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "無法存取位置";
+
+"OK_ACTION_LABEL" = "確定";
+
+"RETRY_ACTION_LABEL" = "重試";
+
+"SEND_TWEET_ACTION_LABEL" = "推文";
+
+"SHARE_EXT_ACCOUNT" = "帳戶";
+
+"SHARE_EXT_LOCATION" = "位置";
+
+"SHARE_EXT_NONE_VALUE" = "無";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "未設定任何 Twitter 帳戶。你可以在「設定」中加入或建立 Twitter 帳戶。";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "未設定任何 Twitter 帳戶。你可以在 Twitter 應用程式中建立或登入帳戶。";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "沒有 Twitter 帳戶";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "推文無法發送。";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d 天";
 
 "TIME_SHORT_DAY_FORMAT" = "%d 天";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "安裝";
 
 "tw__card_composer_tweet" = "推文";
+
+"tw__close_button" = "關閉";
 
 "tw__composer_placeholder_text" = "有什麼新鮮事？";
 

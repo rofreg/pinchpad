@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Avbryt";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Vad händer?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweeten skickades inte";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Öppna iOS-inställningar > Integritet > Platstjänster om du vill tillåta Twitter att komma åt din plats.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Tillåt Twitter att komma åt din plats";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Det gick inte att hitta platsen. Försök igen senare.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Det gick inte att komma åt platsen";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Försök igen";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Konto";
+
+"SHARE_EXT_LOCATION" = "Plats";
+
+"SHARE_EXT_NONE_VALUE" = "Inget";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Inga Twitter-konton är konfigurerade. Du kan lägga till eller skapa ett Twitter-konto i Inställningar.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Inga Twitter-konton är konfigurerade. Du kan skapa eller logga in på ett konto i Twitter-appen.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Inget Twitter-konto";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Tweeten gick inte att skicka.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%dd";
 
 "TIME_SHORT_DAY_FORMAT" = "%dd";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Installera";
 
 "tw__card_composer_tweet" = "Tweeta";
+
+"tw__close_button" = "Stäng";
 
 "tw__composer_placeholder_text" = "Vad händer?";
 

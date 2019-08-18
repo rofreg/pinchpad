@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "取消";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "有什么新鲜事？";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "推文未发送";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "请前往 iOS 的设置>隐私>位置服务，允许 Twitter 访问你的位置。";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "允许 Twitter 访问你的位置";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "不能找到你的位置。请稍后再试。";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "访问位置失败";
+
+"OK_ACTION_LABEL" = "确定";
+
+"RETRY_ACTION_LABEL" = "重试";
+
+"SEND_TWEET_ACTION_LABEL" = "推文";
+
+"SHARE_EXT_ACCOUNT" = "账号";
+
+"SHARE_EXT_LOCATION" = "位置";
+
+"SHARE_EXT_NONE_VALUE" = "无";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "未设置 Twitter 账号。你可以在设置中添加或创建一个 Twitter 账号。";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "未设置 Twitter 账号。你可以在 Twitter 应用中创建或登录一个账号。";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "无 Twitter 账号";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "推文发送失败。";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d天";
 
 "TIME_SHORT_DAY_FORMAT" = "%d天";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "安装";
 
 "tw__card_composer_tweet" = "发推";
+
+"tw__close_button" = "关闭";
 
 "tw__composer_placeholder_text" = "有什么新鲜事？";
 

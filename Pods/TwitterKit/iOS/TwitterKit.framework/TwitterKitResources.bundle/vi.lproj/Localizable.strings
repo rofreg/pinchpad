@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Hủy";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Chuyện gì đang xảy ra?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet không gửi";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Hãy truy cập Cài đặt\niOS > Quyền riêng tư > Dịch vụ định vị để cho phép Twitter truy cập vị trí của bạn.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Cho phép Twitter truy cập vị trí của bạn";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Không thể tìm thấy vị trí của bạn. Hãy thử lại sau.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Không truy cập được vị trí";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Thử lại";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Tài khoản";
+
+"SHARE_EXT_LOCATION" = "Vị trí";
+
+"SHARE_EXT_NONE_VALUE" = "Không";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Không có tài khoản Twitter nào được cấu hình. Bạn có thể\nthêm hoặc tạo tài khoản Twitter trong Cài đặt.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Không có tài khoản Twitter nào được cấu hình. Bạn có thể tạo hoặc đăng nhập vào một tài khoản trên ứng dụng Twitter.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Không có tài khoản Twitter";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet không gửi được.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%dngày";
 
 "TIME_SHORT_DAY_FORMAT" = "%dngày";
@@ -30,7 +66,9 @@
 
 "tw__card_composer_tweet" = "Đăng Tweet";
 
-"tw__composer_placeholder_text" = "Điều gì Đang xảy ra?";
+"tw__close_button" = "Đóng";
+
+"tw__composer_placeholder_text" = "Chuyện gì đang xảy ra?";
 
 "tw__email_share_detail_message_format" = "Nhận các cập nhật và thông tin khác từ %@ khi bạn cho phép họ truy cập email trên tài khoản Twitter của mình @%@.";
 

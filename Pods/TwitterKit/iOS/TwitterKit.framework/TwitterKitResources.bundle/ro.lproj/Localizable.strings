@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Anulează";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Ce se întâmplă?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet netrimis";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Accesează Configurări iOS > Intimitate > Servicii de localizare pentru a permite Twitter să-ți acceseze locația.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Permite Twitter să-ți acceseze locația";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Nu ți-am putut găsi locația. Încearcă din nou mai târziu.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Nu s-a putut accesa locația";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Reîncearcă";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Cont";
+
+"SHARE_EXT_LOCATION" = "Locație";
+
+"SHARE_EXT_NONE_VALUE" = "Fără";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nu există conturi Twitter configurate. Poți să adaugi sau să creezi un cont Twitter în Setări.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nu există conturi Twitter configurate. Poți să creezi un cont sau să te conectezi la unul în aplicația Twitter.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Niciun cont Twitter";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Tweetul nu s-a trimis.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d z";
 
 "TIME_SHORT_DAY_FORMAT" = "%d zi";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Instalează";
 
 "tw__card_composer_tweet" = "Creează un Tweet";
+
+"tw__close_button" = "Închide";
 
 "tw__composer_placeholder_text" = "Ce se întâmplă?";
 

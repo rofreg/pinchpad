@@ -24,23 +24,26 @@
 
 import UIKit
 public extension UIColor{
-    public var hexCode: String {
+    var hexCode: String {
         get{
-            let colorComponents = self.cgColor.components
-            return String(format: "%02x%02x%02x", Int(colorComponents![0]*255.0), Int(colorComponents![1]*255.0),Int(colorComponents![2]*255.0)).uppercased()
+            let colorComponents = self.cgColor.components!
+            if colorComponents.count < 4 {
+                return String(format: "%02x%02x%02x", Int(colorComponents[0]*255.0), Int(colorComponents[0]*255.0),Int(colorComponents[0]*255.0)).uppercased()
+            }
+            return String(format: "%02x%02x%02x", Int(colorComponents[0]*255.0), Int(colorComponents[1]*255.0),Int(colorComponents[2]*255.0)).uppercased()
         }
     }
     
     //Amount should be between 0 and 1
-    public func lighterColor(_ amount: CGFloat) -> UIColor{
+    func lighterColor(_ amount: CGFloat) -> UIColor{
         return UIColor.blendColors(color: self, destinationColor: UIColor.white, amount: amount)
     }
     
-    public func darkerColor(_ amount: CGFloat) -> UIColor{
+    func darkerColor(_ amount: CGFloat) -> UIColor{
         return UIColor.blendColors(color: self, destinationColor: UIColor.black, amount: amount)
     }
     
-    public static func blendColors(color: UIColor, destinationColor: UIColor, amount : CGFloat) -> UIColor{
+    static func blendColors(color: UIColor, destinationColor: UIColor, amount : CGFloat) -> UIColor{
         var amountToBlend = amount;
         if amountToBlend > 1{
             amountToBlend = 1.0
@@ -67,7 +70,7 @@ public extension UIColor{
         r = amountToBlend * (dest_r * 255) + (1 - amountToBlend) * (r * 255)
         g = amountToBlend * (dest_g * 255) + (1 - amountToBlend) * (g * 255)
         b = amountToBlend * (dest_b * 255) + (1 - amountToBlend) * (b * 255)
-        alpha = fabs(alpha / dest_alpha)
+        alpha = abs(alpha / dest_alpha)
         
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: alpha)
     }

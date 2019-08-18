@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Odustani";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Što se zbiva?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet nije poslan";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "U sustavu iOS otvorite odjeljak Postavke > Privatnost > Lokacijske usluge te dopustite Twitteru pristup svojoj lokaciji.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Dopustite Twitteru pristup svojoj lokaciji";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Nismo uspjeli pronaći vašu lokaciju. Pokušajte ponovno kasnije.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Pristup lokaciji nije uspio";
+
+"OK_ACTION_LABEL" = "U redu";
+
+"RETRY_ACTION_LABEL" = "Pokušaj ponovno";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Račun";
+
+"SHARE_EXT_LOCATION" = "Lokacija";
+
+"SHARE_EXT_NONE_VALUE" = "Nema";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nema konfiguriranih računa za Twitter. Račun za Twitter možete dodati ili stvoriti u odjeljku Postavke.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nema konfiguriranih računa za Twitter. Stvorite račun ili se prijavite na njega u aplikaciji Twitter.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nema računa za Twitter";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Slanje tweeta nije uspjelo.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d d";
 
 "TIME_SHORT_DAY_FORMAT" = "%d d";
@@ -30,7 +66,9 @@
 
 "tw__card_composer_tweet" = "Objavi Tweet";
 
-"tw__composer_placeholder_text" = "Što se događa?";
+"tw__close_button" = "Zatvori";
+
+"tw__composer_placeholder_text" = "Što se zbiva?";
 
 "tw__email_share_detail_message_format" = "Primajte novosti i druge informacije o aplikaciji %@ kada im omogućite da pristupe vašoj  adresi e-pošte na računu za Twitter @%@.";
 

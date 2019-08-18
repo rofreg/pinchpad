@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Peruuta";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Mitä tapahtuu?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Twiittiä ei lähetetty";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Siirry iOS-asetusten kohtaan Yksityisyys > Sijaintipalvelut ja anna Twitterille lupa käyttää sijaintiasi.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Salli Twitterille sijainnin käyttö";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Sijaintia ei löytynyt.  Yritä myöhemmin uudelleen.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Sijaintia ei löytynyt";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Yritä uudelleen";
+
+"SEND_TWEET_ACTION_LABEL" = "Twiittaa";
+
+"SHARE_EXT_ACCOUNT" = "Tili";
+
+"SHARE_EXT_LOCATION" = "Sijainti";
+
+"SHARE_EXT_NONE_VALUE" = "Ei mitään";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Sinulle ei ole määritetty Twitter-tilejä. Voit lisätä tilin tai luoda uuden Twitter-tilin Asetuksissa.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Twitter-tiliä ei ole määritetty. Voit luoda tilin tai kirjautua tilillesi Twitter-sovelluksessa.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Ei Twitter-tiliä";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Twiitin lähetys ei onnistunut.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d d";
 
 "TIME_SHORT_DAY_FORMAT" = "%d d";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Asenna";
 
 "tw__card_composer_tweet" = "Twiittaa";
+
+"tw__close_button" = "Sulje";
 
 "tw__composer_placeholder_text" = "Mitä tapahtuu?";
 

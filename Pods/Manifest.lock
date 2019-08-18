@@ -1,45 +1,84 @@
 PODS:
-  - Alamofire (4.4.0)
-  - ChromaColorPicker (1.3)
-  - Firebase/Core (4.0.0):
-    - FirebaseAnalytics (= 4.0.0)
-    - FirebaseCore (= 4.0.0)
-  - Firebase/Crash (4.0.0):
+  - Alamofire (4.8.2)
+  - ChromaColorPicker (1.8.0)
+  - Firebase/Core (5.20.2):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.8.1)
+  - Firebase/CoreOnly (5.20.2):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Crash (5.20.2):
     - Firebase/Core
-    - FirebaseCrash (= 2.0.0)
-  - FirebaseAnalytics (4.0.0):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCore (4.0.0):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCrash (2.0.0):
-    - FirebaseAnalytics (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+    - FirebaseCrash (= 3.1.1)
+  - FirebaseAnalytics (5.8.1):
+    - FirebaseCore (~> 5.4)
+    - FirebaseInstanceID (~> 3.8)
+    - GoogleAppMeasurement (= 5.8.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseCrash (3.1.1):
+    - FirebaseAnalytics (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - Protobuf (~> 3.1)
-  - FirebaseInstanceID (2.0.0):
-    - FirebaseCore (~> 4.0)
+    - Protobuf (~> 3.5)
+  - FirebaseInstanceID (3.8.1):
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
   - FLAnimatedImage (1.0.12)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/Logger (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
-    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleAppMeasurement (5.8.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleToolboxForMac/Defines (2.2.1)
+  - GoogleToolboxForMac/Logger (2.2.1):
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.1)":
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - GoogleUtilities/AppDelegateSwizzler (5.8.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.8.0)
+  - GoogleUtilities/Logger (5.8.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.8.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.8.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.8.0)"
+  - GoogleUtilities/Reachability (5.8.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.8.0):
+    - GoogleUtilities/Logger
   - JXHTTP (3.0.2)
   - Keys (1.0.0)
-  - Locksmith (3.0.0)
-  - Protobuf (3.3.0)
-  - Realm (3.7.6):
-    - Realm/Headers (= 3.7.6)
-  - Realm/Headers (3.7.6)
-  - RealmSwift (3.7.6):
-    - Realm (= 3.7.6)
+  - Locksmith (4.0.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - Protobuf (3.9.0)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
   - Spectacles (1.0.1)
-  - SwiftLint (0.19.0)
-  - SwiftyJSON (3.1.4)
-  - SwiftyUserDefaults (3.0.0)
+  - SwiftLint (0.34.0)
+  - SwiftyJSON (5.0.0)
+  - SwiftyUserDefaults (4.0.0)
   - TMTumblrSDK (4.0.5):
     - TMTumblrSDK/Activity (= 4.0.5)
     - TMTumblrSDK/APIClient (= 4.0.5)
@@ -56,9 +95,9 @@ PODS:
     - TMTumblrSDK/Core
   - TMTumblrSDK/Core (4.0.5):
     - Spectacles (~> 1.0)
-  - TwitterCore (3.0.0)
-  - TwitterKit (3.0.1):
-    - TwitterCore (>= 3.0.0)
+  - TwitterCore (3.2.0)
+  - TwitterKit (3.4.2):
+    - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -85,9 +124,12 @@ SPEC REPOS:
     - FirebaseCrash
     - FirebaseInstanceID
     - FLAnimatedImage
+    - GoogleAppMeasurement
     - GoogleToolboxForMac
+    - GoogleUtilities
     - JXHTTP
     - Locksmith
+    - nanopb
     - Protobuf
     - Realm
     - RealmSwift
@@ -110,29 +152,32 @@ CHECKOUT OPTIONS:
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  ChromaColorPicker: fa1c6f52e0e76cb027b61149b42c83c0e78ef3a6
-  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
-  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
-  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
-  FirebaseCrash: 994131fbe670dfb63debfad7ed5a41224b67b798
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  ChromaColorPicker: 2e47f5acb805d53350fb7af1b511bc534b38ee31
+  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseCrash: 011365f2c0dfac64315109103ed350bacfcdc03f
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
+  GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
+  GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
-  Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
-  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
-  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
-  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
-  RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
-  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyUserDefaults: 6a1951df1daa19337862b677dd9a4b9bd4c288cd
   TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
-  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
-  TwitterKit: a47394816df2a7c36e1544b629c25c927b414724
+  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
+  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
 PODFILE CHECKSUM: b7412212c4bf3e0cfb3a2bce7514fc65f9b0dd46
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

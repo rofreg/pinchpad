@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "إلغاء";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "ماذا يحدث؟";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "لم يتم إرسال التغريدة";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "يرجى الانتقال إلى إعدادات iOS > الخصوصية > خدمات الموقع للسماح لتويتر بالوصول إلى موقعك.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "السماح لتويتر بالوصول إلى موقعك";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "تعذر العثور على موقعك. يرجى إعادة المحاولة لاحقًا.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "فشل الوصول إلى الموقع";
+
+"OK_ACTION_LABEL" = "موافق";
+
+"RETRY_ACTION_LABEL" = "إعادة المحاولة";
+
+"SEND_TWEET_ACTION_LABEL" = "تغريد";
+
+"SHARE_EXT_ACCOUNT" = "الحساب";
+
+"SHARE_EXT_LOCATION" = "الموقع";
+
+"SHARE_EXT_NONE_VALUE" = "بلا";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "لا توجد حسابات على تويتر تم تهيئتها. يمكنك إضافة حساب على تويتر أو إنشائه في \"الإعدادات\".";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "لا توجد حسابات على تويتر تم تهيئتها. يمكنك إنشاء حساب على تطبيق تويتر أو تسجيل الدخول إليه.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "لا يوجد حساب على تويتر";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "فشل إرسال التغريدة.";
+
+"SHARE_EXT_TWITTER_TITLE" = "تويتر";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d من الأيام";
 
 "TIME_SHORT_DAY_FORMAT" = "%d يوم";
@@ -30,7 +66,9 @@
 
 "tw__card_composer_tweet" = "تغريد";
 
-"tw__composer_placeholder_text" = "ما الذي يحدث؟";
+"tw__close_button" = "إغلاق";
+
+"tw__composer_placeholder_text" = "ماذا يحدث؟";
 
 "tw__email_share_detail_message_format" = "احصل على تحديثات ومعلومات أخرى من %@ عندما تسمح لهم بالوصول إلى بريدك الإلكترونيّ على حسابك على تويتر @%@.";
 

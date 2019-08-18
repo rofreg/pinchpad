@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "रद्द करें";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "क्या हो रहा है?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "ट्वीट भेजा नहीं गया";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Twitter को आपके स्थान तक पहुँचने देने के लिए कृपया iOS सेटिंग्ज > गोपनीयता > स्थान सेवाएँ पर जाएं।";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Twitter को आपके स्थान तक पहुँचने दें";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "आपका स्थान ढूंढ़ नहीं सके। कृपया बाद में पुन: प्रयास करें।";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "स्थान तक पहुँचा नहीं जा सका";
+
+"OK_ACTION_LABEL" = "ठीक है";
+
+"RETRY_ACTION_LABEL" = "फिर से कोशिश करें";
+
+"SEND_TWEET_ACTION_LABEL" = "ट्वीट";
+
+"SHARE_EXT_ACCOUNT" = "खाता";
+
+"SHARE_EXT_LOCATION" = "स्थान";
+
+"SHARE_EXT_NONE_VALUE" = "कुछ नहीं";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "कोई भी Twitter खाता कॉन्फ़िगर किया हुआ नहीं है। आप सेंटिग्ज में Twitter खाता जोड़ या बना सकते हैं।";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "कोई भी Twitter खाता कॉन्फ़िगर नहीं है. आप Twitter ऐप में कोई खाता बना सकते हैं या उसमें लॉगिन कर सकते हैं.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "कोई Twitter खाता नहीं";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "ट्वीट भेजा नहीं जा सका।";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d दिन";
 
 "TIME_SHORT_DAY_FORMAT" = "%d दिन";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "इंस्टॉल करें";
 
 "tw__card_composer_tweet" = "ट्वीट";
+
+"tw__close_button" = "बंद करें";
 
 "tw__composer_placeholder_text" = "क्या हो रहा है?";
 

@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Batal";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Apa yang Sedang Terjadi?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweet tidak terkirim";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Buka Pengaturan iOS > Privasi > Layanan Lokasi untuk memungkinkan Twitter mengakses lokasi Anda.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Izinkan Twitter mengakses lokasi Anda";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Tidak dapat menemukan lokasi Anda. Silakan coba lagi nanti.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Gagal mengakses lokasi";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Ulangi";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Akun";
+
+"SHARE_EXT_LOCATION" = "Lokasi";
+
+"SHARE_EXT_NONE_VALUE" = "Tidak ada";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Tidak ada akun Twitter yang dikonfigurasi. Anda dapat menambahkan atau membuat akun Twitter di Pengaturan.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Tidak ada akun Twitter yang dikonfigurasi. Anda dapat membuat atau masuk ke akun di aplikasi Twitter.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Tidak Ada Akun Twitter";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Tweet gagal dikirim.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%dh";
 
 "TIME_SHORT_DAY_FORMAT" = "%dh";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Pasang";
 
 "tw__card_composer_tweet" = "Tweet";
+
+"tw__close_button" = "Tutup";
 
 "tw__composer_placeholder_text" = "Apa yang Sedang Terjadi?";
 

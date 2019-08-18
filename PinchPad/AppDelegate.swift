@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
-                                       consumerSecret: keys.twitterConsumerSecret)
+//        Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
+//                                       consumerSecret: keys.twitterConsumerSecret)
         TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
         TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
 
@@ -54,8 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle login callbacks from Twitter and Tumblr
-        return TMAPIClient.sharedInstance().handleOpen(url) ||
-            Twitter.sharedInstance().application(app, open: url, options: options)
+        return TMAPIClient.sharedInstance().handleOpen(url)
+//            ||
+//            Twitter.sharedInstance().application(app, open: url, options: options)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

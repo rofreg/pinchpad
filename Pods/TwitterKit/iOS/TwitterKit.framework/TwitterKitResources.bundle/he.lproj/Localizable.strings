@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "ביטול";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "מה קורה?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "הציוץ לא נשלח";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "עבור אל הגדרות iOS > פרטיות > שירותי מיקום כדי לאפשר לטוויטר לגשת למיקום שלך.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "תן לטוויטר הרשאה לגשת למיקום שלך";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "אי אפשר למצוא את המיקום שלך. נסה שוב מאוחר יותר.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "ניסיון הגישה למיקום נכשל";
+
+"OK_ACTION_LABEL" = "אישור";
+
+"RETRY_ACTION_LABEL" = "נסה שוב";
+
+"SEND_TWEET_ACTION_LABEL" = "ציוץ";
+
+"SHARE_EXT_ACCOUNT" = "חשבון";
+
+"SHARE_EXT_LOCATION" = "מיקום";
+
+"SHARE_EXT_NONE_VALUE" = "ללא";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "לא הוגדרו חשבונות טוויטר. אפשר להוסיף או ליצור חשבון טוויטר דרך ההגדרות.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "לא הוגדרו חשבונות טוויטר. אפשר ליצור חשבון או להיכנס לחשבון באמצעות היישום של טוויטר.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "אין חשבון טוויטר";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "שליחת הציוץ נכשלה.";
+
+"SHARE_EXT_TWITTER_TITLE" = "טוויטר";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d ימים";
 
 "TIME_SHORT_DAY_FORMAT" = "יום %d";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "התקנה";
 
 "tw__card_composer_tweet" = "ציוץ";
+
+"tw__close_button" = "סגור";
 
 "tw__composer_placeholder_text" = "מה קורה?";
 

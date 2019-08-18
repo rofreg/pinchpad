@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Mégse";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Mi történik?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "A Tweet nincs elküldve";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Nyisd meg az iOS-beállítások> Adatvédelem> Helyszolgáltatások menüpontot, és engedélyezd a Twitternek, hogy hozzáférhessen a tartózkodási helyedhez.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Engedélyezd a Twitternek, hogy hozzáférhessen a tartózkodási helyedhez";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Nem található a tartózkodási helyed. Próbálkozz újra később!";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "A hely hozzáférése sikertelen";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Újrapóbálkozás";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Felhasználói fiók";
+
+"SHARE_EXT_LOCATION" = "Hely";
+
+"SHARE_EXT_NONE_VALUE" = "Nincs";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Nincsenek Twitter-fiókok konfigurálva. A Beállítások részen hozzáadhatsz vagy létrehozhatsz egy Twitter-fiókot.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Nincsenek Twitter-fiókok konfigurálva. A Twitter alkalmazásban létrehozhatsz egyet, vagy bejelentkezhetsz.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Nincs Twitter-fiók";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "A Tweet elküldése sikertelen";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%dnap";
 
 "TIME_SHORT_DAY_FORMAT" = "%dnap";
@@ -30,7 +66,9 @@
 
 "tw__card_composer_tweet" = "Tweet";
 
-"tw__composer_placeholder_text" = "Mi történik most?";
+"tw__close_button" = "Bezárás";
+
+"tw__composer_placeholder_text" = "Mi történik?";
 
 "tw__email_share_detail_message_format" = "Ha engedélyezed, hogy megtaláljanak @%@ Twitter-fiókodhoz kapcsolt e-mail címed alapján, megkapod %@ felhasználó frissítéseit és egyéb adatait.";
 

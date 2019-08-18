@@ -1,4 +1,4 @@
-//
+ //
 //  ChromaShadeSlider.swift
 //
 //  Copyright © 2016 Jonathan Cardasis. All rights reserved.
@@ -25,7 +25,7 @@
 import UIKit
 
 open class ChromaSliderTrackLayer: CALayer{
-    open let gradient = CAGradientLayer()
+    public let gradient = CAGradientLayer()
     
     override public init() {
         super.init()
@@ -47,8 +47,8 @@ public protocol ChromaShadeSliderDelegate {
 open class ChromaShadeSlider: UIControl {
     open var currentValue: CGFloat = 0.0 //range of {-1,1}
     
-    open let trackLayer = ChromaSliderTrackLayer()
-    open let handleView = ChromaHandle()
+    public let trackLayer = ChromaSliderTrackLayer()
+    public let handleView = ChromaHandle()
     open var handleWidth: CGFloat{ return self.bounds.height }
     open var handleCenterX: CGFloat = 0.0
     open var delegate: ChromaShadeSliderDelegate?
@@ -93,7 +93,7 @@ open class ChromaShadeSlider: UIControl {
         handleView.color = UIColor.blue
         handleView.circleLayer.borderWidth = 3
         handleView.isUserInteractionEnabled = false //disable interaction for touch events
-        self.layer.addSublayer(handleView.layer)
+        self.addSubview(handleView)
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapRecognized))
         doubleTapGesture.numberOfTapsRequired = 2
@@ -178,7 +178,11 @@ open class ChromaShadeSlider: UIControl {
         return true
     }
     
-    func doubleTapRecognized(_ recognizer: UITapGestureRecognizer){
+    override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        self.sendActions(for: .editingDidEnd)
+    }
+    
+  @objc func doubleTapRecognized(_ recognizer: UITapGestureRecognizer){
         let location = recognizer.location(in: self)
         guard handleView.frame.contains(location) else {
             return

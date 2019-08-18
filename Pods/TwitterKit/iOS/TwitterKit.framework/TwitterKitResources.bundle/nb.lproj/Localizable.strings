@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Avbryt";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Hva skjer?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Tweeten ble ikke sendt";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "Gå til iOS-innstillinger > Personvern > Posisjonstjenester for å gi Twitter tillatelse til å hente posisjonen din.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Gi Twitter tilgang til posisjonen din";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Fant ikke posisjonen din. Prøv på nytt senere.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Kunne ikke hente posisjonen din";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Prøv på nytt";
+
+"SEND_TWEET_ACTION_LABEL" = "Tweet";
+
+"SHARE_EXT_ACCOUNT" = "Konto";
+
+"SHARE_EXT_LOCATION" = "Posisjon";
+
+"SHARE_EXT_NONE_VALUE" = "Ingen";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Ingen Twitter-konto er konfigurert. Du kan legge til eller opprette en Twitter-konto i ved å gå til innstillingene.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Ingen Twitter-konto er konfigurert. Du kan opprette eller logge på en konto i Twitter-appen.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Ingen Twitter-konto";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Tweeten ble ikke sendt.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Twitter";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d d";
 
 "TIME_SHORT_DAY_FORMAT" = "%d d";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Installer";
 
 "tw__card_composer_tweet" = "Tweet";
+
+"tw__close_button" = "Lukk";
 
 "tw__composer_placeholder_text" = "Hva skjer?";
 

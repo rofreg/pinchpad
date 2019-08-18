@@ -1,3 +1,39 @@
+"CANCEL_ACTION_LABEL" = "Скасувати";
+
+"COMPOSE_TEXT_VIEW_PLACEHOLDER" = "Що відбувається?";
+
+"COMPOSITION_SEND_TWEET_ERROR_LABEL" = "Твіт не надіслано";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_MESSAGE" = "В iOS виберіть «Параметри» > «Приватність» > «Служба локації», щоб дозволити Твіттеру отримувати дані про ваше місцезнаходження.";
+
+"LOCATION_SERVICES_ACCESS_DENIED_ALERT_TITLE" = "Дозвольте Твіттеру отримувати дані про ваше місцезнаходження";
+
+"LOCATION_SERVICES_ERROR_ALERT_MESSAGE" = "Не вдалося визначити ваше місцезнаходження. Спробуйте ще раз пізніше.";
+
+"LOCATION_SERVICES_ERROR_ALERT_TITLE" = "Не вдалось отримати дані про місцезнаходження";
+
+"OK_ACTION_LABEL" = "OK";
+
+"RETRY_ACTION_LABEL" = "Спробувати ще раз";
+
+"SEND_TWEET_ACTION_LABEL" = "Твітнути";
+
+"SHARE_EXT_ACCOUNT" = "Профіль";
+
+"SHARE_EXT_LOCATION" = "Місцезнаходження";
+
+"SHARE_EXT_NONE_VALUE" = "Немає";
+
+"SHARE_EXT_NO_ACCOUNTS_MESSAGE" = "Профіль Твіттера не налаштовано. Ви можете додати або створити профіль Твіттера в Налаштуваннях.";
+
+"SHARE_EXT_NO_ACCOUNTS_SIGN_IN_MESSAGE" = "Профіль Твіттера не налаштовано. Ви можете створити профіль або ввійти в наявний у додатку Твіттера.";
+
+"SHARE_EXT_NO_ACCOUNTS_TITLE" = "Профіль Твіттера не вказано";
+
+"SHARE_EXT_TWEET_FAILED_TITLE" = "Не вдалося надіслати твіт.";
+
+"SHARE_EXT_TWITTER_TITLE" = "Твіттер";
+
 "TIME_SHORT_DAYS_FORMAT" = "%d дн.";
 
 "TIME_SHORT_DAY_FORMAT" = "%d дн.";
@@ -29,6 +65,8 @@
 "tw__card_composer_install_button" = "Встановити";
 
 "tw__card_composer_tweet" = "Твітнути";
+
+"tw__close_button" = "Закрити";
 
 "tw__composer_placeholder_text" = "Що відбувається?";
 
