@@ -9,7 +9,7 @@ target 'PinchPad' do
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
   pod 'SwiftLint'
-  pod 'TwitterKit'
+  pod 'Swifter', git: 'https://github.com/mattdonnelly/Swifter.git'
   pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
   pod 'ChromaColorPicker'
   pod 'RealmSwift'
