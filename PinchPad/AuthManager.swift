@@ -29,18 +29,36 @@ extension PostableAccount {
 class TwitterAccount: PostableAccount {
     static var swifter: Swifter {
         let keys = PinchPadKeys()
-        return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret)
+
+        if let oauthToken = oauthToken, let oauthTokenSecret = oauthTokenSecret {
+            return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+        } else {
+            return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret)
+        }
     }
 
     static var isLoggedIn: Bool {
-        return false
-//        return Twitter.sharedInstance().sessionStore.session() != nil
+        return oauthToken != nil
+    }
+
+    static var oauthToken: String? {
+        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
+            return dictionary["key"] as? String
+        }
+        return nil
+    }
+
+    static var oauthTokenSecret: String? {
+        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
+            return dictionary["secret"] as? String
+        }
+        return nil
     }
 
     static var username: String? {
-//        if let session = Twitter.sharedInstance().sessionStore.session() as? TWTRSession {
-//            return session.userName
-//        }
+        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
+            return dictionary["screenName"] as? String
+        }
         return nil
     }
 
@@ -50,21 +68,20 @@ class TwitterAccount: PostableAccount {
             guard let credentials = credentials else {
                 return
             }
-            
-            print(credentials.key)
-            print(credentials.secret)
-            print(credentials.screenName)
-            print(credentials.userID)
-            
+
+            var twitterInfoToPersist: [String: String] = [:]  // Init an empty dict
+            twitterInfoToPersist["key"] = credentials.key
+            twitterInfoToPersist["secret"] = credentials.secret
+            twitterInfoToPersist["screenName"] = credentials.screenName
+            twitterInfoToPersist["userID"] = credentials.userID
+            try! Locksmith.updateData(data: twitterInfoToPersist, forUserAccount: "Twitter")
+
             notifyAuthChanged()
         })
     }
 
     static func logOut() {
-//        let sessionStore = Twitter.sharedInstance().sessionStore
-//        if let session = sessionStore.session() {
-//            sessionStore.logOutUserID(session.userID)
-//        }
+        try! Locksmith.deleteDataForUserAccount(userAccount: "Twitter")
     }
 
     static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
@@ -189,9 +206,9 @@ class TumblrAccount: PostableAccount {
 class AuthManager {
     class var postableAccounts: [PostableAccount] {
         var accounts: [PostableAccount] = []
-//        if Twitter.sharedInstance().sessionStore.session() != nil {
-//            accounts.append(TwitterAccount())
-//        }
+        if Locksmith.loadDataForUserAccount(userAccount: "Twitter") != nil {
+            accounts.append(TwitterAccount())
+        }
         if Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil {
             accounts.append(TumblrAccount())
         }
