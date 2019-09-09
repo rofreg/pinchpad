@@ -8,13 +8,14 @@
 
 import Foundation
 import TMTumblrSDK
+import Swifter
 import SwiftyJSON
 import Locksmith
+import Keys
 
 protocol PostableAccount {
     static var isLoggedIn: Bool { get }
     static var username: String? { get }
-    static func logIn()
     static func logOut()
     static func post(sketch: Sketch, completion: ((Bool) -> Void)?)
 }
@@ -26,6 +27,11 @@ extension PostableAccount {
 }
 
 class TwitterAccount: PostableAccount {
+    static var swifter: Swifter {
+        let keys = PinchPadKeys()
+        return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret)
+    }
+
     static var isLoggedIn: Bool {
         return false
 //        return Twitter.sharedInstance().sessionStore.session() != nil
@@ -38,11 +44,20 @@ class TwitterAccount: PostableAccount {
         return nil
     }
 
-    static func logIn() {
-        // Present Twitter login modal
-//        Twitter.sharedInstance().logIn(completion: { (_, _) -> Void in
-//            notifyAuthChanged()
-//        })
+    static func logIn(presentingFrom presentingVC: UIViewController) {
+        let url = URL(string: "pinchpad://")!
+        swifter.authorize(withCallback: url, presentingFrom: presentingVC, success: { credentials, response in
+            guard let credentials = credentials else {
+                return
+            }
+            
+            print(credentials.key)
+            print(credentials.secret)
+            print(credentials.screenName)
+            print(credentials.userID)
+            
+            notifyAuthChanged()
+        })
     }
 
     static func logOut() {

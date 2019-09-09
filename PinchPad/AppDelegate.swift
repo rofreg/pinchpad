@@ -12,6 +12,7 @@ import Keys
 import TMTumblrSDK
 import Locksmith
 import Alamofire
+import Swifter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-//        Twitter.sharedInstance().start(withConsumerKey: keys.twitterConsumerKey,
-//                                       consumerSecret: keys.twitterConsumerSecret)
         TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
         TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
 
@@ -55,8 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle login callbacks from Twitter and Tumblr
         return TMAPIClient.sharedInstance().handleOpen(url)
-//            ||
-//            Twitter.sharedInstance().application(app, open: url, options: options)
+            || Swifter.handleOpenURL(url, callbackURL: URL(string: "pinchpad://")!)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

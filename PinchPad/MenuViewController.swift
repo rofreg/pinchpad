@@ -9,6 +9,7 @@
 import Foundation
 import TMTumblrSDK
 import MessageUI
+import SafariServices
 
 class MenuViewController: UIViewController {
     @IBOutlet var mainStackView: UIStackView!
@@ -137,7 +138,8 @@ class MenuViewController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
-            TwitterAccount.logIn()
+//            self.dismiss(animated: true, completion: nil)
+            TwitterAccount.logIn(presentingFrom: self)
         }
     }
 
@@ -195,3 +197,5 @@ extension MenuViewController : MFMailComposeViewControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+extension MenuViewController: SFSafariViewControllerDelegate {}
