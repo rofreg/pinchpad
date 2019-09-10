@@ -163,8 +163,12 @@ class ViewController: UIViewController {
             dismissPopover()
 
             let viewController = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
-            viewController.popoverPresentationController?.barButtonItem = postButton
-            self.present(viewController, animated: true, completion: nil)
+
+            DispatchQueue.main.sync {
+                viewController.popoverPresentationController?.barButtonItem = postButton
+                self.present(viewController, animated: true, completion: nil)
+            }
+
             return
         }
 
@@ -224,8 +228,10 @@ class ViewController: UIViewController {
     }
 
     func dismissPopover() {
-        currentPopoverController?.dismiss(animated: false, completion: nil)
-        currentPopoverController = nil
+        DispatchQueue.main.sync {
+            currentPopoverController?.dismiss(animated: false, completion: nil)
+            currentPopoverController = nil
+        }
     }
 }
 
