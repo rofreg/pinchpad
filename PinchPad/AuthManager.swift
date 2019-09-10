@@ -85,12 +85,21 @@ class TwitterAccount: PostableAccount {
     }
 
     static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
-//        Twitter.sharedInstance().postStatus("\(sketch.caption!) #pinchpad",
-//                                            imageData: sketch.imageData!) { (success: Bool) in
-//            print("Posted to Twitter: \(success)")
-//            completion?(success)
-//        }
-        completion?(false)
+        let caption = sketch.caption!
+
+        swifter.postMedia(sketch.imageData!, additionalOwners: nil, success: { (json) in
+            let mediaIdString = json["media_id_string"].string
+
+            swifter.postTweet(status: "\(caption) #pinchpad", inReplyToStatusID: nil, coordinate: nil,
+                              placeID: nil, displayCoordinates: false, trimUser: false, mediaIDs: [mediaIdString!],
+                              attachmentURL: nil, tweetMode: TweetMode.default, success: { json in
+                completion?(true)
+            }, failure: { (error) in
+                completion?(false)
+            })
+        }, failure: { (error) in
+            completion?(false)
+        })
     }
 }
 
