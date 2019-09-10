@@ -23,7 +23,6 @@
 		006986DE1EE4D83F00161970 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 006986DD1EE4D83F00161970 /* GoogleService-Info.plist */; };
 		006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986DF1EE4D94200161970 /* AdSupport.framework */; };
 		006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986E11EE4E80C00161970 /* SafariServices.framework */; };
-		006986E51EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986E41EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift */; };
 		006986E91EE79D8A00161970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006986E81EE79D8A00161970 /* Assets.xcassets */; };
 		006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EA1EEA235A00161970 /* ToolConfigViewController.swift */; };
 		006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EC1EEA2BC300161970 /* AppConfig.swift */; };
@@ -54,7 +53,6 @@
 		006986DD1EE4D83F00161970 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "PinchPad/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		006986DF1EE4D94200161970 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		006986E11EE4E80C00161970 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		006986E41EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TWTRComposer+ProgrammaticPost.swift"; path = "PinchPad/TWTRComposer+ProgrammaticPost.swift"; sourceTree = "<group>"; };
 		006986E81EE79D8A00161970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006986EA1EEA235A00161970 /* ToolConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolConfigViewController.swift; sourceTree = "<group>"; };
 		006986EC1EEA2BC300161970 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				0047EE081EDD0D9D00E8F570 /* Products */,
 				EF53FCF404E37C1DF000D676 /* Pods */,
 				53166B5DD778C8B50C608307 /* Frameworks */,
-				006986E31EE4EABE00161970 /* Extensions */,
 				0047EE231EDE5C5F00E8F570 /* PinchPad-Bridging-Header.h */,
 				006986DD1EE4D83F00161970 /* GoogleService-Info.plist */,
 			);
@@ -136,14 +133,6 @@
 				0047EE161EDD0D9D00E8F570 /* Info.plist */,
 			);
 			path = PinchPad;
-			sourceTree = "<group>";
-		};
-		006986E31EE4EABE00161970 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				006986E41EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		53166B5DD778C8B50C608307 /* Frameworks */ = {
@@ -212,6 +201,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -340,7 +330,6 @@
 				00C162B11F1D51CD007527CF /* AuthManager.swift in Sources */,
 				00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */,
 				00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */,
-				006986E51EE4EAF300161970 /* TWTRComposer+ProgrammaticPost.swift in Sources */,
 				006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */,
 				0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */,
 				006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */,
