@@ -164,8 +164,8 @@ class ViewController: UIViewController {
 
             let viewController = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
 
-            DispatchQueue.main.sync {
-                viewController.popoverPresentationController?.barButtonItem = postButton
+            DispatchQueue.main.async {
+                viewController.popoverPresentationController?.barButtonItem = self.postButton
                 self.present(viewController, animated: true, completion: nil)
             }
 
@@ -228,10 +228,18 @@ class ViewController: UIViewController {
     }
 
     func dismissPopover() {
-        DispatchQueue.main.sync {
-            currentPopoverController?.dismiss(animated: false, completion: nil)
-            currentPopoverController = nil
+        if Thread.isMainThread {
+            dismissPopoverOnCurrentThread()
+        } else {
+            DispatchQueue.main.async {
+                self.dismissPopoverOnCurrentThread()
+            }
         }
+    }
+
+    func dismissPopoverOnCurrentThread() {
+        currentPopoverController?.dismiss(animated: false, completion: nil)
+        currentPopoverController = nil
     }
 }
 
