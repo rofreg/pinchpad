@@ -11,7 +11,6 @@ target 'PinchPad' do
   pod 'SwiftLint'
   pod 'Swifter', git: 'https://github.com/mattdonnelly/Swifter.git'
   pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
-  pod 'ChromaColorPicker'
   pod 'RealmSwift'
   pod 'Locksmith'
   pod 'FLAnimatedImage'

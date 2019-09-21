@@ -11,10 +11,6 @@ import RealmSwift
 import PencilKit
 
 class ViewController: UIViewController {
-    @IBOutlet var undoButton: UIBarButtonItem!
-    @IBOutlet var redoButton: UIBarButtonItem!
-    @IBOutlet var pencilButton: UIBarButtonItem!
-    @IBOutlet var eraserButton: UIBarButtonItem!
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
     @IBOutlet var statusBarLabel: UILabel!
@@ -61,11 +57,6 @@ class ViewController: UIViewController {
     }
 
     func subscribeToNotifications() {
-        // When our tool changes, update the display
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(ViewController.updateToolbarDisplay),
-                                               name: NSNotification.Name(rawValue: "ToolConfigChanged"),
-                                               object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(ViewController.clear),
                                                name: NSNotification.Name(rawValue: "ClearCanvas"),
@@ -78,16 +69,6 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc func updateToolbarDisplay() {
-        if AppConfig.shared.tool == .eraser {
-            pencilButton.tintColor = UIColor.lightGray
-            eraserButton.tintColor = self.view.tintColor
-        } else {
-            pencilButton.tintColor = self.view.tintColor
-            eraserButton.tintColor = UIColor.lightGray
-        }
-    }
-
     func updateStatusBar() {
         let realm = try! Realm()
         self.statusBarLabel.isHidden = realm.objects(Sketch.self).count == 0
@@ -96,14 +77,6 @@ class ViewController: UIViewController {
         } else {
             statusBarLabel.text = "\(realm.objects(Sketch.self).count) sketches pending sync"
         }
-    }
-
-    @IBAction func undo() {
-//        jotView.undo()
-    }
-
-    @IBAction func redo() {
-//        jotView.redo()
     }
 
     func canvasIsBlank() -> Bool {
@@ -190,26 +163,6 @@ class ViewController: UIViewController {
         }
     }
 
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        // There's a weird boolean bug here, so let's force this explicitly to be 'true' or 'false'
-        let toolPopoverWasOpen = currentPopoverController is ToolConfigViewController ? true : false
-        dismissPopover()
-
-        if identifier == "EraserSegue" && AppConfig.shared.tool != .eraser {
-            AppConfig.shared.tool = .eraser
-
-            // If the tool config view was already open, then let's re-open it
-            return toolPopoverWasOpen
-        } else if identifier == "PencilSegue" && AppConfig.shared.tool == .eraser {
-            AppConfig.shared.tool = .pen
-
-            // If the tool config view was already open, then let's re-open it
-            return toolPopoverWasOpen
-        }
-
-        return true
-    }
-
     @objc func clear() {
         canvasView.drawing = PKDrawing()
         AppConfig.shared.animationFrames = []
@@ -262,9 +215,6 @@ extension ViewController: UIPopoverControllerDelegate {
     }
 
     func popoverPresentationControllerDidDismissPopover(_ _: UIPopoverPresentationController) {
-        // Fixes a tint color bug when switching between pencil and eraser tools w/ a popover open
-        updateToolbarDisplay()
-
         currentPopoverController = nil
     }
 }

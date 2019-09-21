@@ -33,37 +33,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8L9-Tt-HAR"/>
-                                    <barButtonItem image="Undo" id="rQk-u4-nkZ" userLabel="Undo">
-                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="undo" destination="BYZ-38-t0r" id="ecF-fY-X2G"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Ux3-eg-yfm"/>
-                                    <barButtonItem image="Redo" id="O6z-50-jjF" userLabel="Redo">
-                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="redo" destination="BYZ-38-t0r" id="90O-r4-ac9"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="Qb9-hW-PgK"/>
-                                    <barButtonItem image="Pencil" id="W9j-Ye-sfQ" userLabel="Pencil">
-                                        <connections>
-                                            <segue destination="A04-Hz-SMa" kind="popoverPresentation" identifier="PencilSegue" popoverAnchorBarButtonItem="W9j-Ye-sfQ" id="cv9-rJ-yQk">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="5" style="plain" systemItem="fixedSpace" id="v2w-BP-Y1b"/>
-                                    <barButtonItem image="Eraser" id="Mzn-s0-SC7" userLabel="Eraser">
-                                        <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="A04-Hz-SMa" kind="popoverPresentation" identifier="EraserSegue" popoverAnchorBarButtonItem="Mzn-s0-SC7" id="6rB-Bz-PKJ">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LAD-AJ-18b"/>
                                     <barButtonItem title="Post" id="Nqz-V7-zvs">
                                         <connections>
                                             <action selector="post:" destination="BYZ-38-t0r" id="Vnw-cB-s37"/>
@@ -125,12 +94,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="canvasView" destination="Kf9-k3-hXs" id="auO-G4-lig"/>
-                        <outlet property="eraserButton" destination="Mzn-s0-SC7" id="xi8-ay-I9b"/>
-                        <outlet property="pencilButton" destination="W9j-Ye-sfQ" id="lL7-LX-Sxb"/>
                         <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
-                        <outlet property="redoButton" destination="O6z-50-jjF" id="9ms-hT-LBH"/>
                         <outlet property="statusBarLabel" destination="mly-tu-fL9" id="ABD-8q-Ath"/>
-                        <outlet property="undoButton" destination="rQk-u4-nkZ" id="eQM-bd-eO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -432,113 +397,9 @@
             </objects>
             <point key="canvasLocation" x="2740" y="162"/>
         </scene>
-        <!--Tool Config View Controller-->
-        <scene sceneID="5u8-5I-LMs">
-            <objects>
-                <viewController storyboardIdentifier="ToolConfigViewController" id="A04-Hz-SMa" customClass="ToolConfigViewController" customModule="PinchPad" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m4x-Kr-fhv"/>
-                        <viewControllerLayoutGuide type="bottom" id="fJK-4M-0H3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e4n-sB-anX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K9C-LT-i3z">
-                                <rect key="frame" x="10" y="10" width="355" height="150"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6A1-uf-D9W">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
-                                        <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrQ-Vv-bfd">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="5aF-rM-htN"/>
-                                                    <constraint firstAttribute="width" constant="50" id="QYa-b7-kwR"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-Fc-vfg">
-                                                <rect key="frame" x="60" y="0.0" width="295" height="50"/>
-                                                <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="zaw-3y-b01">
-                                                        <rect key="frame" x="-2" y="0.0" width="299" height="51"/>
-                                                        <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="widthChanged:" destination="A04-Hz-SMa" eventType="valueChanged" id="WK0-aS-mgX"/>
-                                                        </connections>
-                                                    </slider>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="zaw-3y-b01" firstAttribute="top" secondItem="cLF-Fc-vfg" secondAttribute="top" id="FTh-1E-iuE"/>
-                                                    <constraint firstAttribute="bottom" secondItem="zaw-3y-b01" secondAttribute="bottom" id="eHQ-SG-aWG"/>
-                                                    <constraint firstItem="zaw-3y-b01" firstAttribute="leading" secondItem="cLF-Fc-vfg" secondAttribute="leading" id="eyc-ac-czM"/>
-                                                    <constraint firstAttribute="trailing" secondItem="zaw-3y-b01" secondAttribute="trailing" id="gxi-im-O2U"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MR8-vS-KDd">
-                                        <rect key="frame" x="0.0" y="50" width="355" height="100"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VO3-Bs-Btq">
-                                            <size key="itemSize" width="40" height="40"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="CdB-kq-5a7">
-                                                <rect key="frame" x="0.0" y="10" width="40" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </view>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="A04-Hz-SMa" id="qUw-59-0S8"/>
-                                            <outlet property="delegate" destination="A04-Hz-SMa" id="ukr-CR-dF0"/>
-                                        </connections>
-                                    </collectionView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="K9C-LT-i3z" firstAttribute="top" secondItem="m4x-Kr-fhv" secondAttribute="bottom" constant="10" id="Fdb-Rs-y6N"/>
-                            <constraint firstAttribute="trailing" secondItem="K9C-LT-i3z" secondAttribute="trailing" constant="10" id="eN5-h1-8ti"/>
-                            <constraint firstItem="fJK-4M-0H3" firstAttribute="top" secondItem="K9C-LT-i3z" secondAttribute="bottom" constant="10" id="sto-v8-BBf"/>
-                            <constraint firstItem="K9C-LT-i3z" firstAttribute="leading" secondItem="e4n-sB-anX" secondAttribute="leading" constant="10" id="uxE-8c-Jc4"/>
-                        </constraints>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="170"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="170"/>
-                    <connections>
-                        <outlet property="colorCollectionView" destination="MR8-vS-KDd" id="cBc-yE-bwr"/>
-                        <outlet property="previewWindow" destination="DrQ-Vv-bfd" id="LM3-LD-gN3"/>
-                        <outlet property="slider" destination="zaw-3y-b01" id="MJa-kW-KkM"/>
-                        <outlet property="sliderContainer" destination="cLF-Fc-vfg" id="poa-fq-RAf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YnH-Q8-K5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1076" y="835"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="Eraser" width="26" height="22"/>
-        <image name="Pencil" width="22" height="22"/>
-        <image name="Redo" width="22" height="22"/>
         <image name="Tumblr" width="42.666667938232422" height="42.666667938232422"/>
         <image name="Twitter" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="Undo" width="22" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cv9-rJ-yQk"/>
-    </inferredMetricsTieBreakers>
 </document>

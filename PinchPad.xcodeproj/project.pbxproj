@@ -17,7 +17,6 @@
 		006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986DF1EE4D94200161970 /* AdSupport.framework */; };
 		006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986E11EE4E80C00161970 /* SafariServices.framework */; };
 		006986E91EE79D8A00161970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006986E81EE79D8A00161970 /* Assets.xcassets */; };
-		006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EA1EEA235A00161970 /* ToolConfigViewController.swift */; };
 		006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EC1EEA2BC300161970 /* AppConfig.swift */; };
 		00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */; };
 		00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C162AE1F1CF75A007527CF /* Sketch.swift */; };
@@ -40,7 +39,6 @@
 		006986DF1EE4D94200161970 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		006986E11EE4E80C00161970 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		006986E81EE79D8A00161970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		006986EA1EEA235A00161970 /* ToolConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolConfigViewController.swift; sourceTree = "<group>"; };
 		006986EC1EEA2BC300161970 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		00C162AE1F1CF75A007527CF /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				004A01E8213C6DE30007B897 /* ImagePreviewViewController.swift */,
 				00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */,
 				00C162AE1F1CF75A007527CF /* Sketch.swift */,
-				006986EA1EEA235A00161970 /* ToolConfigViewController.swift */,
 				0047EE0C1EDD0D9D00E8F570 /* ViewController.swift */,
 				006986E81EE79D8A00161970 /* Assets.xcassets */,
 				0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */,
@@ -221,7 +218,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinchPad/Pods-PinchPad-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -241,7 +237,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -293,7 +288,6 @@
 				00C162B11F1D51CD007527CF /* AuthManager.swift in Sources */,
 				00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */,
 				00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */,
-				006986EB1EEA235A00161970 /* ToolConfigViewController.swift in Sources */,
 				0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */,
 				006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */,
 			);
