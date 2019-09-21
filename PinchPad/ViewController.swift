@@ -207,7 +207,7 @@ class ViewController: UIViewController {
     }
 
     @objc func clear() {
-//        jotView.clear(true)
+        canvasView.drawing = PKDrawing()
         AppConfig.shared.animationFrames = []
         dismissPopover()
     }
