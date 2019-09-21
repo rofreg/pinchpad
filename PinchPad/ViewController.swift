@@ -135,17 +135,13 @@ class ViewController: UIViewController {
             self.saveImageData(animation, animated: true)
         } else {
             // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
-//            let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-//            jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
-        }
-    }
+            let scale = (canvasView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+            let canvasImage = canvasView.drawing.image(from: canvasView.bounds, scale: scale)
 
-    func saveImage(_ image: UIImage?) {
-        guard let image = image, let imageData = image.pngData() else {
-            return
+            if let canvasImageData = canvasImage.pngData() {
+                saveImageData(canvasImageData, animated: false)
+            }
         }
-
-        saveImageData(imageData, animated: false)
     }
 
     func saveImageData(_ imageData: Data, animated: Bool) {

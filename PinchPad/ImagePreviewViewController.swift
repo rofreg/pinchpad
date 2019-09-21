@@ -20,8 +20,10 @@ class ImagePreviewViewController: UIViewController {
             self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: AppConfig.shared.animation)
         } else {
             // Or just load the current image
-            let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController
-            // viewController?.jotView.exportToImage(onComplete: self.showImage, withScale: UIScreen.main.scale)
+            if let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController, let canvasView = viewController.canvasView {
+                let canvasImage = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
+                showImage(canvasImage)
+            }
         }
     }
 

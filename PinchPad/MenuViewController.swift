@@ -98,22 +98,16 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func addAnimationFrame() {
-        guard let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController else {
+        guard let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController, let canvasView = viewController.canvasView else {
             return
         }
 
         // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
-//        let scale = (viewController.jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-//        viewController.jotView.exportToImage(onComplete: self.actuallyAddAnimationFrame, withScale: scale)
-    }
-
-    func actuallyAddAnimationFrame(_ image: UIImage?) {
-        guard let image = image else {
-            return
-        }
+        let scale = (canvasView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+        let canvasImage = canvasView.drawing.image(from: canvasView.bounds, scale: scale)
 
         AppConfig.shared.animationFrames.append(
-            SketchFrame(imageData: image.pngData()!, duration: AppConfig.shared.frameLength)
+            SketchFrame(imageData: canvasImage.pngData()!, duration: AppConfig.shared.frameLength)
         )
     }
 
