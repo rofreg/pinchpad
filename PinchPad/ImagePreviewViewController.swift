@@ -21,7 +21,7 @@ class ImagePreviewViewController: UIViewController {
         } else {
             // Or just load the current image
             let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController
-            viewController?.jotView.exportToImage(onComplete: self.showImage, withScale: UIScreen.main.scale)
+            // viewController?.jotView.exportToImage(onComplete: self.showImage, withScale: UIScreen.main.scale)
         }
     }
 

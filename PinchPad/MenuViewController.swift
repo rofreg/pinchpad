@@ -103,8 +103,8 @@ class MenuViewController: UIViewController {
         }
 
         // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
-        let scale = (viewController.jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-        viewController.jotView.exportToImage(onComplete: self.actuallyAddAnimationFrame, withScale: scale)
+//        let scale = (viewController.jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+//        viewController.jotView.exportToImage(onComplete: self.actuallyAddAnimationFrame, withScale: scale)
     }
 
     func actuallyAddAnimationFrame(_ image: UIImage?) {

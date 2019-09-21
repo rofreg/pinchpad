@@ -9,8 +9,6 @@
 #ifndef PinchPad_Bridging_Header_h
 #define PinchPad_Bridging_Header_h
 
-#import <JotUI/JotUI.h>
-//#import <TwitterKit/TwitterKit.h>
 #import <TMTumblrSDK/TMAPIClient.h>
 
 #endif /* PinchPad_Bridging_Header_h */

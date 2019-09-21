@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import PencilKit
 
 class ViewController: UIViewController {
     @IBOutlet var undoButton: UIBarButtonItem!
@@ -15,16 +16,15 @@ class ViewController: UIViewController {
     @IBOutlet var pencilButton: UIBarButtonItem!
     @IBOutlet var eraserButton: UIBarButtonItem!
     @IBOutlet var postButton: UIBarButtonItem!
-    @IBOutlet var jotView: JotView!
+    @IBOutlet var canvasView: PKCanvasView!
     @IBOutlet var statusBarLabel: UILabel!
-    var jotViewStateProxy: JotViewStateProxy!
     var currentPopoverController: UIViewController?
 
     var realmNotificationToken: NotificationToken?
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         // Allow free rotation when the canvas is blank and the platform is iPad
-        if canvasIsBlank() && UIScreen.main.portraitBounds().width >= 768 {
+        if canvasIsBlank() {
             return .all
         }
 
@@ -44,26 +44,8 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        // Set up the jotView for drawing
-        // For some reason, JotViews don't like to be included via Interface Builder, so we redo ours here
         view.layoutIfNeeded()
-        jotView.removeFromSuperview()
-        jotView.invalidate()
-
-        jotView = JotView(frame: jotView.frame)
-        jotView.delegate = self
-        self.view.addSubview(jotView)
         self.view.bringSubviewToFront(statusBarLabel)
-
-        jotViewStateProxy = JotViewStateProxy()
-        jotViewStateProxy.delegate = self
-        jotViewStateProxy.loadJotStateAsynchronously(false,
-                                                     with: jotView.bounds.size,
-                                                     andScale: UIScreen.main.scale,
-                                                     andContext: jotView.context,
-                                                     andBufferManager: JotBufferManager.sharedInstance())
-        jotViewStateProxy.undoLimit = 20
-        jotView.loadState(jotViewStateProxy)
 
         updateStatusBar()
     }
@@ -111,20 +93,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func undo() {
-        jotView.undo()
+//        jotView.undo()
     }
 
     @IBAction func redo() {
-        jotView.redo()
+//        jotView.redo()
     }
 
     func canvasIsBlank() -> Bool {
-        guard let jotView = jotView else {
+        return false
+        
+        guard let canvasView = canvasView else {
             // If the JotView isn't initialized yet, we can rotate however we want
             return true
         }
 
-        return jotView.state.everyVisibleStroke().count == 0
+//        return jotView.state.everyVisibleStroke().count == 0
+        return false
     }
 
     @IBAction func post(_ sender: AnyObject) {
@@ -144,8 +129,8 @@ class ViewController: UIViewController {
             self.saveImageData(animation, animated: true)
         } else {
             // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
-            let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-            jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
+//            let scale = (jotView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
+//            jotView.exportToImage(onComplete: self.saveImage, withScale: scale)
         }
     }
 
@@ -222,7 +207,7 @@ class ViewController: UIViewController {
     }
 
     @objc func clear() {
-        jotView.clear(true)
+//        jotView.clear(true)
         AppConfig.shared.animationFrames = []
         dismissPopover()
     }
@@ -243,102 +228,6 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: JotViewDelegate {
-
-    func textureForStroke() -> JotBrushTexture! {
-        return JotDefaultBrushTexture.sharedInstance()
-    }
-
-    func stepWidthForStroke() -> CGFloat {
-        return 0.2
-    }
-
-    func supportsRotation() -> Bool {
-        return false
-    }
-
-    func width(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> CGFloat {
-        // change the width based on pressure
-        let minSize = AppConfig.shared.width, maxSize = minSize * 1.5
-        var width = (maxSize + minSize) / 2.0
-        width *= Double(coalescedTouch.force)
-        if width < minSize {
-            width = minSize
-        }
-        if width > maxSize {
-            width = maxSize
-        }
-        return CGFloat(width)
-    }
-
-    func color(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> UIColor! {
-        if AppConfig.shared.tool == .eraser {
-            return nil
-        }
-
-        return AppConfig.shared.color
-    }
-
-    func smoothness(forCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) -> CGFloat {
-        return 0.75
-    }
-
-    func willAddElements(_ elements: [Any]!,
-                         to stroke: JotStroke!,
-                         fromPreviousElement previousElement: AbstractBezierPathElement!,
-                         in jotView: JotView!) -> [Any]! {
-        return elements
-    }
-
-    func willBeginStroke(withCoalescedTouch coalescedTouch: UITouch!,
-                         from touch: UITouch!,
-                         in jotView: JotView!) -> Bool {
-        return true
-    }
-
-    func willMoveStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) {
-    }
-
-    func willEndStroke(withCoalescedTouch coalescedTouch: UITouch!,
-                       from touch: UITouch!,
-                       shortStrokeEnding: Bool,
-                       in jotView: JotView!) {
-    }
-
-    func didEndStroke(withCoalescedTouch coalescedTouch: UITouch!, from touch: UITouch!, in jotView: JotView!) {
-    }
-
-    func willCancel(_ stroke: JotStroke!,
-                    withCoalescedTouch coalescedTouch: UITouch!,
-                    from touch: UITouch!,
-                    in jotView: JotView!) {
-    }
-
-    func didCancel(_ stroke: JotStroke!,
-                   withCoalescedTouch coalescedTouch: UITouch!,
-                   from touch: UITouch!,
-                   in jotView: JotView!) {
-    }
-}
-
-extension ViewController: JotViewStateProxyDelegate {
-    var jotViewStatePlistPath: String! {
-        return "state.plist"
-    }
-
-    var jotViewStateInkPath: String! {
-        return "ink.png"
-    }
-
-    func didLoadState(_ state: JotViewStateProxy!) {
-        print("didLoadState")
-    }
-
-    func didUnloadState(_ state: JotViewStateProxy!) {
-        print("didUnloadState")
-    }
-}
-
 // Force iPhone to use the popover style, rather than a modal window
 extension ViewController: UIPopoverPresentationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -352,7 +241,7 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
             popoverPresentationController.backgroundColor = currentPopoverController!.view.backgroundColor
 
             // Allow touches on the drawing view while the popover is open
-            popoverPresentationController.passthroughViews = [jotView]
+            popoverPresentationController.passthroughViews = [] // jotView
         }
     }
 
