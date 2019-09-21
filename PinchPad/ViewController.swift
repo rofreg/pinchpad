@@ -44,8 +44,14 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        view.layoutIfNeeded()
-        self.view.bringSubviewToFront(statusBarLabel)
+        // Set up the tool picker
+        if let appDelegate = UIApplication.shared.delegate,
+           let window = appDelegate.window!,
+           let toolPicker = PKToolPicker.shared(for: window) {
+            toolPicker.setVisible(true, forFirstResponder: canvasView)
+            toolPicker.addObserver(canvasView)
+            canvasView.becomeFirstResponder() // Show drawing tools
+        }
 
         updateStatusBar()
     }
