@@ -107,15 +107,17 @@ class ViewController: UIViewController {
     }
 
     func canvasIsBlank() -> Bool {
-        return false
-        
         guard let canvasView = canvasView else {
-            // If the JotView isn't initialized yet, we can rotate however we want
+            // If there's no drawing yet yet, we can rotate however we want
             return true
         }
 
-//        return jotView.state.everyVisibleStroke().count == 0
-        return false
+        // PKCanvasView/PKDrawing don't let us directly check if a canvas is empty
+        // So we have to compare against a blank image of the same size
+        let canvasImageData = canvasView.drawing.image(from: canvasView.bounds, scale: 1.0).pngData()!
+        let blankImageData = PKDrawing().image(from: canvasView.bounds, scale: 1.0).pngData()!
+
+        return canvasImageData == blankImageData
     }
 
     @IBAction func post(_ sender: AnyObject) {
@@ -243,7 +245,7 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
             popoverPresentationController.backgroundColor = currentPopoverController!.view.backgroundColor
 
             // Allow touches on the drawing view while the popover is open
-            popoverPresentationController.passthroughViews = [] // jotView
+            popoverPresentationController.passthroughViews = [canvasView]
         }
     }
 
