@@ -18,6 +18,9 @@
 		006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986E11EE4E80C00161970 /* SafariServices.framework */; };
 		006986E91EE79D8A00161970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006986E81EE79D8A00161970 /* Assets.xcassets */; };
 		006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EC1EEA2BC300161970 /* AppConfig.swift */; };
+		007336C92336E88000DC6B42 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007336C82336E88000DC6B42 /* UIImage.swift */; };
+		007336CB2336EA0700DC6B42 /* PKCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007336CA2336EA0700DC6B42 /* PKCanvasView.swift */; };
+		007336CD2336EB7200DC6B42 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007336CC2336EB7200DC6B42 /* UIColor.swift */; };
 		00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */; };
 		00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C162AE1F1CF75A007527CF /* Sketch.swift */; };
 		00C162B11F1D51CD007527CF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C162B01F1D51CD007527CF /* AuthManager.swift */; };
@@ -40,6 +43,9 @@
 		006986E11EE4E80C00161970 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		006986E81EE79D8A00161970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006986EC1EEA2BC300161970 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		007336C82336E88000DC6B42 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		007336CA2336EA0700DC6B42 /* PKCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCanvasView.swift; sourceTree = "<group>"; };
+		007336CC2336EB7200DC6B42 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		00C159431EEF7DD0006DD0D5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		00C162AE1F1CF75A007527CF /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		00C162B01F1D51CD007527CF /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		0047EE091EDD0D9D00E8F570 /* PinchPad */ = {
 			isa = PBXGroup;
 			children = (
+				007336C72336E86A00DC6B42 /* Extensions */,
 				006986EC1EEA2BC300161970 /* AppConfig.swift */,
 				0047EE0A1EDD0D9D00E8F570 /* AppDelegate.swift */,
 				00C162B01F1D51CD007527CF /* AuthManager.swift */,
@@ -100,6 +107,16 @@
 				0047EE161EDD0D9D00E8F570 /* Info.plist */,
 			);
 			path = PinchPad;
+			sourceTree = "<group>";
+		};
+		007336C72336E86A00DC6B42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				007336C82336E88000DC6B42 /* UIImage.swift */,
+				007336CA2336EA0700DC6B42 /* PKCanvasView.swift */,
+				007336CC2336EB7200DC6B42 /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		53166B5DD778C8B50C608307 /* Frameworks */ = {
@@ -284,12 +301,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0047EE0D1EDD0D9D00E8F570 /* ViewController.swift in Sources */,
+				007336C92336E88000DC6B42 /* UIImage.swift in Sources */,
 				004A01E9213C6DE30007B897 /* ImagePreviewViewController.swift in Sources */,
 				00C162B11F1D51CD007527CF /* AuthManager.swift in Sources */,
 				00C159441EEF7DD0006DD0D5 /* MenuViewController.swift in Sources */,
 				00C162AF1F1CF75A007527CF /* Sketch.swift in Sources */,
 				0047EE0B1EDD0D9D00E8F570 /* AppDelegate.swift in Sources */,
 				006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */,
+				007336CB2336EA0700DC6B42 /* PKCanvasView.swift in Sources */,
+				007336CD2336EB7200DC6B42 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

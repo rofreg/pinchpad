@@ -111,11 +111,8 @@ class ViewController: UIViewController {
         } else {
             // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
             let scale = (canvasView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-            let canvasImage = canvasView.drawing.image(from: canvasView.bounds, scale: scale)
-
-            if let canvasImageData = canvasImage.pngData() {
-                saveImageData(canvasImageData, animated: false)
-            }
+            let canvasImage = canvasView.image(scale: scale)
+            saveImageData(canvasImage.pngData()!, animated: false)
         }
     }
 

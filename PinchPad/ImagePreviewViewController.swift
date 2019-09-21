@@ -21,8 +21,7 @@ class ImagePreviewViewController: UIViewController {
         } else {
             // Or just load the current image
             if let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController, let canvasView = viewController.canvasView {
-                let canvasImage = canvasView.drawing.image(from: canvasView.bounds, scale: UIScreen.main.scale)
-                showImage(canvasImage)
+                showImage(canvasView.image())
             }
         }
     }
