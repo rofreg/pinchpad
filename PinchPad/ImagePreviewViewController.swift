@@ -20,15 +20,9 @@ class ImagePreviewViewController: UIViewController {
             self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: AppConfig.shared.animation)
         } else {
             // Or just load the current image
-            if let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController, let canvasView = viewController.canvasView {
-                showImage(canvasView.image())
+            if let canvasView = AppConfig.shared.canvasView {
+                self.imageView.image = canvasView.image()
             }
-        }
-    }
-
-    func showImage(_ image: UIImage?) {
-        DispatchQueue.main.async {
-            self.imageView.image = image
         }
     }
 

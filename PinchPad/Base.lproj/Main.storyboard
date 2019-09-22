@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0UI-qO-KzM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wKj-qv-EJH">
+            <objects>
+                <navigationController id="0UI-qO-KzM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1C4-1u-vx5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4Sa-oY-C12"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhV-TI-0DF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="130"/>
+        </scene>
         <!--Pinch Pad-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,83 +35,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-1u-Yyt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="KHk-eT-RzW"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Menu" id="mCQ-ub-sm3">
-                                        <connections>
-                                            <segue destination="xwO-wN-riR" kind="popoverPresentation" popoverAnchorBarButtonItem="mCQ-ub-sm3" id="1kj-u3-04I">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8L9-Tt-HAR"/>
-                                    <barButtonItem title="Post" id="Nqz-V7-zvs">
-                                        <connections>
-                                            <action selector="post:" destination="BYZ-38-t0r" id="Vnw-cB-s37"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmy-zD-v27" userLabel="Status bar background">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
-                                <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="zJ1-NM-rOF"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RN1-hK-1BL" userLabel="Toolbar bottom border">
-                                <rect key="frame" x="0.0" y="44" width="375" height="0.5"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="0.5" id="xob-tu-jau"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf9-k3-hXs" customClass="PKCanvasView">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="622.5"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mly-tu-fL9">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WCE-qf-PPJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mly-tu-fL9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4r3-zo-ODM"/>
-                            <constraint firstItem="hhQ-1u-Yyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8vE-nM-4F6"/>
-                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="top" secondItem="RN1-hK-1BL" secondAttribute="bottom" id="FXg-Hn-mLP"/>
-                            <constraint firstAttribute="trailing" secondItem="mly-tu-fL9" secondAttribute="trailing" id="HGz-sZ-5fB"/>
-                            <constraint firstAttribute="trailing" secondItem="hhQ-1u-Yyt" secondAttribute="trailing" id="N5b-Dw-zm3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kf9-k3-hXs" secondAttribute="bottom" id="NVu-Vb-4E8"/>
-                            <constraint firstItem="RN1-hK-1BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PKa-ub-wKM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mly-tu-fL9" secondAttribute="bottom" id="Pm9-3o-j0i"/>
-                            <constraint firstItem="qmy-zD-v27" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pvb-6e-f6n"/>
-                            <constraint firstAttribute="trailing" secondItem="qmy-zD-v27" secondAttribute="trailing" id="aWh-S9-xfR"/>
-                            <constraint firstItem="hhQ-1u-Yyt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="al2-sv-d91"/>
                             <constraint firstAttribute="trailing" secondItem="Kf9-k3-hXs" secondAttribute="trailing" id="dE8-WB-fjB"/>
-                            <constraint firstItem="RN1-hK-1BL" firstAttribute="top" secondItem="hhQ-1u-Yyt" secondAttribute="bottom" id="f5T-2Z-e6P"/>
-                            <constraint firstItem="qmy-zD-v27" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mqI-4i-AFH"/>
+                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dNq-rb-EfI"/>
                             <constraint firstItem="Kf9-k3-hXs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vy0-zN-vPA"/>
-                            <constraint firstAttribute="trailing" secondItem="RN1-hK-1BL" secondAttribute="trailing" id="wlA-4A-lZh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JWo-lI-29D">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="mCQ-ub-sm3">
+                            <connections>
+                                <segue destination="xwO-wN-riR" kind="popoverPresentation" popoverAnchorBarButtonItem="mCQ-ub-sm3" id="1kj-u3-04I">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Nqz-V7-zvs">
+                            <connections>
+                                <action selector="post:" destination="BYZ-38-t0r" id="Vnw-cB-s37"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="canvasView" destination="Kf9-k3-hXs" id="auO-G4-lig"/>
                         <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
-                        <outlet property="statusBarLabel" destination="mly-tu-fL9" id="ABD-8q-Ath"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

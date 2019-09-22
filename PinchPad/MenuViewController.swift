@@ -98,7 +98,7 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func addAnimationFrame() {
-        guard let viewController = UIApplication.shared.delegate?.window??.rootViewController as? ViewController, let canvasView = viewController.canvasView else {
+        guard let canvasView = AppConfig.shared.canvasView else {
             return
         }
 
@@ -132,7 +132,6 @@ class MenuViewController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
-//            self.dismiss(animated: true, completion: nil)
             TwitterAccount.logIn(presentingFrom: self)
         }
     }
@@ -152,7 +151,7 @@ class MenuViewController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
-            TumblrAccount.logIn()
+            TumblrAccount.logIn(presentingFrom: self)
         }
     }
 

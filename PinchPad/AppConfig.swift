@@ -9,6 +9,7 @@
 import TMTumblrSDK
 import Locksmith
 import MobileCoreServices
+import PencilKit
 
 struct SketchFrame {
     let imageData: Data
@@ -18,6 +19,8 @@ struct SketchFrame {
 class AppConfig {
     // Set up a singleton instance
     static let shared = AppConfig()
+
+    lazy var canvasView: PKCanvasView? = nil
 
     var frameLength: Double = 0.5 {
         didSet {

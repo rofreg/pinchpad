@@ -115,14 +115,8 @@ class TumblrAccount: PostableAccount {
         return nil
     }
 
-    static func logIn() {
-        let appDelegate = UIApplication.shared.delegate! as UIApplicationDelegate
-        guard let rootViewController = appDelegate.window!!.rootViewController! as? ViewController else {
-            return
-        }
-        rootViewController.dismissPopover()
-
-        TMAPIClient.sharedInstance().authenticate("pinchpad", from: rootViewController) { (error) in
+    static func logIn(presentingFrom presentingVC: UIViewController) {
+        TMAPIClient.sharedInstance().authenticate("pinchpad", from: presentingVC) { (error) in
             // If there was an error, print it and return
             if let error = error {
                 print(error)
@@ -171,7 +165,7 @@ class TumblrAccount: PostableAccount {
                         blogChoiceMenu.addAction(cancelAction)
 
                         // Display the action sheet
-                        rootViewController.present(blogChoiceMenu, animated: true, completion: nil)
+                        presentingVC.present(blogChoiceMenu, animated: true, completion: nil)
                     }
                 }
             })

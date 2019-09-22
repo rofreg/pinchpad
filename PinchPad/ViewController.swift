@@ -13,7 +13,6 @@ import PencilKit
 class ViewController: UIViewController {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
-    @IBOutlet var statusBarLabel: UILabel!
     var currentPopoverController: UIViewController?
 
     var realmNotificationToken: NotificationToken?
@@ -37,6 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeToNotifications()
+        AppConfig.shared.canvasView = canvasView
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -71,11 +71,16 @@ class ViewController: UIViewController {
 
     func updateStatusBar() {
         let realm = try! Realm()
-        self.statusBarLabel.isHidden = realm.objects(Sketch.self).count == 0
-        if realm.objects(Sketch.self).filter("twitterSyncStarted != nil || tumblrSyncStarted != nil").count > 0 {
-            statusBarLabel.text = "Syncing..."
+        let sketchesToSyncCount = realm.objects(Sketch.self).count
+
+        if sketchesToSyncCount == 0 {
+            title = ""
+        } else if realm.objects(Sketch.self).filter("twitterSyncStarted != nil || tumblrSyncStarted != nil").count > 0 {
+            title = "Syncing..."
+        } else if sketchesToSyncCount == 1 {
+            title = "1 unsynced sketch"
         } else {
-            statusBarLabel.text = "\(realm.objects(Sketch.self).count) sketches pending sync"
+            title = "\(sketchesToSyncCount) unsynced sketches"
         }
     }
 
