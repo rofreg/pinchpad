@@ -104,10 +104,12 @@ class MenuViewController: UIViewController {
 
         // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
         let scale = (canvasView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
-        let canvasImage = canvasView.image(scale: scale)
+        guard let canvasImageData = canvasView.image(scale: scale).pngData() else {
+            return
+        }
 
         AppConfig.shared.animationFrames.append(
-            SketchFrame(imageData: canvasImage.pngData()!, duration: AppConfig.shared.frameLength)
+            SketchFrame(imageData: canvasImageData, duration: AppConfig.shared.frameLength)
         )
     }
 
@@ -173,7 +175,7 @@ class MenuViewController: UIViewController {
             // Show an alert
             let alert = UIAlertController(
                 title: "No email account found",
-                message: "Whoops, I couldn't find an email account set up on this device!" +
+                message: "Whoops, I couldn't find an email account set up on this device! " +
                          "You can send me feedback directly at me@rofreg.com.",
                 preferredStyle: .alert
             )
