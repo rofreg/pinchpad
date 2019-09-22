@@ -17,26 +17,11 @@ class ViewController: UIViewController {
 
     var realmNotificationToken: NotificationToken?
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        // Allow free rotation when the canvas is blank and the platform is iPad
-        if canvasIsBlank() {
-            return .all
-        }
-
-        // Once we start drawing, don't allow rotation between landscape and portrait
-        // (It would distort the drawing view)
-        switch UIApplication.shared.statusBarOrientation {
-        case .landscapeLeft, .landscapeRight:
-            return .landscape
-        default:
-            return [.portrait, .portraitUpsideDown]
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         subscribeToNotifications()
         AppConfig.shared.canvasView = canvasView
+        navigationController?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -218,5 +203,22 @@ extension ViewController: UIPopoverControllerDelegate {
 
     func popoverPresentationControllerDidDismissPopover(_ _: UIPopoverPresentationController) {
         currentPopoverController = nil
+    }
+}
+
+extension ViewController: UINavigationControllerDelegate {
+    public func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        // Allow free rotation when the canvas is blank and the platform is iPad
+        if canvasIsBlank() {
+            return .all
+        }
+
+        // Once we start drawing, don't allow rotation between landscape and portrait
+        // (It would distort the drawing view)
+        if UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isPortrait ?? false {
+            return [.portrait, .portraitUpsideDown]
+        } else {
+            return .landscape
+        }
     }
 }
