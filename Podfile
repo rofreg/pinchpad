@@ -4,8 +4,9 @@ use_frameworks!
 
 target 'PinchPad' do
   pod 'SwiftyJSON'
-  pod 'Firebase/Core'
-  pod 'Firebase/Crash'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Firebase/Analytics'
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
   pod 'SwiftLint'
