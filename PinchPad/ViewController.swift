@@ -184,7 +184,8 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 }
 
 extension ViewController: UINavigationControllerDelegate {
-    public func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+    public func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController)
+      -> UIInterfaceOrientationMask {
         // Allow free rotation when the canvas is blank and the platform is iPad
         if canvasIsBlank() {
             return .all

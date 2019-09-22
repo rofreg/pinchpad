@@ -31,7 +31,10 @@ class TwitterAccount: PostableAccount {
         let keys = PinchPadKeys()
 
         if let oauthToken = oauthToken, let oauthTokenSecret = oauthTokenSecret {
-            return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret, oauthToken: oauthToken, oauthTokenSecret: oauthTokenSecret)
+            return Swifter(consumerKey: keys.twitterConsumerKey,
+                           consumerSecret: keys.twitterConsumerSecret,
+                           oauthToken: oauthToken,
+                           oauthTokenSecret: oauthTokenSecret)
         } else {
             return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret)
         }
@@ -64,7 +67,9 @@ class TwitterAccount: PostableAccount {
 
     static func logIn(presentingFrom presentingVC: UIViewController) {
         let url = URL(string: "pinchpad://")!
-        swifter.authorize(withCallback: url, presentingFrom: presentingVC, success: { credentials, response in
+        swifter.authorize(withCallback: url,
+                          presentingFrom: presentingVC,
+                          success: { credentials, response in // swiftlint:disable:this unused_closure_parameter
             guard let credentials = credentials else {
                 return
             }
@@ -92,12 +97,13 @@ class TwitterAccount: PostableAccount {
 
             swifter.postTweet(status: "\(caption) #pinchpad", inReplyToStatusID: nil, coordinate: nil,
                               placeID: nil, displayCoordinates: false, trimUser: false, mediaIDs: [mediaIdString!],
-                              attachmentURL: nil, tweetMode: TweetMode.default, success: { json in
+                              attachmentURL: nil, tweetMode: TweetMode.default,
+                              success: { json in  // swiftlint:disable:this unused_closure_parameter
                 completion?(true)
-            }, failure: { (error) in
+            }, failure: { (error) in // swiftlint:disable:this unused_closure_parameter
                 completion?(false)
             })
-        }, failure: { (error) in
+        }, failure: { (error) in // swiftlint:disable:this unused_closure_parameter
             completion?(false)
         })
     }

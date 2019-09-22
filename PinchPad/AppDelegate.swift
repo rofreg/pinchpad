@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // Handle login callbacks from Twitter and Tumblr
         return TMAPIClient.sharedInstance().handleOpen(url)
             || Swifter.handleOpenURL(url, callbackURL: URL(string: "pinchpad://")!)

@@ -156,19 +156,19 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func madeByRofreg() {
-        UIApplication.shared.open(URL(string:"https://www.rofreg.com")!)
+        UIApplication.shared.open(URL(string: "https://www.rofreg.com")!)
     }
 
     @IBAction func sendFeedback() {
         if MFMailComposeViewController.canSendMail() {
             let version: AnyObject = Bundle.main.infoDictionary!["CFBundleShortVersionString"]! as AnyObject
-            let mc = MFMailComposeViewController()
-            mc.mailComposeDelegate = self
-            mc.setSubject("Feedback for Pinch Pad (v\(version))")
-            mc.setMessageBody("", isHTML: false)
-            mc.setToRecipients(["me@rofreg.com"])
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setSubject("Feedback for Pinch Pad (v\(version))")
+            mailVC.setMessageBody("", isHTML: false)
+            mailVC.setToRecipients(["me@rofreg.com"])
 
-            self.present(mc, animated: true, completion: nil)
+            self.present(mailVC, animated: true, completion: nil)
         } else {
             // Show an alert
             let alert = UIAlertController(
@@ -183,7 +183,7 @@ class MenuViewController: UIViewController {
     }
 }
 
-extension MenuViewController : MFMailComposeViewControllerDelegate {
+extension MenuViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult,
                                error: Error?) {
