@@ -80,7 +80,7 @@ class ViewController: UIViewController {
 
         // PKCanvasView/PKDrawing don't let us directly check if a canvas is empty
         // So we have to compare against a blank image of the same size
-        let blankImageData = PKDrawing().image(from: canvasView.bounds, scale: 1.0).pngData()!
+        let blankImageData = PKDrawing().image(from: canvasView.bounds, scale: 1.0).pngData()
 
         return canvasImageData == blankImageData
     }
@@ -104,7 +104,10 @@ class ViewController: UIViewController {
             // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
             let scale = (canvasView.frame.width >= 768 ? 1.0 : UIScreen.main.scale)
             let canvasImage = canvasView.image(scale: scale)
-            saveImageData(canvasImage.pngData()!, animated: false)
+
+            if let canvasImageData = canvasImage.pngData() {
+                saveImageData(canvasImageData, animated: false)
+            }
         }
     }
 
