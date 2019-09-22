@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "GDTAssert.h"
 #import "GDTClock.h"
 #import "GDTConsoleLogger.h"
 #import "GDTDataFuture.h"

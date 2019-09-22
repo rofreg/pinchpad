@@ -16,6 +16,8 @@
 
 #import <GoogleDataTransport/GDTPlatform.h>
 
+#import <GoogleDataTransport/GDTAssert.h>
+
 const GDTBackgroundIdentifier GDTBackgroundIdentifierInvalid = 0;
 
 NSString *const kGDTApplicationDidEnterBackgroundNotification =
@@ -40,8 +42,8 @@ BOOL GDTReachabilityFlagsContainWWAN(SCNetworkReachabilityFlags flags) {
 + (void)load {
 #if TARGET_OS_IOS || TARGET_OS_TV
   // If this asserts, please file a bug at https://github.com/firebase/firebase-ios-sdk/issues.
-  NSAssert(GDTBackgroundIdentifierInvalid == UIBackgroundTaskInvalid,
-           @"GDTBackgroundIdentifierInvalid and UIBackgroundTaskInvalid should be the same.");
+  GDTFatalAssert(GDTBackgroundIdentifierInvalid == UIBackgroundTaskInvalid,
+                 @"GDTBackgroundIdentifierInvalid and UIBackgroundTaskInvalid should be the same.");
 #endif
   [self sharedApplication];
 }
@@ -74,6 +76,20 @@ BOOL GDTReachabilityFlagsContainWWAN(SCNetworkReachabilityFlags flags) {
                            selector:@selector(iOSApplicationWillTerminate:)
                                name:name
                              object:nil];
+
+#if defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+    if (@available(iOS 13, tvOS 13.0, *)) {
+      [notificationCenter addObserver:self
+                             selector:@selector(iOSApplicationWillEnterForeground:)
+                                 name:UISceneWillEnterForegroundNotification
+                               object:nil];
+      [notificationCenter addObserver:self
+                             selector:@selector(iOSApplicationDidEnterBackground:)
+                                 name:UISceneWillDeactivateNotification
+                               object:nil];
+    }
+#endif  // defined(__IPHONE_13_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+
 #elif TARGET_OS_OSX
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self
@@ -91,7 +107,9 @@ BOOL GDTReachabilityFlagsContainWWAN(SCNetworkReachabilityFlags flags) {
 }
 
 - (void)endBackgroundTask:(GDTBackgroundIdentifier)bgID {
-  [[self sharedApplicationForBackgroundTask] endBackgroundTask:bgID];
+  if (bgID != GDTBackgroundIdentifierInvalid) {
+    [[self sharedApplicationForBackgroundTask] endBackgroundTask:bgID];
+  }
 }
 
 #pragma mark - App environment helpers
