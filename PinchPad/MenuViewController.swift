@@ -55,6 +55,7 @@ class MenuViewController: UIViewController {
             button?.layer.borderWidth = 1
             button?.layer.borderColor = grayButtonColor.cgColor
         }
+        frameLengthStepper.value = AppConfig.shared.frameLength
 
         updateAdvancedOptions()
     }
