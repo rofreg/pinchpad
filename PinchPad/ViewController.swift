@@ -34,6 +34,10 @@ class ViewController: UIViewController {
             canvasView.becomeFirstResponder() // Show drawing tools
         }
 
+        // Set the font for syncing messages in the nav bar
+        navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
+
         updateStatusBar()
     }
 
