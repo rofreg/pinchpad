@@ -13,7 +13,6 @@ import PencilKit
 class ViewController: UIViewController {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
-    var currentPopoverController: UIViewController?
 
     var realmNotificationToken: NotificationToken?
 
@@ -113,7 +112,8 @@ class ViewController: UIViewController {
     func saveImageData(_ imageData: Data, animated: Bool) {
         // If we're not logged into any services, let's just share this using the native iOS dialog
         if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
-            dismissPopover()
+            // Dismiss any modals that are open
+            dismiss(animated: true, completion: nil)
 
             let viewController = UIActivityViewController(activityItems: [imageData], applicationActivities: nil)
 
@@ -157,36 +157,21 @@ class ViewController: UIViewController {
     @objc func clear() {
         canvasView.drawing = PKDrawing()
         AppConfig.shared.animationFrames = []
-        dismissPopover()
-    }
-
-    func dismissPopover() {
-        if Thread.isMainThread {
-            dismissPopoverOnCurrentThread()
-        } else {
-            DispatchQueue.main.async {
-                self.dismissPopoverOnCurrentThread()
-            }
-        }
-    }
-
-    func dismissPopoverOnCurrentThread() {
-        currentPopoverController?.dismiss(animated: false, completion: nil)
-        currentPopoverController = nil
+        dismiss(animated: true, completion: nil)
     }
 }
 
 // Force iPhone to use the popover style, rather than a modal window
 extension ViewController: UIPopoverPresentationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        currentPopoverController = segue.destination
-        currentPopoverController!.modalPresentationStyle = .popover
+        let currentPopoverController = segue.destination
+        currentPopoverController.modalPresentationStyle = .popover
 
-        if let popoverPresentationController = currentPopoverController!.popoverPresentationController {
+        if let popoverPresentationController = currentPopoverController.popoverPresentationController {
             popoverPresentationController.delegate = self
 
             // Also set the popover arrow color to match the rest of the popover
-            popoverPresentationController.backgroundColor = currentPopoverController!.view.backgroundColor
+            popoverPresentationController.backgroundColor = currentPopoverController.view.backgroundColor
 
             // Allow touches on the drawing view while the popover is open
             popoverPresentationController.passthroughViews = [canvasView]
@@ -195,18 +180,6 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
 
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
-    }
-}
-
-// Dismiss popover controllers instantly, with no animation
-extension ViewController: UIPopoverControllerDelegate {
-    func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
-        currentPopoverController?.dismiss(animated: false)
-        return true
-    }
-
-    func popoverPresentationControllerDidDismissPopover(_ _: UIPopoverPresentationController) {
-        currentPopoverController = nil
     }
 }
 
