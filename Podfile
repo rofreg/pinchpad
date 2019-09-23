@@ -7,6 +7,7 @@ target 'PinchPad' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Performance'
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
   pod 'SwiftLint'
