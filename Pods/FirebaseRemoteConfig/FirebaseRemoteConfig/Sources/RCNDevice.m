@@ -19,19 +19,24 @@
 #import <sys/utsname.h>
 
 #import <GoogleUtilities/GULAppEnvironmentUtil.h>
+#import "FirebaseRemoteConfig/Sources/Private/RCNConfigSettings.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigConstants.h"
-#import "FirebaseRemoteConfig/Sources/RCNConfigSettings.h"
 
 #define STR(x) STR_EXPAND(x)
 #define STR_EXPAND(x) #x
 
 static NSString *const RCNDeviceContextKeyVersion = @"app_version";
+static NSString *const RCNDeviceContextKeyBuild = @"app_build";
 static NSString *const RCNDeviceContextKeyOSVersion = @"os_version";
 static NSString *const RCNDeviceContextKeyDeviceLocale = @"device_locale";
 static NSString *const RCNDeviceContextKeyLocaleLanguage = @"locale_language";
 static NSString *const RCNDeviceContextKeyGMPProjectIdentifier = @"GMP_project_Identifier";
 
 NSString *FIRRemoteConfigAppVersion() {
+  return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+}
+
+NSString *FIRRemoteConfigAppBuildVersion() {
   return [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
 }
 
@@ -205,6 +210,7 @@ NSMutableDictionary *FIRRemoteConfigDeviceContextWithProjectIdentifier(
     NSString *GMPProjectIdentifier) {
   NSMutableDictionary *deviceContext = [[NSMutableDictionary alloc] init];
   deviceContext[RCNDeviceContextKeyVersion] = FIRRemoteConfigAppVersion();
+  deviceContext[RCNDeviceContextKeyBuild] = FIRRemoteConfigAppBuildVersion();
   deviceContext[RCNDeviceContextKeyOSVersion] = [GULAppEnvironmentUtil systemVersion];
   deviceContext[RCNDeviceContextKeyDeviceLocale] = FIRRemoteConfigDeviceLocale();
   // NSDictionary setObjectForKey will fail if there's no GMP project ID, must check ahead.
@@ -217,6 +223,9 @@ NSMutableDictionary *FIRRemoteConfigDeviceContextWithProjectIdentifier(
 BOOL FIRRemoteConfigHasDeviceContextChanged(NSDictionary *deviceContext,
                                             NSString *GMPProjectIdentifier) {
   if (![deviceContext[RCNDeviceContextKeyVersion] isEqual:FIRRemoteConfigAppVersion()]) {
+    return YES;
+  }
+  if (![deviceContext[RCNDeviceContextKeyBuild] isEqual:FIRRemoteConfigAppBuildVersion()]) {
     return YES;
   }
   if (!

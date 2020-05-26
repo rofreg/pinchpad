@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The last eTag received from the backend.
 @property(nonatomic, assign) NSString *lastETag;
+/// The time of the last eTag update.
+@property(nonatomic, assign) NSTimeInterval lastETagUpdateTime;
 /// The time of the last successful fetch.
 @property(nonatomic, assign) NSTimeInterval lastFetchTime;
 /// The time of the last successful fetch.
@@ -46,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
     __attribute__((unavailable("Use `initWithAppName:bundleID:namespace:` instead.")));
 // NOLINTEND
 
+/// Delete all saved userdefaults for this instance.
+- (void)resetUserDefaults;
 @end
 
 NS_ASSUME_NONNULL_END

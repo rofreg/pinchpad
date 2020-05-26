@@ -22,13 +22,13 @@
 #import <FirebaseCore/FIRLogger.h>
 #import <FirebaseCore/FIROptionsInternal.h>
 #import "FirebaseRemoteConfig/Sources/FIRRemoteConfigComponent.h"
-#import "FirebaseRemoteConfig/Sources/FIRRemoteConfig_Internal.h"
+#import "FirebaseRemoteConfig/Sources/Private/FIRRemoteConfig_Private.h"
+#import "FirebaseRemoteConfig/Sources/Private/RCNConfigSettings.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigConstants.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigContent.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigDBManager.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigExperiment.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigFetch.h"
-#import "FirebaseRemoteConfig/Sources/RCNConfigSettings.h"
 #import "FirebaseRemoteConfig/Sources/RCNConfigValue_Internal.h"
 #import "FirebaseRemoteConfig/Sources/RCNDevice.h"
 
@@ -214,8 +214,10 @@ static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, FIRRemote
 #pragma mark - fetch
 
 - (void)fetchWithCompletionHandler:(FIRRemoteConfigFetchCompletion)completionHandler {
-  [self fetchWithExpirationDuration:_settings.minimumFetchInterval
-                  completionHandler:completionHandler];
+  dispatch_async(_queue, ^{
+    [self fetchWithExpirationDuration:self->_settings.minimumFetchInterval
+                    completionHandler:completionHandler];
+  });
 }
 
 - (void)fetchWithExpirationDuration:(NSTimeInterval)expirationDuration
@@ -224,8 +226,8 @@ static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, FIRRemote
   if (completionHandler) {
     completionHandlerCopy = [completionHandler copy];
   }
-  [_configFetch fetchAllConfigsWithExpirationDuration:expirationDuration
-                                    completionHandler:completionHandlerCopy];
+  [_configFetch fetchConfigWithExpirationDuration:expirationDuration
+                                completionHandler:completionHandlerCopy];
 }
 
 #pragma mark - fetchAndActivate
@@ -291,10 +293,10 @@ static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, FIRRemote
       FIRLogError(kFIRLoggerRemoteConfig, @"I-RCN000068", @"Internal error activating config.");
       return;
     }
-    // If Fetched Config is no fresher than Active Config.
-    if (strongSelf->_settings.lastFetchTimeInterval == 0 ||
-        strongSelf->_settings.lastFetchTimeInterval <=
-            strongSelf->_settings.lastApplyTimeInterval) {
+    // Check if the last fetched config has already been activated. Fetches with no data change are
+    // ignored.
+    if (strongSelf->_settings.lastETagUpdateTime == 0 ||
+        strongSelf->_settings.lastETagUpdateTime <= strongSelf->_settings.lastApplyTimeInterval) {
       FIRLogWarning(kFIRLoggerRemoteConfig, @"I-RCN000069",
                     @"Most recently fetched config is already activated.");
       NSError *error = [NSError
@@ -420,6 +422,8 @@ static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, FIRRemote
 
 #pragma mark - Properties
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-property-ivar"
 /// Last fetch completion time.
 - (NSDate *)lastFetchTime {
   __block NSDate *fetchTime;
@@ -429,6 +433,7 @@ static NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, FIRRemote
   });
   return fetchTime;
 }
+#pragma clang diagnostic pop
 
 - (FIRRemoteConfigFetchStatus)lastFetchStatus {
   __block FIRRemoteConfigFetchStatus currentStatus;
