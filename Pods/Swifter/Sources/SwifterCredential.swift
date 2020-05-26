@@ -43,10 +43,11 @@ public class Credential {
         public init(key: String, secret: String) {
             self.key = key
             self.secret = secret
+            self.userID = key.components(separatedBy: "-").first
         }
         
         public init(queryString: String) {
-            var attributes = queryString.queryStringParameters
+            let attributes = queryString.queryStringParameters
             
             self.key = attributes["oauth_token"]!
             self.secret = attributes["oauth_token_secret"]!
@@ -60,8 +61,10 @@ public class Credential {
     public internal(set) var accessToken: OAuthAccessToken?
     
     #if os(macOS) || os(iOS)
+    @available(iOS, deprecated: 11.0, message: "Using ACAccount for Twitter is no longer supported as of iOS 11.")
     public internal(set) var account: ACAccount?
-    
+
+    @available(iOS, deprecated: 11.0, message: "Using ACAccount for Twitter is no longer supported as of iOS 11.")
     public init(account: ACAccount) {
         self.account = account
     }

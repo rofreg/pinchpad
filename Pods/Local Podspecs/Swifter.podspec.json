@@ -1,6 +1,6 @@
 {
   "name": "Swifter",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "summary": ":bird: A Twitter framework for iOS & macOS written in Swift",
   "description": "Twitter framework for iOS & macOS written in Swift, with support of three different types of authentication protocol, and most, if not all, of the REST API.",
   "homepage": "https://github.com/mattdonnelly/Swifter",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/mattdonnelly/Swifter.git",
-    "tag": "2.3.0"
+    "tag": "2.4.0"
   },
   "source_files": "Sources/*.swift",
   "swift_versions": "5.0",
