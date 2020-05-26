@@ -36,15 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Sync on any connectivity changes
         let manager = NetworkReachabilityManager(host: "www.apple.com")
-        manager?.listener = { status in
+        manager?.startListening(onUpdatePerforming: { status in
             switch status {
             case .reachable, .unknown:
                 Sketch.syncAll()
             default:
                 break
             }
-        }
-        manager?.startListening()
+        })
 
         return true
     }
