@@ -59,6 +59,7 @@ struct Changeset {
     Changeset& operator=(const Changeset&) = delete;
 
     InternString intern_string(StringData); // Slow!
+    InternString find_string(StringData) const noexcept; // Slow!
     StringData string_data() const noexcept;
 
     StringBuffer& string_buffer() noexcept;
@@ -387,7 +388,7 @@ struct Changeset::Reflector {
     struct Tracer {
         virtual void name(StringData) = 0;
         virtual void field(StringData, StringData) = 0;
-        virtual void field(StringData, ObjectID) = 0;
+        virtual void field(StringData, GlobalKey) = 0;
         virtual void field(StringData, int64_t) = 0;
         virtual void field(StringData, double) = 0;
         virtual void after_each() {}
@@ -416,7 +417,7 @@ struct Changeset::Printer : Changeset::Reflector::Tracer {
     // ChangesetReflector::Tracer interface:
     void name(StringData) final;
     void field(StringData, StringData) final;
-    void field(StringData, ObjectID) final;
+    void field(StringData, GlobalKey) final;
     void field(StringData, int64_t) final;
     void field(StringData, double) final;
     void after_each() final;
