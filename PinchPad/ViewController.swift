@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import PencilKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
 
@@ -38,6 +38,48 @@ class ViewController: UIViewController {
             [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
 
         updateStatusBar()
+
+        // Set up gesture recognizers so we can pinch + pan + rotate the canvas
+        let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate))
+        rotationGesture.delegate = self
+        view.addGestureRecognizer(rotationGesture)
+
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
+        panGesture.delegate = self
+        panGesture.minimumNumberOfTouches = 2
+        view.addGestureRecognizer(panGesture)
+
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(scale))
+        pinchGesture.delegate = self
+        view.addGestureRecognizer(pinchGesture)
+    }
+
+    @objc func pan(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+
+        canvasView.center = CGPoint(
+          x: canvasView.center.x + translation.x,
+          y: canvasView.center.y + translation.y
+        )
+        gesture.setTranslation(.zero, in: view)
+    }
+
+    @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
+        canvasView.transform = canvasView.transform.rotated(by: gesture.rotation)
+        gesture.rotation = 0
+    }
+
+    @objc func scale(_ gesture: UIPinchGestureRecognizer) {
+        canvasView.transform = canvasView.transform.scaledBy(
+          x: gesture.scale,
+          y: gesture.scale
+        )
+        gesture.scale = 1
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureRecognizer.view == view && otherGestureRecognizer.view == view
     }
 
     deinit {
@@ -158,6 +200,7 @@ class ViewController: UIViewController {
 
     @objc func clear() {
         canvasView.drawing = PKDrawing()
+        canvasView.transform = .identity
         AppConfig.shared.animationFrames = []
         dismiss(animated: true, completion: nil)
     }
