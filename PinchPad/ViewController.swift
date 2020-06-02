@@ -13,6 +13,7 @@ import PencilKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
+    @IBOutlet var canvasContainerView: UIView! // Extra container needed to support transformation on canvasView
 
     var realmNotificationToken: NotificationToken?
 
@@ -57,20 +58,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func pan(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
 
-        canvasView.center = CGPoint(
-          x: canvasView.center.x + translation.x,
-          y: canvasView.center.y + translation.y
+        canvasContainerView.center = CGPoint(
+          x: canvasContainerView.center.x + translation.x,
+          y: canvasContainerView.center.y + translation.y
         )
         gesture.setTranslation(.zero, in: view)
     }
 
     @objc func rotate(_ gesture: UIRotationGestureRecognizer) {
-        canvasView.transform = canvasView.transform.rotated(by: gesture.rotation)
+        canvasContainerView.transform = canvasContainerView.transform.rotated(by: gesture.rotation)
         gesture.rotation = 0
     }
 
     @objc func scale(_ gesture: UIPinchGestureRecognizer) {
-        canvasView.transform = canvasView.transform.scaledBy(
+        canvasContainerView.transform = canvasContainerView.transform.scaledBy(
           x: gesture.scale,
           y: gesture.scale
         )
@@ -200,9 +201,24 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @objc func clear() {
         canvasView.drawing = PKDrawing()
-        canvasView.transform = .identity
+        resetCanvasPosition()
+
         AppConfig.shared.animationFrames = []
         dismiss(animated: true, completion: nil)
+    }
+
+    func resetCanvasPosition() {
+        canvasContainerView.transform = .identity
+
+        // TODO: find a less hacky solution for this "reset translation" issue
+        var newOrigin = view.frame.origin
+        newOrigin.x -= 100
+        newOrigin.y -= 100
+        if let barHeight = navigationController?.navigationBar.frame.size.height,
+           let statusBarheight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height {
+            newOrigin.y += barHeight + statusBarheight
+        }
+        canvasContainerView.frame.origin = newOrigin
     }
 }
 

@@ -34,17 +34,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf9-k3-hXs" customClass="PKCanvasView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-Sf-hPb">
+                                <rect key="frame" x="-100" y="-56" width="575" height="823"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf9-k3-hXs" customClass="PKCanvasView">
+                                        <rect key="frame" x="100" y="100" width="375" height="623"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kf9-k3-hXs" firstAttribute="height" secondItem="Z1r-Sf-hPb" secondAttribute="height" constant="-200" id="Cxj-WQ-sHR"/>
+                                    <constraint firstItem="Kf9-k3-hXs" firstAttribute="centerY" secondItem="Z1r-Sf-hPb" secondAttribute="centerY" id="bPJ-Cm-eOI"/>
+                                    <constraint firstItem="Kf9-k3-hXs" firstAttribute="width" secondItem="Z1r-Sf-hPb" secondAttribute="width" constant="-200" id="lBb-jI-9Ih"/>
+                                    <constraint firstItem="Kf9-k3-hXs" firstAttribute="centerX" secondItem="Z1r-Sf-hPb" secondAttribute="centerX" id="xM0-CM-Rn2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kf9-k3-hXs" secondAttribute="bottom" id="NVu-Vb-4E8"/>
-                            <constraint firstAttribute="trailing" secondItem="Kf9-k3-hXs" secondAttribute="trailing" id="dE8-WB-fjB"/>
-                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dNq-rb-EfI"/>
-                            <constraint firstItem="Kf9-k3-hXs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vy0-zN-vPA"/>
+                            <constraint firstItem="Z1r-Sf-hPb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-100" id="BR6-aq-T8b"/>
+                            <constraint firstAttribute="trailing" secondItem="Z1r-Sf-hPb" secondAttribute="trailing" constant="-100" id="TJF-Ao-FdP"/>
+                            <constraint firstItem="Z1r-Sf-hPb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-100" id="udM-Fa-Ph5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Z1r-Sf-hPb" secondAttribute="bottom" constant="-100" id="y9w-T2-jAY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JWo-lI-29D">
@@ -65,6 +77,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="canvasContainerView" destination="Z1r-Sf-hPb" id="MIJ-tG-TkF"/>
                         <outlet property="canvasView" destination="Kf9-k3-hXs" id="auO-G4-lig"/>
                         <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
                     </connections>
