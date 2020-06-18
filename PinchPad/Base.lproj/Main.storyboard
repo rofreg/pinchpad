@@ -60,13 +60,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JWo-lI-29D">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="mCQ-ub-sm3">
-                            <connections>
-                                <segue destination="xwO-wN-riR" kind="popoverPresentation" popoverAnchorBarButtonItem="mCQ-ub-sm3" id="1kj-u3-04I">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Menu" id="mCQ-ub-sm3">
+                                <connections>
+                                    <segue destination="xwO-wN-riR" kind="popoverPresentation" popoverAnchorBarButtonItem="mCQ-ub-sm3" id="1kj-u3-04I">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="arrow.left.and.right.square" catalog="system" id="xRt-vM-JWo">
+                                <connections>
+                                    <action selector="resetCanvasPosition" destination="BYZ-38-t0r" id="Wkb-iL-jOO"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="Nqz-V7-zvs">
                             <connections>
                                 <action selector="post:" destination="BYZ-38-t0r" id="Vnw-cB-s37"/>
@@ -385,5 +392,6 @@
     <resources>
         <image name="Tumblr" width="42.666667938232422" height="42.666667938232422"/>
         <image name="Twitter" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="arrow.left.and.right.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

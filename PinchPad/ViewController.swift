@@ -207,7 +207,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         dismiss(animated: true, completion: nil)
     }
 
-    func resetCanvasPosition() {
+    @IBAction func resetCanvasPosition() {
         canvasContainerView.transform = .identity
 
         // TODO: find a less hacky solution for this "reset translation" issue
