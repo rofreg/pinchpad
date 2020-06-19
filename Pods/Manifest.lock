@@ -64,6 +64,7 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 6.2)"
     - Protobuf (>= 3.9.2, ~> 3.9)
   - FLAnimatedImage (1.0.12)
+  - FLEX (4.1.1)
   - GoogleAppMeasurement (6.5.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -144,6 +145,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Performance
   - FLAnimatedImage
+  - FLEX
   - Keys (from `Pods/CocoaPodsKeys`)
   - Locksmith
   - RealmSwift
@@ -169,6 +171,7 @@ SPEC REPOS:
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FLAnimatedImage
+    - FLEX
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -218,6 +221,7 @@ SPEC CHECKSUMS:
   FirebasePerformance: 5652d2004001e886da6dca04f478c695f87c4702
   FirebaseRemoteConfig: 3d189cf0c3c5abc0c924ef1cce60c4add8d3262c
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FLEX: 81096107977a09836eb440173010ceeef01105d6
   GoogleAppMeasurement: 137afe68bfa406c3f4221b9395253d9e5d4654cf
   GoogleDataTransport: ad884314b81cdb808fb1d23787b367ff8da4e28a
   GoogleDataTransportCCTSupport: d70a561f7d236af529fee598835caad5e25f6d3d
@@ -239,6 +243,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
 
-PODFILE CHECKSUM: 68e4ea7230ca693598998374c705cdea5d8ab7c1
+PODFILE CHECKSUM: 8ed0030554b0d075746637b888ee51eb35bdebaf
 
 COCOAPODS: 1.9.2

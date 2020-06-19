@@ -9,6 +9,9 @@
 import UIKit
 import RealmSwift
 import PencilKit
+#if canImport(FLEX)
+    import FLEX
+#endif
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var postButton: UIBarButtonItem!
@@ -53,6 +56,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(scale))
         pinchGesture.delegate = self
         view.addGestureRecognizer(pinchGesture)
+
+        #if canImport(FLEX)
+            FLEXManager.shared.showExplorer()
+        #endif
     }
 
     @objc func pan(_ gesture: UIPanGestureRecognizer) {

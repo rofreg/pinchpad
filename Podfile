@@ -16,6 +16,7 @@ target 'PinchPad' do
   pod 'RealmSwift'
   pod 'Locksmith'
   pod 'FLAnimatedImage'
+  pod 'FLEX', :configurations => ['Debug']
 end
 
 plugin 'cocoapods-keys', {
