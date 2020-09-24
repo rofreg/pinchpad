@@ -1,6 +1,9 @@
 platform :ios, '14.0'
 use_frameworks!
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 target 'PinchPad' do
   pod 'SwiftyJSON'
   pod 'Fabric'
@@ -14,7 +17,7 @@ target 'PinchPad' do
   pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
   pod 'RealmSwift'
   pod 'Locksmith'
-  pod 'FLAnimatedImage'
+  pod 'FLAnimatedImage', git: 'https://github.com/Flipboard/FLAnimatedImage.git'
   pod 'FLEX', :configurations => ['Debug']
 end
 
@@ -27,3 +30,13 @@ plugin 'cocoapods-keys', {
     'TumblrConsumerSecret'
   ]
 }
+
+# Silence warnings about iOS 8 no longer being supported
+# https://github.com/CocoaPods/CocoaPods/issues/9884
+post_install do |pi|
+   pi.pods_project.targets.each do |t|
+       t.build_configurations.each do |bc|
+           bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+       end
+   end
+end
