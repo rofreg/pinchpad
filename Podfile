@@ -6,8 +6,7 @@ inhibit_all_warnings!
 
 target 'PinchPad' do
   pod 'SwiftyJSON'
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   pod 'Firebase/Performance'
   pod 'SwiftyUserDefaults'
