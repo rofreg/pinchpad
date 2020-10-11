@@ -123,16 +123,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func canvasIsBlank() -> Bool {
-        guard let canvasView = canvasView, let canvasImageData = canvasView.image(scale: 1.0).pngData() else {
-            // If there's no drawing yet yet, we can rotate however we want
-            return true
+        guard let canvasView = canvasView else {
+            return true;
         }
 
-        // PKCanvasView/PKDrawing don't let us directly check if a canvas is empty
-        // So we have to compare against a blank image of the same size
-        let blankImageData = PKDrawing().image(from: canvasView.bounds, scale: 1.0).pngData()
-
-        return canvasImageData == blankImageData
+        return canvasView.drawing.strokes.count == 0
     }
 
     @IBAction func post(_ sender: AnyObject) {
