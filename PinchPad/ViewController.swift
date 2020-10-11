@@ -35,6 +35,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)
             canvasView.becomeFirstResponder() // Show drawing tools
+
+            // iOS 14 hack to make the tool picker appear automatically on launch
+            DispatchQueue.main.async {
+                self.canvasView.resignFirstResponder() // Show drawing tools
+                self.canvasView.becomeFirstResponder() // Show drawing tools
+            }
         }
 
         // Set the font for syncing messages in the nav bar
@@ -124,7 +130,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func canvasIsBlank() -> Bool {
         guard let canvasView = canvasView else {
-            return true;
+            return true
         }
 
         return canvasView.drawing.strokes.count == 0
@@ -222,9 +228,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         canvasContainerView.frame.origin = newOrigin
     }
-    
+
     @IBAction func toggleToolPicker() {
-        if canvasView.isFirstResponder{
+        if canvasView.isFirstResponder {
             canvasView.resignFirstResponder()
         } else {
             canvasView.becomeFirstResponder()
