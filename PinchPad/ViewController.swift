@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import PencilKit
 #if canImport(FLEX)
-    import FLEX
+//    import FLEX
 #endif
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         view.addGestureRecognizer(pinchGesture)
 
         #if canImport(FLEX)
-            FLEXManager.shared.showExplorer()
+//            FLEXManager.shared.showExplorer()
         #endif
     }
 
