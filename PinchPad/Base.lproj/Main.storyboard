@@ -69,12 +69,13 @@
                                     </segue>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="arrow.left.and.right.square" catalog="system" id="xRt-vM-JWo">
+                            <barButtonItem id="xRt-vM-JWo" userLabel="Spacer"/>
+                            <barButtonItem title="Item" image="arrow.left.and.right.square" catalog="system" id="0dv-hC-Z8m" userLabel="Reset canvas position">
                                 <connections>
-                                    <action selector="resetCanvasPosition" destination="BYZ-38-t0r" id="Wkb-iL-jOO"/>
+                                    <action selector="resetCanvasPosition" destination="BYZ-38-t0r" id="O7m-nX-ctf"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="pencil.tip.crop.circle" catalog="system" id="Fww-kJ-LzB">
+                            <barButtonItem title="Item" image="pencil.tip.crop.circle" catalog="system" id="Fww-kJ-LzB" userLabel="Toggle tool picker">
                                 <connections>
                                     <action selector="toggleToolPicker" destination="BYZ-38-t0r" id="D98-Gz-XxR"/>
                                 </connections>
