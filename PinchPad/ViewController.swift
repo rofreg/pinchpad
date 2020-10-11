@@ -17,6 +17,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
     @IBOutlet var canvasContainerView: UIView! // Extra container needed to support transformation on canvasView
+    let toolPicker = PKToolPicker.init()
 
     var realmNotificationToken: NotificationToken?
 
@@ -29,19 +30,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         // Set up the tool picker
-        if let appDelegate = UIApplication.shared.delegate,
-           let window = appDelegate.window!,
-           let toolPicker = PKToolPicker.shared(for: window) {
-            toolPicker.setVisible(true, forFirstResponder: canvasView)
-            toolPicker.addObserver(canvasView)
-            canvasView.becomeFirstResponder() // Show drawing tools
-
-            // iOS 14 hack to make the tool picker appear automatically on launch
-            DispatchQueue.main.async {
-                self.canvasView.resignFirstResponder() // Show drawing tools
-                self.canvasView.becomeFirstResponder() // Show drawing tools
-            }
-        }
+        toolPicker.addObserver(canvasView)
+        toolPicker.setVisible(true, forFirstResponder: canvasView)
+        canvasView.becomeFirstResponder() // Show drawing tools
 
         // Set the font for syncing messages in the nav bar
         navigationController?.navigationBar.titleTextAttributes =
