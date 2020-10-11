@@ -222,6 +222,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         canvasContainerView.frame.origin = newOrigin
     }
+    
+    @IBAction func toggleToolPicker() {
+        if canvasView.isFirstResponder{
+            canvasView.resignFirstResponder()
+        } else {
+            canvasView.becomeFirstResponder()
+        }
+    }
 }
 
 // Force iPhone to use the popover style, rather than a modal window

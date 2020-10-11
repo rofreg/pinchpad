@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0UI-qO-KzM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0UI-qO-KzM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,6 +74,11 @@
                                     <action selector="resetCanvasPosition" destination="BYZ-38-t0r" id="Wkb-iL-jOO"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Item" image="pencil.tip.crop.circle" catalog="system" id="Fww-kJ-LzB">
+                                <connections>
+                                    <action selector="toggleToolPicker" destination="BYZ-38-t0r" id="D98-Gz-XxR"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="Nqz-V7-zvs">
                             <connections>
@@ -108,7 +114,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-gP-SAO">
                                 <rect key="frame" x="10" y="10" width="355" height="373.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-zv-Zpx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-zv-Zpx">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="44"/>
                                         <color key="backgroundColor" red="0.79409950650000005" green="0.42969085460000001" blue="0.43576433219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -301,7 +307,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j65-F4-HFQ">
                                         <rect key="frame" x="0.0" y="355.5" width="355" height="18"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-JF-Dos">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sL-JF-Dos">
                                                 <rect key="frame" x="0.0" y="0.0" width="101" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <state key="normal" title="Made by @rofreg">
@@ -314,7 +320,7 @@
                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-NE-Etq">
                                                 <rect key="frame" x="111" y="0.0" width="146" height="18"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz0-2Q-Qrb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz0-2Q-Qrb">
                                                 <rect key="frame" x="267" y="0.0" width="88" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <state key="normal" title="Send feedback">
@@ -393,5 +399,6 @@
         <image name="Tumblr" width="42.666667938232422" height="42.666667938232422"/>
         <image name="Twitter" width="42.666667938232422" height="42.666667938232422"/>
         <image name="arrow.left.and.right.square" catalog="system" width="128" height="114"/>
+        <image name="pencil.tip.crop.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
