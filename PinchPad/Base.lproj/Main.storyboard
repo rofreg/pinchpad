@@ -79,6 +79,16 @@
                                     <action selector="toggleToolPicker" destination="BYZ-38-t0r" id="D98-Gz-XxR"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Item" image="arrow.uturn.left.circle" catalog="system" id="uY7-rK-rTf" userLabel="Undo button">
+                                <connections>
+                                    <action selector="undo" destination="BYZ-38-t0r" id="YlY-9f-Grt"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="arrow.uturn.right.circle" catalog="system" id="rAD-KH-Xfv" userLabel="Redo button">
+                                <connections>
+                                    <action selector="redo" destination="BYZ-38-t0r" id="tY9-8e-Elh"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="Nqz-V7-zvs">
                             <connections>
@@ -93,6 +103,8 @@
                         <outlet property="canvasContainerView" destination="Z1r-Sf-hPb" id="MIJ-tG-TkF"/>
                         <outlet property="canvasView" destination="Kf9-k3-hXs" id="auO-G4-lig"/>
                         <outlet property="postButton" destination="Nqz-V7-zvs" id="tjw-GB-pWA"/>
+                        <outlet property="redoButton" destination="rAD-KH-Xfv" id="yin-xb-ZfG"/>
+                        <outlet property="undoButton" destination="uY7-rK-rTf" id="4WA-Tp-bnx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -440,6 +452,8 @@
         <image name="Tumblr" width="42.666667938232422" height="42.666667938232422"/>
         <image name="Twitter" width="42.666667938232422" height="42.666667938232422"/>
         <image name="arrow.left.and.right.square" catalog="system" width="128" height="114"/>
+        <image name="arrow.uturn.left.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.uturn.right.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.tip.crop.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

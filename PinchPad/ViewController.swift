@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var postButton: UIBarButtonItem!
     @IBOutlet var canvasView: PKCanvasView!
     @IBOutlet var canvasContainerView: UIView! // Extra container needed to support transformation on canvasView
+    @IBOutlet var undoButton: UIBarButtonItem!
+    @IBOutlet var redoButton: UIBarButtonItem!
     let toolPicker = PKToolPicker.init()
 
     var realmNotificationToken: NotificationToken?
@@ -34,6 +36,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         toolPicker.addObserver(canvasView)
         toolPicker.setVisible(true, forFirstResponder: canvasView)
         canvasView.becomeFirstResponder() // Show drawing tools
+
+        // No undo/redo buttons necessary on iPad; they are included in the PKToolPicker
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            navigationItem.leftBarButtonItems = navigationItem.leftBarButtonItems?.filter {
+                $0 != undoButton && $0 != redoButton
+            }
+        }
 
         // Set the font for syncing messages in the nav bar
         navigationController?.navigationBar.titleTextAttributes =
@@ -242,6 +251,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         } else {
             canvasView.becomeFirstResponder()
         }
+    }
+
+    @IBAction func undo() {
+        canvasView.undoManager?.undo()
+    }
+
+    @IBAction func redo() {
+        canvasView.undoManager?.redo()
     }
 }
 
