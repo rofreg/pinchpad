@@ -22,6 +22,12 @@ class AppConfig {
 
     lazy var canvasView: PKCanvasView? = nil
 
+    var allowGestures: Bool = true {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "AllowGesturesDidChange"), object: self)
+        }
+    }
+
     var frameLength: Double = 0.5 {
         didSet {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "AnimationDidChange"), object: self)

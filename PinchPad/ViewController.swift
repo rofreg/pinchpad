@@ -20,6 +20,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let toolPicker = PKToolPicker.init()
 
     var realmNotificationToken: NotificationToken?
+    var gestures: [UIGestureRecognizer]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +55,24 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         pinchGesture.delegate = self
         view.addGestureRecognizer(pinchGesture)
 
+        gestures = [rotationGesture, panGesture, pinchGesture]
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ViewController.updateGestures),
+            name: NSNotification.Name(rawValue: "AllowGesturesDidChange"),
+            object: nil
+        )
+        updateGestures()
+
         #if canImport(FLEX)
 //            FLEXManager.shared.showExplorer()
         #endif
+    }
+
+    @objc func updateGestures() {
+        for gesture in gestures {
+            gesture.isEnabled = AppConfig.shared.allowGestures
+        }
     }
 
     @objc func pan(_ gesture: UIPanGestureRecognizer) {

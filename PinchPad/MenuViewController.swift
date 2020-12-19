@@ -20,12 +20,21 @@ class MenuViewController: UIViewController {
     @IBOutlet var addFrameButton: UIButton!
     @IBOutlet var viewPreviewButton: UIButton!
     @IBOutlet var undoFrameButton: UIButton!
+    @IBOutlet var allowGesturesSwitch: UISwitch!
 
     let grayButtonColor = UIColor(hex: "999999")
     let twitterColor = UIColor(hex: "00B0ED")
     let tumblrColor = UIColor(hex: "34465D")
 
     override func viewDidLoad() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(MenuViewController.updateGestureViews),
+            name: NSNotification.Name(rawValue: "AllowGesturesDidChange"),
+            object: nil
+        )
+        updateGestureViews()
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(MenuViewController.updateAnimationViews),
@@ -62,6 +71,12 @@ class MenuViewController: UIViewController {
 
     // MARK: Redrawing subviews
 
+    @objc func updateGestureViews() {
+        DispatchQueue.main.async {
+            self.allowGesturesSwitch.isOn = AppConfig.shared.allowGestures
+        }
+    }
+
     @objc func updateAnimationViews() {
         DispatchQueue.main.async {
             self.addFrameButton.setTitle("Add frame #\(AppConfig.shared.animationFrames.count + 1)", for: .normal)
@@ -92,6 +107,10 @@ class MenuViewController: UIViewController {
 
     @IBAction func clear() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ClearCanvas"), object: self)
+    }
+    
+    @IBAction func allowGesturesChanged() {
+        AppConfig.shared.allowGestures = allowGesturesSwitch.isOn
     }
 
     @IBAction func frameLengthChange() {
