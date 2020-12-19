@@ -34,7 +34,7 @@ class MenuViewController: UIViewController {
             object: nil
         )
         updateGestureViews()
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(MenuViewController.updateAnimationViews),
@@ -108,7 +108,7 @@ class MenuViewController: UIViewController {
     @IBAction func clear() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ClearCanvas"), object: self)
     }
-    
+
     @IBAction func allowGesturesChanged() {
         AppConfig.shared.allowGestures = allowGesturesSwitch.isOn
     }
