@@ -1,4 +1,4 @@
-platform :ios, '14.0'
+platform :ios, '15.0'
 use_frameworks!
 
 # ignore all warnings from all pods
@@ -35,7 +35,7 @@ plugin 'cocoapods-keys', {
 post_install do |pi|
    pi.pods_project.targets.each do |t|
        t.build_configurations.each do |bc|
-           bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+           bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
        end
    end
 end
