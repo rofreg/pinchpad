@@ -294,7 +294,7 @@ extension ViewController: UINavigationControllerDelegate {
 
         // Once we start drawing, don't allow rotation between landscape and portrait
         // (It would distort the drawing view)
-        if UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isPortrait ?? false {
+        if view.window?.windowScene?.interfaceOrientation.isPortrait ?? false {
             return [.portrait, .portraitUpsideDown]
         } else {
             return .landscape

@@ -10,6 +10,7 @@ import TMTumblrSDK
 import Locksmith
 import MobileCoreServices
 import PencilKit
+import UniformTypeIdentifiers
 
 struct SketchFrame {
     let imageData: Data
@@ -42,7 +43,12 @@ class AppConfig {
         let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
         let documentsDirectory = NSTemporaryDirectory()
         let url = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("animated.gif")
-        let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, animationFrames.count, nil)
+        let destination = CGImageDestinationCreateWithURL(
+            url as CFURL,
+            UTType.gif.identifier as CFString,
+            animationFrames.count,
+            nil
+        )
         CGImageDestinationSetProperties(destination!, fileProperties as CFDictionary)
 
         for frame in animationFrames {
