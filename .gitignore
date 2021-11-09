@@ -24,3 +24,5 @@ xcuserdata/
 
 ## Custom
 PinchPad/GoogleService-Info.plist
+Pods/
+*.DS_Store
