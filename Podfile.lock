@@ -108,11 +108,11 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
   - Protobuf (3.13.0)
-  - Realm (5.4.3):
-    - Realm/Headers (= 5.4.3)
-  - Realm/Headers (5.4.3)
-  - RealmSwift (5.4.3):
-    - Realm (= 5.4.3)
+  - Realm (10.19.0):
+    - Realm/Headers (= 10.19.0)
+  - Realm/Headers (10.19.0)
+  - RealmSwift (10.19.0):
+    - Realm (= 10.19.0)
   - Spectacles (1.0.1)
   - Swifter (2.4.0)
   - SwiftLint (0.40.3)
@@ -226,8 +226,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
-  Realm: e3d5fcc50fd79ddf87a2d86301f6edbf57531f84
-  RealmSwift: db608068eccc54bce47928e8118bde13c120c307
+  Realm: 869ab2a7e3bdfa6bf06d8723251539f504e6f602
+  RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
   Swifter: 0955a05325dc182fabfb1468305aef887180e0f1
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
