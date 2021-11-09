@@ -1,6 +1,0 @@
-framework module Pods_PinchPad {
-  umbrella header "Pods-PinchPad-umbrella.h"
-
-  export *
-  module * { export * }
-}
