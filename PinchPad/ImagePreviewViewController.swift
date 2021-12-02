@@ -7,17 +7,17 @@
 //
 
 import UIKit
-import FLAnimatedImage
+import YYImage
 
 class ImagePreviewViewController: UIViewController {
-    @IBOutlet var imageView: FLAnimatedImageView!
+    @IBOutlet var imageView: YYAnimatedImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Load animation preview
         if AppConfig.shared.animationFrames.count > 0 {
-            self.imageView.animatedImage = FLAnimatedImage(animatedGIFData: AppConfig.shared.animation)
+            self.imageView.image = YYImage(data: AppConfig.shared.animation!)
         } else {
             // Or just load the current image
             if let canvasView = AppConfig.shared.canvasView {

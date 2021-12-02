@@ -16,7 +16,7 @@ target 'PinchPad' do
   pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
   pod 'RealmSwift'
   pod 'Locksmith'
-  pod 'FLAnimatedImage', git: 'https://github.com/Flipboard/FLAnimatedImage.git'
+  pod 'YYImage'
   pod 'FLEX', :configurations => ['Debug']
 end
 

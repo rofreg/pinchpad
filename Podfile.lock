@@ -62,7 +62,6 @@ PODS:
     - FirebaseInstallations (~> 1.6)
     - GoogleUtilities/Environment (~> 6.7)
     - "GoogleUtilities/NSData+zlib (~> 6.7)"
-  - FLAnimatedImage (1.0.14)
   - FLEX (4.1.1)
   - GoogleAppMeasurement (6.8.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
@@ -134,13 +133,15 @@ PODS:
     - TMTumblrSDK/Core
   - TMTumblrSDK/Core (4.0.5):
     - Spectacles (~> 1.0)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - Firebase/Analytics
   - Firebase/Crashlytics
   - Firebase/Performance
-  - FLAnimatedImage (from `https://github.com/Flipboard/FLAnimatedImage.git`)
   - FLEX
   - Keys (from `Pods/CocoaPodsKeys`)
   - Locksmith
@@ -150,6 +151,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - SwiftyUserDefaults
   - TMTumblrSDK (from `https://github.com/rofreg/TMTumblrSDK.git`)
+  - YYImage
 
 SPEC REPOS:
   trunk:
@@ -180,10 +182,9 @@ SPEC REPOS:
     - SwiftLint
     - SwiftyJSON
     - SwiftyUserDefaults
+    - YYImage
 
 EXTERNAL SOURCES:
-  FLAnimatedImage:
-    :git: https://github.com/Flipboard/FLAnimatedImage.git
   Keys:
     :path: Pods/CocoaPodsKeys
   Swifter:
@@ -192,9 +193,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 CHECKOUT OPTIONS:
-  FLAnimatedImage:
-    :commit: e557252e8f8d5895d9246ab76a0eddf44248a050
-    :git: https://github.com/Flipboard/FLAnimatedImage.git
   Swifter:
     :commit: 7906c9476f612fc2a77c38f4731d4bc618cea6a8
     :git: https://github.com/mattdonnelly/Swifter.git
@@ -213,7 +211,6 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebasePerformance: 269607f1dcf37bb1f21e3b3ae0ab5b2691644c54
   FirebaseRemoteConfig: e40f9e084658210c4d9c341cfa9f6cab6ad4f67e
-  FLAnimatedImage: 3c6d5b6e35b05da1610f69d6e6406a13d8863a03
   FLEX: 81096107977a09836eb440173010ceeef01105d6
   GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
   GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
@@ -234,7 +231,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 2fa8d5b6132423aeedbc31436f15ca3860f2726e
+PODFILE CHECKSUM: 8ec8cd66d6d01e5e7d138f3776f68c1b964ec03e
 
 COCOAPODS: 1.11.2

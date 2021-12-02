@@ -6,11 +6,8 @@
 //  Copyright © 2017 Ryan Laughlin. All rights reserved.
 //
 
-import TMTumblrSDK
-import Locksmith
-import MobileCoreServices
 import PencilKit
-import UniformTypeIdentifiers
+import YYImage
 
 struct SketchFrame {
     let imageData: Data
@@ -40,29 +37,12 @@ class AppConfig {
             return nil
         }
 
-        let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
-        let documentsDirectory = NSTemporaryDirectory()
-        let url = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("animated.gif")
-        let destination = CGImageDestinationCreateWithURL(
-            url as CFURL,
-            UTType.gif.identifier as CFString,
-            animationFrames.count,
-            nil
-        )
-        CGImageDestinationSetProperties(destination!, fileProperties as CFDictionary)
-
+        let gifEncoder = YYImageEncoder(type: .GIF)
+        gifEncoder?.loopCount = 0
         for frame in animationFrames {
-            let actualImage = UIImage(data: frame.imageData)
-            let duration = [kCGImagePropertyGIFDelayTime as String: frame.duration]
-            let frameProperties = [kCGImagePropertyGIFDictionary as String: duration]
-            CGImageDestinationAddImage(destination!, actualImage!.cgImage!, frameProperties as CFDictionary)
+            gifEncoder?.addImage(with: frame.imageData, duration: frame.duration)
         }
-
-        if CGImageDestinationFinalize(destination!) {
-            return try! Data(contentsOf: url)
-        } else {
-            return nil
-        }
+        return gifEncoder?.encode()
     }
 
     var animationFrames: [SketchFrame] = [] {
