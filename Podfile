@@ -18,6 +18,7 @@ target 'PinchPad' do
   pod 'Locksmith'
   pod 'YYImage'
   pod 'FLEX', :configurations => ['Debug']
+  pod 'MastodonKit'
 end
 
 plugin 'cocoapods-keys', {

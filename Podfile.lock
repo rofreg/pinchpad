@@ -100,6 +100,7 @@ PODS:
   - JXHTTP (3.0.2)
   - Keys (1.0.1)
   - Locksmith (4.0.0)
+  - MastodonKit (2.0.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -145,6 +146,7 @@ DEPENDENCIES:
   - FLEX
   - Keys (from `Pods/CocoaPodsKeys`)
   - Locksmith
+  - MastodonKit
   - RealmSwift
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
   - SwiftLint
@@ -173,6 +175,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - JXHTTP
     - Locksmith
+    - MastodonKit
     - nanopb
     - PromisesObjC
     - Protobuf
@@ -220,6 +223,7 @@ SPEC CHECKSUMS:
   JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  MastodonKit: 3bc591ea7e626dd160711f9a10cd50f192e46ed3
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
@@ -233,6 +237,6 @@ SPEC CHECKSUMS:
   TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 0340e78ec47bc47160334209fb715fac106b07e6
+PODFILE CHECKSUM: cd380da5206ece60894505a05d490e52326df64b
 
 COCOAPODS: 1.11.2
