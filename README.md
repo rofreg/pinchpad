@@ -19,10 +19,11 @@ Basic setup instructions:
   - Set up a Tumblr app account, then add your Tumblr consumer key and secret:
     - `bundle exec pod keys set TumblrConsumerKey VALUE`
     - `bundle exec pod keys set TumblrConsumerSecret VALUE`
-- Configure Mastodon
+- Configure Mastodon (optional)
   - Set up a Mastodon developer app, then add your Mastodon access key and secret:
     - `bundle exec pod keys set MastodonBaseUrl VALUE`
     - `bundle exec pod keys set MastodonAccessToken VALUE`
+  - If you don't want to use Mastodon, run the above commands with VALUE set to an empty string
 - Configure Firebase: set up a Firebase account, then download `GoogleService-Info.plist` and add it to the `PinchPad` folder
 
 ## Who made this?
