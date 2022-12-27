@@ -199,7 +199,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let date = Date(), dateFormatter = DateFormatter(), timeFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
         timeFormatter.dateFormat = "h:mma"
-        let caption = "\(dateFormatter.string(from: date)), \(timeFormatter.string(from: date).lowercased())"
+        let caption = "\(dateFormatter.string(from: date)), \(timeFormatter.string(from: date).lowercased()) #hourlycomics"
 
         let sketch = Sketch()
         sketch.caption = caption
