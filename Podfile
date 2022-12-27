@@ -29,13 +29,3 @@ plugin 'cocoapods-keys', {
     'TumblrConsumerSecret'
   ]
 }
-
-# Silence warnings about iOS 8 no longer being supported
-# https://github.com/CocoaPods/CocoaPods/issues/9884
-post_install do |pi|
-   pi.pods_project.targets.each do |t|
-       t.build_configurations.each do |bc|
-           bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
-       end
-   end
-end
