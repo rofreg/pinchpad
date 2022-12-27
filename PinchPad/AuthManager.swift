@@ -12,6 +12,7 @@ import Swifter
 import SwiftyJSON
 import Locksmith
 import Keys
+import MastodonKit
 
 protocol PostableAccount {
     static var isLoggedIn: Bool { get }
@@ -212,15 +213,45 @@ class TumblrAccount: PostableAccount {
     }
 }
 
-class AuthManager {
-    class var postableAccounts: [PostableAccount] {
-        var accounts: [PostableAccount] = []
-        if Locksmith.loadDataForUserAccount(userAccount: "Twitter") != nil {
-            accounts.append(TwitterAccount())
+class MastodonAccount: PostableAccount {
+    static var client: Client {
+        let keys = PinchPadKeys()
+
+        return Client(
+            baseURL: keys.mastodonBaseUrl,
+            accessToken: keys.mastodonAccessToken
+        )
+    }
+
+    static var isLoggedIn = true
+
+    static var username: String? = "pinchpad"
+
+    static func logOut() {
+        // No-op
+    }
+
+    static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
+        let caption = sketch.caption!
+        let media: MediaAttachment
+
+        if sketch.imageType ==  "image/gif" {
+            media = .gif(sketch.imageData!)
+        } else {
+            media = .png(sketch.imageData!)
         }
-        if Locksmith.loadDataForUserAccount(userAccount: "Tumblr") != nil {
-            accounts.append(TumblrAccount())
+
+        client.run(Media.upload(media: media)) { mediaResult in
+            if mediaResult.isError {
+                completion?(false)
+                return
+            }
+
+            let mediaIDs = [mediaResult.value!.id]
+
+            client.run(Statuses.create(status: caption, mediaIDs: mediaIDs), completion: { statusResult in
+                completion?(!statusResult.isError )
+            })
         }
-        return accounts
     }
 }

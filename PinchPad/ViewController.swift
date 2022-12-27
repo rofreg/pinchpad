@@ -180,7 +180,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func saveImageData(_ imageData: Data, animated: Bool) {
         // If we're not logged into any services, let's just share this using the native iOS dialog
-        if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn {
+        if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn && !MastodonAccount.isLoggedIn {
             // Dismiss any modals that are open
             dismiss(animated: true, completion: nil)
 
