@@ -226,7 +226,7 @@ class MastodonAccount: PostableAccount {
     static var isLoggedIn: Bool {
         let keys = PinchPadKeys()
 
-        return keys.mastodonBaseUrl.isEmpty
+        return !keys.mastodonBaseUrl.isEmpty
     }
 
     static var username: String? = "pinchpad"
