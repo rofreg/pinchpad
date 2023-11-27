@@ -174,7 +174,6 @@
 				TargetAttributes = {
 					0047EE061EDD0D9D00E8F570 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 76Z7TDNBZJ;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
@@ -487,7 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 76Z7TDNBZJ;
+				DEVELOPMENT_TEAM = FM3GE7BP4V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PinchPad/Info.plist;
@@ -497,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPadPersonal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -511,7 +510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 76Z7TDNBZJ;
+				DEVELOPMENT_TEAM = FM3GE7BP4V;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PinchPad/Info.plist;
@@ -521,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rofreg.PinchPadPersonal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PinchPad/PinchPad-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
