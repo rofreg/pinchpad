@@ -9,7 +9,6 @@ target 'PinchPad' do
   pod 'SwiftyUserDefaults'
   pod 'Alamofire'
   pod 'SwiftLint'
-  pod 'Swifter', git: 'https://github.com/mattdonnelly/Swifter.git'
   pod 'TMTumblrSDK', git: 'https://github.com/rofreg/TMTumblrSDK.git'
   pod 'RealmSwift'
   pod 'Locksmith'
@@ -21,8 +20,6 @@ end
 plugin 'cocoapods-keys', {
   :project => 'PinchPad',
   :keys => [
-    'TwitterConsumerKey',
-    'TwitterConsumerSecret',
     'TumblrConsumerKey',
     'TumblrConsumerSecret',
     'MastodonBaseUrl',

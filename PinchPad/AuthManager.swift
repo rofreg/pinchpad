@@ -8,7 +8,6 @@
 
 import Foundation
 import TMTumblrSDK
-import Swifter
 import SwiftyJSON
 import Locksmith
 import Keys
@@ -24,89 +23,6 @@ protocol PostableAccount {
 extension PostableAccount {
     static func notifyAuthChanged() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "AuthChanged"), object: nil)
-    }
-}
-
-class TwitterAccount: PostableAccount {
-    static var swifter: Swifter {
-        let keys = PinchPadKeys()
-
-        if let oauthToken = oauthToken, let oauthTokenSecret = oauthTokenSecret {
-            return Swifter(consumerKey: keys.twitterConsumerKey,
-                           consumerSecret: keys.twitterConsumerSecret,
-                           oauthToken: oauthToken,
-                           oauthTokenSecret: oauthTokenSecret)
-        } else {
-            return Swifter(consumerKey: keys.twitterConsumerKey, consumerSecret: keys.twitterConsumerSecret)
-        }
-    }
-
-    static var isLoggedIn: Bool {
-        return oauthToken != nil
-    }
-
-    static var oauthToken: String? {
-        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
-            return dictionary["key"] as? String
-        }
-        return nil
-    }
-
-    static var oauthTokenSecret: String? {
-        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
-            return dictionary["secret"] as? String
-        }
-        return nil
-    }
-
-    static var username: String? {
-        if let dictionary = Locksmith.loadDataForUserAccount(userAccount: "Twitter") {
-            return dictionary["screenName"] as? String
-        }
-        return nil
-    }
-
-    static func logIn(presentingFrom presentingVC: UIViewController) {
-        let url = URL(string: "pinchpad://")!
-        swifter.authorize(withCallback: url,
-                          presentingFrom: presentingVC,
-                          success: { credentials, response in // swiftlint:disable:this unused_closure_parameter
-            guard let credentials = credentials else {
-                return
-            }
-
-            var twitterInfoToPersist: [String: String] = [:]  // Init an empty dict
-            twitterInfoToPersist["key"] = credentials.key
-            twitterInfoToPersist["secret"] = credentials.secret
-            twitterInfoToPersist["screenName"] = credentials.screenName
-            twitterInfoToPersist["userID"] = credentials.userID
-            try! Locksmith.updateData(data: twitterInfoToPersist, forUserAccount: "Twitter")
-
-            notifyAuthChanged()
-        })
-    }
-
-    static func logOut() {
-        try! Locksmith.deleteDataForUserAccount(userAccount: "Twitter")
-    }
-
-    static func post(sketch: Sketch, completion: ((Bool) -> Void)?) {
-        let caption = sketch.caption!
-
-        swifter.postMedia(sketch.imageData!, additionalOwners: nil, success: { (json) in
-            let mediaIdString = json["media_id_string"].string
-
-            swifter.postTweet(status: "\(caption) #pinchpad", inReplyToStatusID: nil, coordinate: nil,
-                              placeID: nil, displayCoordinates: false, trimUser: false, mediaIDs: [mediaIdString!],
-                              attachmentURL: nil, tweetMode: TweetMode.default,
-                              success: { json in  // swiftlint:disable:this unused_closure_parameter
-                completion?(true)
-            }, failure: { (error) in // swiftlint:disable:this unused_closure_parameter
-                completion?(false)
-            })
-        }, failure: { (error) in // swiftlint:disable:this unused_closure_parameter
-            completion?(false)
-        })
     }
 }
 

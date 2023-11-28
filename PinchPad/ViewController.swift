@@ -135,7 +135,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         if sketchesToSyncCount == 0 {
             title = ""
-        } else if realm.objects(Sketch.self).filter("twitterSyncStarted != nil || tumblrSyncStarted != nil").count > 0 {
+        } else if realm.objects(Sketch.self).filter("tumblrSyncStarted != nil || mastodonSyncStarted != nil").count > 0 {
             title = "Syncing..."
         } else if sketchesToSyncCount == 1 {
             title = "1 unsynced sketch"
@@ -180,7 +180,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func saveImageData(_ imageData: Data, animated: Bool) {
         // If we're not logged into any services, let's just share this using the native iOS dialog
-        if !TwitterAccount.isLoggedIn && !TumblrAccount.isLoggedIn && !MastodonAccount.isLoggedIn {
+        if !TumblrAccount.isLoggedIn && !MastodonAccount.isLoggedIn {
             // Dismiss any modals that are open
             dismiss(animated: true, completion: nil)
 

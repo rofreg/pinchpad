@@ -11,7 +11,6 @@ PODS:
   - RealmSwift (10.19.0):
     - Realm (= 10.19.0)
   - Spectacles (1.0.1)
-  - Swifter (2.4.0)
   - SwiftLint (0.40.3)
   - SwiftyJSON (5.0.0)
   - SwiftyUserDefaults (5.0.0)
@@ -42,7 +41,6 @@ DEPENDENCIES:
   - Locksmith
   - MastodonKit
   - RealmSwift
-  - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
   - SwiftLint
   - SwiftyJSON
   - SwiftyUserDefaults
@@ -67,15 +65,10 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
-  Swifter:
-    :git: https://github.com/mattdonnelly/Swifter.git
   TMTumblrSDK:
     :git: https://github.com/rofreg/TMTumblrSDK.git
 
 CHECKOUT OPTIONS:
-  Swifter:
-    :commit: 7906c9476f612fc2a77c38f4731d4bc618cea6a8
-    :git: https://github.com/mattdonnelly/Swifter.git
   TMTumblrSDK:
     :commit: 29efab51c1a3e16602809c98ad981ebd9b330c8b
     :git: https://github.com/rofreg/TMTumblrSDK.git
@@ -90,13 +83,12 @@ SPEC CHECKSUMS:
   Realm: 869ab2a7e3bdfa6bf06d8723251539f504e6f602
   RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
   Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
-  Swifter: 0955a05325dc182fabfb1468305aef887180e0f1
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: a1f92e002556fe32261c452ead4cfdb5fb5e8c06
+PODFILE CHECKSUM: 4cb167456289068e99f4b616bfc12cbaad274a11
 
 COCOAPODS: 1.11.2

@@ -13,7 +13,6 @@ import SafariServices
 
 class MenuViewController: UIViewController {
     @IBOutlet var mainStackView: UIStackView!
-    @IBOutlet var twitterButton: UIButton!
     @IBOutlet var tumblrButton: UIButton!
     @IBOutlet var frameDurationLabel: UILabel!
     @IBOutlet var frameLengthStepper: UIStepper!
@@ -23,7 +22,6 @@ class MenuViewController: UIViewController {
     @IBOutlet var allowGesturesSwitch: UISwitch!
 
     let grayButtonColor = UIColor(hex: "999999")
-    let twitterColor = UIColor(hex: "00B0ED")
     let tumblrColor = UIColor(hex: "34465D")
 
     override func viewDidLoad() {
@@ -55,9 +53,7 @@ class MenuViewController: UIViewController {
         // Resize to fit content
         self.preferredContentSize.height = mainStackView.frame.size.height + 20
 
-        [twitterButton, tumblrButton].forEach { (button) in
-            button?.titleLabel?.numberOfLines = 0
-        }
+        tumblrButton?.titleLabel?.numberOfLines = 0
 
         addFrameButton.backgroundColor = grayButtonColor
         [viewPreviewButton, undoFrameButton].forEach { (button) in
@@ -86,14 +82,6 @@ class MenuViewController: UIViewController {
     }
 
     @objc func updateAdvancedOptions() {
-        if let twitterUsername = TwitterAccount.username {
-            twitterButton.setTitle("Connected as \(twitterUsername)", for: .normal)
-            twitterButton.backgroundColor = twitterColor
-        } else {
-            twitterButton.setTitle("Connect to Twitter", for: .normal)
-            twitterButton.backgroundColor = grayButtonColor
-        }
-
         if let tumblrUsername = TumblrAccount.username {
             tumblrButton.setTitle("Connected as \(tumblrUsername)", for: .normal)
             tumblrButton.backgroundColor = tumblrColor
@@ -149,25 +137,6 @@ class MenuViewController: UIViewController {
     @IBAction func removeAnimationFrame() {
         if AppConfig.shared.animationFrames.count > 0 {
             AppConfig.shared.animationFrames.removeLast()
-        }
-    }
-
-    @IBAction func authWithTwitter() {
-        if TwitterAccount.isLoggedIn {
-            // I guess we're logging out
-            let alert = UIAlertController(
-                title: "Disconnect Twitter?",
-                message: "Are you sure you want to disconnect your Twitter account?",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Disconnect", style: .default, handler: { (_) in
-                TwitterAccount.logOut()
-                self.updateAdvancedOptions()
-            }))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            TwitterAccount.logIn(presentingFrom: self)
         }
     }
 

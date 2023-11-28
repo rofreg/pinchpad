@@ -11,7 +11,6 @@ import Keys
 import TMTumblrSDK
 import Locksmith
 import Alamofire
-import Swifter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,9 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        // Handle login callbacks from Twitter and Tumblr
+        // Handle login callbacks from Tumblr
         return TMAPIClient.sharedInstance().handleOpen(url)
-            || Swifter.handleOpenURL(url, callbackURL: URL(string: "pinchpad://")!)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
