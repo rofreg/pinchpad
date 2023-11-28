@@ -13,7 +13,6 @@
 		0047EE151EDD0D9D00E8F570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE131EDD0D9D00E8F570 /* LaunchScreen.storyboard */; };
 		0047EE201EDD113B00E8F570 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0047EE1F1EDD113B00E8F570 /* .swiftlint.yml */; };
 		004A01E9213C6DE30007B897 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A01E8213C6DE30007B897 /* ImagePreviewViewController.swift */; };
-		006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986DF1EE4D94200161970 /* AdSupport.framework */; };
 		006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006986E11EE4E80C00161970 /* SafariServices.framework */; };
 		006986E91EE79D8A00161970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006986E81EE79D8A00161970 /* Assets.xcassets */; };
 		006986ED1EEA2BC300161970 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006986EC1EEA2BC300161970 /* AppConfig.swift */; };
@@ -58,7 +57,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				006986E21EE4E80C00161970 /* SafariServices.framework in Frameworks */,
-				006986E01EE4D94200161970 /* AdSupport.framework in Frameworks */,
 				D98D8818BA006DA2441B8C1A /* Pods_PinchPad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
