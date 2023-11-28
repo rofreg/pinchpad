@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import Keys
 import TMTumblrSDK
 import Locksmith
@@ -23,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         TMAPIClient.sharedInstance().oAuthConsumerKey = keys.tumblrConsumerKey
         TMAPIClient.sharedInstance().oAuthConsumerSecret = keys.tumblrConsumerSecret
 
