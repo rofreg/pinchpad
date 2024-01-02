@@ -113,17 +113,18 @@ class MenuViewController: UIViewController {
         let canvasImage = canvasView.image()
         var finalResizedImage = canvasImage
 
+        // tl;dr: scale everything down to 1x, which has better compatibility with 3rd-party apps
+        // Mastodon: https://docs.joinmastodon.org/user/posting/#media
+        // Tumblr: https://www.tumblr.com/docs/en/api/v2#photo-posts
         // To prevent iPad drawings from getting too massive, let's export at a non-Retina resolution
         // We have to manually scale these down – using image(scale:) only changes the in-memory scale of the image
         // You can prove this by calling UIImage(data: canvasImage.pngData!)
-        if canvasImage.size.width >= 1024 || canvasImage.size.height >= 1024 {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = 1
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
 
-            finalResizedImage = UIGraphicsImageRenderer(size: canvasImage.size, format: format).image { _ in
-                canvasImage.draw(in: CGRect(origin: .zero, size: canvasImage.size))
-             }
-        }
+        finalResizedImage = UIGraphicsImageRenderer(size: canvasImage.size, format: format).image { _ in
+            canvasImage.draw(in: CGRect(origin: .zero, size: canvasImage.size))
+         }
 
         guard let canvasImageData = finalResizedImage.pngData() else {
             return
