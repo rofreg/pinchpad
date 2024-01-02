@@ -163,6 +163,7 @@ class MastodonAccount: PostableAccount {
 
         client.run(Media.upload(media: media)) { mediaResult in
             if mediaResult.isError {
+                print("Posted to Mastodon: false (mediaResult isError)") // print whether we succeeded
                 completion?(false)
                 return
             }
@@ -170,6 +171,7 @@ class MastodonAccount: PostableAccount {
             let mediaIDs = [mediaResult.value!.id]
 
             client.run(Statuses.create(status: caption, mediaIDs: mediaIDs), completion: { statusResult in
+                print("Posted to Mastodon: \(!statusResult.isError)") // print whether we succeeded
                 completion?(!statusResult.isError )
             })
         }
