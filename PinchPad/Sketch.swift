@@ -51,6 +51,10 @@ final class Sketch: Object {
             print("Skipping sync attempt (Tumblr post already in progress)")
             return
         }
+        guard tumblrSyncCompleted == nil else {
+            print("Skipping sync attempt (Tumblr post already completed at \(tumblrSyncCompleted!))")
+            return
+        }
 
         // Claim this record for syncing
         let realm = try! Realm()
@@ -82,6 +86,10 @@ final class Sketch: Object {
         let thirtySecondsAgo = Date().addingTimeInterval(-30)
         guard mastodonSyncStarted == nil || mastodonSyncStarted! < thirtySecondsAgo else {
             print("Skipping sync attempt (Mastodon post already in progress)")
+            return
+        }
+        guard mastodonSyncCompleted == nil else {
+            print("Skipping sync attempt (Mastodon post already completed at \(mastodonSyncCompleted!))")
             return
         }
 
